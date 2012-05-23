@@ -1,0 +1,7 @@
+# BLAT 34x12 [2009/02/26]
+# Query: ATCG00670.1
+# Fields: Query id, Subject id, % identity, alignment length, mismatches, gap openings, q. start, q. end, s. start, s. end, e-value, bit score
+ATCG00670.1	Bradi1g05750.1	68.39	193	61	0	1	193	1	193	1.0e-76	284.0
+# Query: AT2G15240.1
+AT2G15240.1	Bradi4g08230.1	77.25	233	52	1	17	249	16	247	9.8e-109	390.0
+AT2G15240.1	Bradi4g08230.2	77.25	233	52	1	17	249	16	247	9.8e-109	390.0
