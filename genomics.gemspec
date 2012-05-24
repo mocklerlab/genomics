@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "rbb/version"
+require "genomics/version"
 
 Gem::Specification.new do |s|
-  s.name        = "rbb"
-  s.version     = Genomics::RBB::VERSION
+  s.name        = "genomics"
+  s.version     = Genomics::VERSION
   s.authors     = ["Connor McEntee"]
   s.email       = ["sallustfire@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Takes the results of pairwise alignments and determines the reciprocally best alignments.}
+  s.description = %q{Use it to parse the results of two alignment files, from which it calculates the reciprocally best alignments.}
 
-  s.rubyforge_project = "rbb"
+  s.rubyforge_project = "genomics"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -19,10 +19,10 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency "thor"
-  s.add_dependency "dna", ">= 0.4.1"
-  
+  s.add_dependency "ruby-progressbar"
+
+  s.add_development_dependency "ruby-debug19"
   s.add_development_dependency "rspec"
   s.add_development_dependency "cucumber"
   s.add_development_dependency "aruba"
-  # s.add_development_dependency "spork"
 end

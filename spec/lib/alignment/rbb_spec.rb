@@ -1,24 +1,24 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
 module Genomics
-  module RBB
-    describe Tasker do
+  module Alignment
+    describe RBB do
       let(:query_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'query_alignment.tab') }
       let(:target_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'target_alignment.tab') }
   
       describe "identify" do
         it "should raise an error if either file doesn't exist" do
-          expect { Tasker.identify(query_alignment_file, 'invalid_file') }.to raise_error(/cannot be found/)
-          expect { Tasker.identify('invalid_file', target_alignment_file) }.to raise_error(/cannot be found/)
-          expect { Tasker.identify('invalid_file', 'invalid_file') }.to raise_error(/cannot be found/)
+          expect { RBB.identify([query_alignment_file, 'invalid_file']) }.to raise_error(/cannot be found/)
+          expect { RBB.identify(['invalid_file', target_alignment_file]) }.to raise_error(/cannot be found/)
+          expect { RBB.identify(['invalid_file', 'invalid_file']) }.to raise_error(/cannot be found/)
         end
         
         it "should return the number of reciprocal best blast results identified" do
-          Tasker.identify(query_alignment_file, target_alignment_file).should eq(3)
+          RBB.identify([query_alignment_file, target_alignment_file]).should eq(3)
         end
         
         it "should print the results to a file" do
-          Tasker.identify(query_alignment_file, target_alignment_file)
+          RBB.identify([query_alignment_file, target_alignment_file])
           
           orthologs = []
           File.open('orthologs.tab') do |f|

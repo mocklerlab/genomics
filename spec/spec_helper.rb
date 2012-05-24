@@ -4,7 +4,7 @@ require 'bundler/setup'
 # require 'spork/ext/ruby-debug'
 require 'rspec'
 
-require 'rbb'
+require 'genomics'
 
 # Set an environment variable denoting the spec path
 SPEC_PATH = File.dirname(__FILE__)
