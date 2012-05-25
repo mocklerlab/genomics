@@ -14,7 +14,9 @@ require 'genomics/alignment/e_value'
 require 'genomics/alignment/file_parser'
 
 # Require the IO module
+require 'genomics/io/blast_format'
 require 'genomics/io/gff_format'
+require 'genomics/io/flat_file_format'
 require 'genomics/io/gff/entry'
 
 module Genomics

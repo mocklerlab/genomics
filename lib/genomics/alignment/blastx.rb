@@ -1,5 +1,3 @@
-require 'pathname'
-
 module Genomics
   module Alignment
     # This class handles conducting a blastx alignment of peptides onto a geome.
@@ -15,9 +13,13 @@ module Genomics
           
           # Create the list of hits to be converted into single entries based on query, subject, strand, and separation
           # i.e hits widely separated will be treated as distinct matches to the query.
+          pbar = ProgressBar.new("Clustering", aggregated_hits.values.inject(0) { |sum, subject_hash| sum + subject_hash.values.length }, STDOUT)
+
           clustered_hits = []
           aggregated_hits.each do |query, subjects|
             subjects.each do |subject, hits|
+              pbar.inc
+              
               # Separate the hits by strand
               positive_hits, negative_hits = [], []
               hits.sort_by(&:query_start).each { |hit| hit.query_end > hit.query_start ? positive_hits << hit : negative_hits << hit }
@@ -30,8 +32,12 @@ module Genomics
           end
           
           # Generate the entries
+          pbar = ProgressBar.new("Generating Entries", clustered_hits.size, STDOUT)
+          
           entries = []
           clustered_hits.each do |hits|
+            pbar.inc
+            
             # Initialize the entry
             query, subject = hits.first.query, hits.first.subject
             entry = IO::GFF::Entry.new(seqid: query, source: 'BLASTX', type: :match, attributes: { 'Name' => subject })
@@ -51,6 +57,7 @@ module Genomics
           end
           
           # Write the file
+          puts "Writing entries to file..."
           IO::GFFFormat.open(options[:output_file], 'w') do |f|
             f.puts_header
             f.puts(entries)

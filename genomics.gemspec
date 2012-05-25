@@ -12,11 +12,11 @@ Gem::Specification.new do |s|
   s.description = %q{Use it to parse the results of two alignment files, from which it calculates the reciprocally best alignments.}
 
   s.rubyforge_project = "genomics"
-
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  
+  s.files         = `cd #{File.dirname(__FILE__)} && git ls-files`.split("\n")
+  s.test_files    = `cd #{File.dirname(__FILE__)} && git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `cd #{File.dirname(__FILE__)} && git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = %w{lib}
   
   s.add_dependency "thor"
   s.add_dependency "ruby-progressbar"

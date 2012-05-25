@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Genomics
   module Alignment
     # This module implements a method for parsing through files and handing character conversions errors.
@@ -14,9 +16,15 @@ module Genomics
         def parse_file(file, options ={})
           options = { aggregate_hits: false }.merge(options)
           
+          # Create the progress bar
+          `grep -v '#' #{file} | wc -l` =~ /\d+/
+          pbar = ProgressBar.new("Parsing #{Pathname.new(file).basename}", $~[0].to_i, STDOUT)
+          
           # Defer to the parent class to implement the details of parsing individual lines.
           hits = []
           super(file, "\t") do |row|
+            pbar.inc
+            
             attributes = { query:                row[0],
                            subject:              row[1],
                            query_start:          row[6].to_i,

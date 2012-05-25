@@ -35,10 +35,6 @@ module Genomics
         # Parses the alignment file specified and returns a hash with the queries as keys mapped to the row.
         # 
         def parse_alignments(alignment_file)
-          # Create the progress bar
-          # `grep -v '#' #{alignment_file} | wc -l` =~ /\d+/
-          # pbar = ProgressBar.new("Parsing Alignments", $~[0].to_i, STDOUT)
-          
           # Reduce the hits to a hash or reciprocally best matches
           alignments = {}
           Alignment::FileParser.parse_file(alignment_file).each do |hit|
