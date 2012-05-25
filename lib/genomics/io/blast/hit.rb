@@ -25,7 +25,7 @@ module Genomics
         #   - An integer describing the length of the alignment on the query sequence.
         #
         def e_value=(new_e_value)
-          @value = new_e_value.is_a?(EValue) ? new_e_value : EValue.new(new_e_value)
+          @e_value = new_e_value.is_a?(EValue) ? new_e_value : EValue.new(new_e_value)
         end
       
         def inspect

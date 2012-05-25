@@ -109,7 +109,7 @@ module Genomics
           gff_string = StringIO.new
       
           case type
-          when :match
+          when :match, :EST_match
             # The entry is due to an alignment.  All of the regions will be printed as part of one discontiguous entry.
             common_values = "#{seqid}\t#{source}\t#{type}"
             @regions.sort.each do |region|

@@ -21,9 +21,28 @@ module Genomics
                          alignment_length:     row[3].to_i,
                          mismatches:           row[4].to_i,
                          gap_openings:         row[5].to_i }
-                         
+
           # Create the new Hit object and yield it to the block for processing
           yield BLAST::Hit.new(attributes)
+        end
+      end
+      
+      # Iterates through the file by the queries rather than by individual hits.  The block is successively yielded the string
+      # name of the query and a list of the hits for that query.
+      #
+      def each_query
+        # Set the state variables
+        current_rows = []
+        current_query = nil
+        
+        # Read through rows until the query changes.
+        each do |hit|
+          if hit.query == current_query
+            current_rows << row
+          else
+            yield current_query, current_rows if current_query
+            current_query, current_rows = hit.query, [hit]
+          end
         end
       end
       

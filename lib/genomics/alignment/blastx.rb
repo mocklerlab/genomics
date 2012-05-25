@@ -1,7 +1,7 @@
 module Genomics
   module Alignment
     # This class handles conducting a blastx alignment of peptides onto a geome.
-    class BLASTX
+    class BLASTX < Aligner
       class << self
         # Reads in the results from the provided file and transforms them into the specified format.
         #
@@ -52,8 +52,8 @@ module Genomics
             hits.each do |hit|
               entry.regions.create(start: hit.query_start, 
                                    end: hit.query_end, 
-                                   score: hit.e_value, 
-                                   attributes: { 'Score' => hit.bit_score, 'Target' => "#{subject} #{hit.subject_start} #{hit.subject_end}" })
+                                   score: hit.bit_score, 
+                                   attributes: { 'Score' => hit.e_value, 'Target' => "#{subject} #{hit.subject_start} #{hit.subject_end}" })
             end
             
             entries << entry

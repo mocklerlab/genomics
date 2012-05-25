@@ -18,5 +18,10 @@ module Genomics
       puts "BLASTX GFF3 successfully created." if Genomics::Alignment::BLASTX.transform(options[:input])
     end
     
+    desc "est", "Takes the supplied alignment file and generates an EST GFF3 file from the results."
+    method_option :input, type: :string, required: true, aliases: '-i'
+    def est
+      puts "EST GFF3 successfully created." if Genomics::Alignment::EST.transform(options[:input])
+    end
   end
 end

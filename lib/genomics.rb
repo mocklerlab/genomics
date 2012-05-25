@@ -6,7 +6,9 @@ require 'progressbar'
 ##### Require internal files #####
 
 # Require the alignment module
+require 'genomics/alignment/aligner'
 require 'genomics/alignment/blastx'
+require 'genomics/alignment/est'
 require 'genomics/alignment/rbb'
 
 ### Require the IO module ###
