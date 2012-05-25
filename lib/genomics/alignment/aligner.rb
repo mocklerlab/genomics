@@ -45,11 +45,16 @@ module Genomics
         # * *Returns* :
         #   - An array of arrays of clustered hits determined by the cutoff.
         #
-        def cluster(hits, cutoff)
+        def cluster(hits, options = {})
+          options = { cluster_on: :query, cutoff: 10000 }.merge(options)
+          
+          # Set the start stop methods
+          start_method, stop_method = options[:cluster_on] == :query ? [:query_start, :query_end] : [:subject_start, :subject_end]
+          
           clusters = []
           running_hits = []
           hits.each do |hit|
-            if running_hits.empty? || hit.query_start - running_hits.last.query_end < cutoff
+            if running_hits.empty? || hit.send(start_method) - running_hits.last.send(stop_method) < options[:cutoff]
               running_hits << hit
             else
               # Add the running hits as a cluster and reset
@@ -62,6 +67,27 @@ module Genomics
           clusters << running_hits if running_hits.any?
           
           clusters
+        end
+        
+        def cluster_hits(hits, options = {})
+          options = { cluster_on: :query }.merge(options)
+          
+          # Separate the hits based on their orientations
+          positive_hits, negative_hits = [], []
+          case options[:cluster_on]
+          when :query
+            hits.sort_by(&:query_start).each { |hit| hit.query_end > hit.query_start ? positive_hits << hit : negative_hits << hit }
+          when :subject
+            hits.sort_by(&:subject_start).each { |hit| hit.subject_end > hit.subject_start ? positive_hits << hit : negative_hits << hit }
+          end
+          
+          # Call the hit clusters based on separation on the query sequence.  Use the average length of the hit to set the scale.
+          average_length = hits.inject(0) { |sum, hit| sum + hit.query_length } / hits.size.to_f
+          clustered_hits = []
+          clustered_hits += cluster(positive_hits, cutoff: average_length * 10, cluster_on: :query) if positive_hits.any?
+          clustered_hits += cluster(negative_hits, cutoff: average_length * 10, cluster_on: :query) if negative_hits.any?
+          
+          clustered_hits
         end
       end
     end

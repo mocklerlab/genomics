@@ -14,37 +14,38 @@ module Genomics
           options = { format: :gff3, output_file: "#{filename}.gff3" }.merge(options)
           
           # Parse the file to get all of the alignment hits
-          aggregated_hits = []
-          IO::BLASTFormat.open(filename) do |f|
-            aggregated_hits = f.entries(aggregate_hits: true)
-          end
-          
-          # Perform the clustering.
-          clustered_hits = cluster_aggregated_hits(aggregated_hits)
-          
-          # Generate the entries
-          pbar = ProgressBar.new("Generating Entries", clustered_hits.size, STDOUT)
-          
-          entries = []
-          clustered_hits.each do |hits|
-            pbar.inc
-            
-            # Initialize the entry
-            query, subject = hits.first.query, hits.first.subject
-            entry = IO::GFF::Entry.new(seqid: subject, source: 'BLATN', type: :EST_match, attributes: { 'Name' => query })
-            
-            # Determine the orientation based on the query start/end positions
-            entry.strand = hits.first.subject_start < hits.first.subject_end ? '+' : '-'
+          # aggregated_hits = []
+          # IO::BLASTFormat.open(filename) do |f|
+          #   aggregated_hits = f.entries(aggregate_hits: true)
+          # end
 
-            # Add each of the hits to the entry
-            hits.each do |hit|
-              entry.regions.create(start: hit.subject_start, 
-                                   end: hit.subject_end, 
-                                   score: hit.bit_score, 
-                                   attributes: { 'EValue' => hit.e_value, 'Target' => "#{query} #{hit.query_start} #{hit.query_end}" })
+          entries = []
+          IO::BLASTFormat.open(filename) do |f|
+            # Turn each query into one or more entries
+            f.each_query do |query, hits|
+              # Cluster each of the hits
+              clusters = cluster_hits(hits, cluster_on: :subject)
+              
+              # Convert the clusters to entries
+              clusters.each do |clustered_hits|
+                # Initialize the entry
+                query, subject = hits.first.query, hits.first.subject
+                entry = IO::GFF::Entry.new(seqid: subject, source: 'BLATN', type: :EST_match, attributes: { 'Name' => query })
+
+                # Determine the orientation based on the query start/end positions
+                entry.strand = hits.first.subject_start < hits.first.subject_end ? '+' : '-'
+
+                # Add each of the hits to the entry
+                hits.each do |hit|
+                  entry.regions.create(start: hit.subject_start, 
+                                       end: hit.subject_end, 
+                                       score: hit.bit_score, 
+                                       attributes: { 'EValue' => hit.e_value, 'Target' => "#{query} #{hit.query_start} #{hit.query_end}" })
+                end
+
+                entries << entry
+              end
             end
-            
-            entries << entry
           end
 
           # Write the file

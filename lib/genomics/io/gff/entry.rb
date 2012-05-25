@@ -125,7 +125,7 @@ module Genomics
         private
     
         # Sorts the attributes hash into the correct order for printing.
-        #
+        # TODO: Slow and inefficient
         def sort_attributes(attributes_hash)
           attributes_order = %w{ID Name * Target Gap}
       

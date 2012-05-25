@@ -32,6 +32,18 @@ module Genomics
             end
           end
         end
+        
+        describe '#each_query' do
+          it "should iterate through each query, hits pair" do
+            blast_format.each_query do |query, hits|
+              query.should be_a(String)
+              hits.should be_an(Array)
+              hits.each do |hit|
+                hits.should be_a(BLAST::Hit)
+              end
+            end
+          end
+        end
       end
     end
   end

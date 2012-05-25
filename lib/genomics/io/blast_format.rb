@@ -38,7 +38,7 @@ module Genomics
         # Read through rows until the query changes.
         each do |hit|
           if hit.query == current_query
-            current_rows << row
+            current_rows << hit
           else
             yield current_query, current_rows if current_query
             current_query, current_rows = hit.query, [hit]
