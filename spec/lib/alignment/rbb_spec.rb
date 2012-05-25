@@ -3,8 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 module Genomics
   module Alignment
     describe RBB do
-      let(:query_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'query_alignment.tab') }
-      let(:target_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'target_alignment.tab') }
+      let(:query_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'alignment', 'RBB', 'Athaliana_vs_Spolyrrhiza.tab') }
+      let(:target_alignment_file) { File.join(SPEC_PATH, 'fixtures', 'alignment', 'RBB', 'Spolyrrhiza_vs_Athaliana.tab') }
   
       describe "identify" do
         it "should raise an error if either file doesn't exist" do
@@ -14,7 +14,7 @@ module Genomics
         end
         
         it "should return the number of reciprocal best blast results identified" do
-          RBB.identify([query_alignment_file, target_alignment_file]).should eq(3)
+          RBB.identify([query_alignment_file, target_alignment_file]).should eq(1)
         end
         
         it "should print the results to a file" do
@@ -29,10 +29,8 @@ module Genomics
           end
           File.unlink('orthologs.tab')
           
-          orthologs.should have(3).things
-          orthologs.should include(['AT2G15240.1', 'Bradi4g08230.1'])
-          orthologs.should include(['AT2G15240.1', 'Bradi4g08230.2'])
-          orthologs.should include(['ATCG00670.1', 'Bradi1g05750.1'])
+          orthologs.should have(1).things
+          orthologs.should include(['AT1G01010.1', 'Spipo0007S24960.1'])
         end
       end
     end

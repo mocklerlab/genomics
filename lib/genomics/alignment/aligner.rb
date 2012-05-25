@@ -12,7 +12,7 @@ module Genomics
         #   - +aggregated_hits+ -> A multi-dimmensional hash with query and then subject keys mapping to hits.
         # * *Returns* :
         #   - An Array of arrays of which the later correspond to the clusters.
-        #
+        # TODO: Pending deletion
         def cluster_aggregated_hits(aggregated_hits, options = {})
           # Create the progress bar
           total_hit_count = aggregated_hits.values.inject(0) { |sum, subject_hash| sum + subject_hash.values.length }

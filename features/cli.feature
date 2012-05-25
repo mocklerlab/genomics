@@ -3,6 +3,7 @@ Feature: CLI
   As a CLI
   I want to be able to execute basic commands
 
+	@announce-dir
   Scenario: Two Alignment Files
     When I run `genomics identify --files=/Users/mcentee/Documents/genomics/spec/fixtures/query_alignment.tab /Users/mcentee/Documents/genomics/spec/fixtures/target_alignment.tab`
     Then the output should contain "3 Reciprocal Best Alignments Identified"

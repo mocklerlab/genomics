@@ -18,7 +18,8 @@ module Genomics
             pbar.inc
 
             hits.each do |hit|
-              reciprocal << [query, hit.subject] if alignments2[hit.subject].find { |hit2| hit2.subject == query }
+              reverse_hits = alignments2[hit.subject] || []
+              reciprocal << [query, hit.subject] if reverse_hits.find { |hit2| hit2.subject == query }
             end
           end
 
