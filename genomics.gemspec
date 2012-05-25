@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ruby-progressbar"
 
   s.add_development_dependency "ruby-debug19"
+  s.add_development_dependency "ruby-prof"
   s.add_development_dependency "rspec"
   s.add_development_dependency "cucumber"
   s.add_development_dependency "aruba"

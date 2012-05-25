@@ -31,12 +31,6 @@ module Genomics
         @io = io
       end
       
-      # Closes the IO object.
-      #
-      def close
-        @io.close
-      end
-      
       # Executes the block for every line in the IO stream. Extra sanitation is applied to the contents of the file
       # to avoid encoding errors.
       #
@@ -73,16 +67,21 @@ module Genomics
         end
       end
       
-      # Rewinds the IO object if possible
-      #
-      def rewind
-        @io.rewind
+      def respond_to?(method_name, include_private = false)
+        if @io.respond_to?(method_name, include_private) then true
+        else
+          super
+        end
       end
       
-      # Removes the file if possible.
+      # Endow the class with all of the methods of the underlying IO stream.
       #
-      def unlink
-        @io.unlink
+      def method_missing(method_sym, *arguments, &block)
+        if @io.respond_to?(method_sym)
+          @io.send(method_sym, *arguments)
+        else
+          super
+        end
       end
     end
   end

@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'spork'
 require 'spork/ext/ruby-debug'
 require 'rspec'
+require 'ruby-prof'
 
 require 'genomics'
 
