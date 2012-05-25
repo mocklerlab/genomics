@@ -37,12 +37,14 @@ module Genomics
         def parse_alignments(alignment_file)
           # Reduce the hits to a hash or reciprocally best matches
           alignments = {}
-          Alignment::FileParser.parse_file(alignment_file).each do |hit|
-            case
-            when alignments[hit.query].nil? || alignments[hit.query].first.bit_score < hit.bit_score
-              alignments[hit.query] = [hit]
-            when alignments[hit.query].first.bit_score == hit.bit_score
-              alignments[hit.query] << hit
+          IO::BLASTFormat.open(alignment_file) do |f|
+            f.each do |hit|
+              case
+              when alignments[hit.query].nil? || alignments[hit.query].first.bit_score < hit.bit_score
+                alignments[hit.query] = [hit]
+              when alignments[hit.query].first.bit_score == hit.bit_score
+                alignments[hit.query] << hit
+              end
             end
           end
           

@@ -7,7 +7,7 @@ module Genomics
   
       describe "#transform" do
         it "should raise an error for an invalid file" do
-          expect { BLASTX.transform('invalid_file') }.to raise_error(/cannot be found/)
+          expect { BLASTX.transform('invalid_file') }.to raise_error(/No such file or directory/)
         end
         
         it "should wite the results to a gff3 file" do

@@ -9,7 +9,10 @@ module Genomics
           options = { format: :gff3, output_file: "#{filename}.gff3" }.merge(options)
           
           # Parse the file to get all of the alignment hits
-          aggregated_hits = FileParser.parse_file(filename, aggregate_hits: true)
+          aggregated_hits = []
+          IO::BLASTFormat.open(filename) do |f|
+            aggregated_hits = f.entries(aggregate_hits: true)
+          end
           
           # Create the list of hits to be converted into single entries based on query, subject, strand, and separation
           # i.e hits widely separated will be treated as distinct matches to the query.

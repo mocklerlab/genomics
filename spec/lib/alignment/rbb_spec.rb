@@ -8,9 +8,9 @@ module Genomics
   
       describe "identify" do
         it "should raise an error if either file doesn't exist" do
-          expect { RBB.identify([query_alignment_file, 'invalid_file']) }.to raise_error(/cannot be found/)
-          expect { RBB.identify(['invalid_file', target_alignment_file]) }.to raise_error(/cannot be found/)
-          expect { RBB.identify(['invalid_file', 'invalid_file']) }.to raise_error(/cannot be found/)
+          expect { RBB.identify([query_alignment_file, 'invalid_file']) }.to raise_error(/No such file or directory/)
+          expect { RBB.identify(['invalid_file', target_alignment_file]) }.to raise_error(/No such file or directory/)
+          expect { RBB.identify(['invalid_file', 'invalid_file']) }.to raise_error(/No such file or directory/)
         end
         
         it "should return the number of reciprocal best blast results identified" do

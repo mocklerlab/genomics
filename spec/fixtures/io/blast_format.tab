@@ -1,0 +1,11 @@
+# BLASTX 2.2.25+
+# Query: scaffold00001 length=8753096
+# Database: /nfs4shares/tmockler_share/Genomes/Arabidopsis_thaliana/BLASTDBs/Athaliana.AA.fa
+# Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 3190 hits found
+scaffold00001	AT1G10170.1	61.62	1011	320	15	1780005	1777093	207	1189	0.0	1258
+scaffold00001	AT5G65700.2	74.47	850	206	5	7523669	7526203	23	866	0.0	1217
+scaffold00001	AT5G65700.2	35.40	986	492	19	7531369	7534116	57	967	3e-137	 498
+scaffold00001	AT5G65700.2	39.64	280	161	5	7577421	7576597	696	972	2e-45	 192
+scaffold00001	AT5G65700.2	34.11	343	214	7	7573082	7572069	653	988	1e-42	 183
+scaffold00001	AT5G65700.2	79.28	111	23	0	7526317	7526649	867	977	2e-41	 180
