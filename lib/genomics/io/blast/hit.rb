@@ -46,6 +46,20 @@ module Genomics
             query_start - query_end + 1
           end
         end
+        
+        # Returns the length of the alignment as matched on the subject sequence.  Strandedness issues are taken into account
+        # when calculating this value.
+        #
+        # * *Returns* :
+        #   - An integer describing the length of the alignment on the query sequence.
+        #
+        def subject_length
+          if subject_end > subject_start
+            subject_end - subject_start + 1
+          else
+            subject_start - subject_end + 1
+          end
+        end
       end
     end
   end

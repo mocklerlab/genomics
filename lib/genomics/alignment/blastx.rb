@@ -8,6 +8,26 @@ module Genomics
         def transform(filename, options = {})
           options = { format: :gff3, output_file: "#{filename}.gff3" }.merge(options)
           
+          # Parse the file by contig writing the entries to the GFF3 file along the way
+          # IO::BLASTFormat.open(filename) do |f|
+          #   f.each_query do |query, hits|
+          #     # Separate the hits by subject
+          #     subject_hits = {}
+          #     hits.each do |hit|
+          #       subject_hits[hit.subject] ||= []
+          #       subject_hits[hit.subject] << hit
+          #     end
+          #     
+          #     # Cluster the hits
+          #     clustered_hits = []
+          #     subject_hits.each do |subject, hits|
+          #       clustered_hits += cluster_hits(hits, cluster_on: :query)
+          #     end
+          #     
+          #     # Write the hits to file
+          #   end
+          # end
+          
           # Parse the file to get all of the alignment hits
           aggregated_hits = []
           IO::BLASTFormat.open(filename) do |f|

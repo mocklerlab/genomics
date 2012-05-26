@@ -1,4 +1,18 @@
 # BLAT 34x12 [2009/02/26]
+# Query: FL8T4MU02I22OH
+# Database: ../Spolyrrhiza.0_7.fa
+# Fields: Query id, Subject id, % identity, alignment length, mismatches, gap openings, q. start, q. end, s. start, s. end, e-value, bit score
+FL8T4MU02I22OH	scaffold00001	98.73	474	5	1	1	473	7166403	7165930	2.9e-266	914.0
+FL8T4MU02I22OH	scaffold00001	99.36	313	0	2	163	473	7172854	7172542	2.3e-171	598.0
+FL8T4MU02I22OH	scaffold00001	97.59	249	4	2	226	473	7165844	7165597	1.1e-129	460.0
+FL8T4MU02I22OH	scaffold00925	99.78	457	0	1	1	456	457	1	1.9e-260	894.0
+FL8T4MU02I22OH	scaffold00034	85.56	187	23	1	9	195	587275	587457	7.7e-73	271.0
+FL8T4MU02I22OH	scaffold00034	89.04	73	6	2	318	389	587581	587652	7.3e-21	98.0
+FL8T4MU02I22OH	scaffold00034	89.36	47	5	0	260	306	587522	587568	1.3e-13	74.0
+FL8T4MU02I22OH	scaffold00034	97.14	35	1	0	429	463	587692	587726	8.3e-11	65.0
+FL8T4MU02I22OH	scaffold00034	78.95	19	1	1	394	409	587654	587672	1.7e+04	17.0
+FL8T4MU02I22OH	scaffold00034	100.00	6	0	0	422	427	587684	587689	6.8e+05	12.0
+# BLAT 34x12 [2009/02/26]
 # Query: FL8T4MU02J63U6
 # Database: ../Spolyrrhiza.0_7.fa
 # Fields: Query id, Subject id, % identity, alignment length, mismatches, gap openings, q. start, q. end, s. start, s. end, e-value, bit score

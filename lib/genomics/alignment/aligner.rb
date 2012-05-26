@@ -46,7 +46,7 @@ module Genomics
         #   - An array of arrays of clustered hits determined by the cutoff.
         #
         def cluster(hits, options = {})
-          options = { cluster_on: :query, cutoff: 10000 }.merge(options)
+          options = { cluster_on: :subject, cutoff: 10000 }.merge(options)
           
           # Set the start stop methods
           start_method, stop_method = options[:cluster_on] == :query ? [:query_start, :query_end] : [:subject_start, :subject_end]
@@ -70,22 +70,23 @@ module Genomics
         end
         
         def cluster_hits(hits, options = {})
-          options = { cluster_on: :query }.merge(options)
+          options = { cluster_on: :subject }.merge(options)
           
           # Separate the hits based on their orientations
-          positive_hits, negative_hits = [], []
+          positive_hits, negative_hits, average_length = [], [], nil
           case options[:cluster_on]
           when :query
             hits.sort_by(&:query_start).each { |hit| hit.query_end > hit.query_start ? positive_hits << hit : negative_hits << hit }
+            average_length = hits.inject(0) { |sum, hit| sum + hit.query_length } / hits.size.to_f
           when :subject
             hits.sort_by(&:subject_start).each { |hit| hit.subject_end > hit.subject_start ? positive_hits << hit : negative_hits << hit }
+            average_length = hits.inject(0) { |sum, hit| sum + hit.subject_length } / hits.size.to_f
           end
-          
+
           # Call the hit clusters based on separation on the query sequence.  Use the average length of the hit to set the scale.
-          average_length = hits.inject(0) { |sum, hit| sum + hit.query_length } / hits.size.to_f
           clustered_hits = []
-          clustered_hits += cluster(positive_hits, cutoff: average_length * 10, cluster_on: :query) if positive_hits.any?
-          clustered_hits += cluster(negative_hits, cutoff: average_length * 10, cluster_on: :query) if negative_hits.any?
+          clustered_hits += cluster(positive_hits, cutoff: average_length * 10, cluster_on: options[:cluster_on]) if positive_hits.any?
+          clustered_hits += cluster(negative_hits, cutoff: average_length * 10, cluster_on: options[:cluster_on]) if negative_hits.any?
           
           clustered_hits
         end

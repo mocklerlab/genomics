@@ -13,12 +13,18 @@ module Genomics
       # * *Args*    :
       #   - +objects+ -> The Genomic::IO:GFF:Entry objects to be written successively to the stream.
       #
-      def puts(*entries)
-        entries = entries.first if entries.length == 1 && entries.first.is_a?(Array)
+      def puts(entries, options = {})
+        options = { progress_bar: false, id_prefix: '' }.merge(options)
+        entries = [entries] unless entries.is_a?(Array)
+        
+        # Create the progress bar
+        pbar = ProgressBar.new("Writing #{Pathname.new(@io.path).basename}", entries.size, STDOUT) if options[:progress_bar]
         
         @last_id ||= 0
         entries.sort.each do |entry|
-          entry.attributes["ID"] ||= (@last_id += 1)
+          pbar.inc if options[:progress_bar]
+          
+          entry.attributes["ID"] ||= "#{options[:id_prefix]}#{@last_id += 1}"
           @io.puts entry.to_gff
         end
       end
