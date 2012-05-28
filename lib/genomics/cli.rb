@@ -20,8 +20,13 @@ module Genomics
     
     desc "est", "Takes the supplied alignment file and generates an EST GFF3 file from the results."
     method_option :input, type: :string, required: true, aliases: '-i'
+    method_option :output, type: :string, aliases: '-o'
+    method_option :threads, type: :numeric, aliases: '-t'
     def est
-      puts "EST GFF3 successfully created." if Genomics::Alignment::EST.transform(options[:input])
+      command_options = {}
+      command_options[:output_file] = options[:output] if options[:output]
+      command_options[:threads] = options[:threads] if options[:threads]
+      puts "EST GFF3 successfully created." if Genomics::Alignment::EST.transform(options[:input], command_options)
     end
   end
 end
