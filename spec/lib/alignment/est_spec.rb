@@ -17,7 +17,7 @@ module Genomics
         end
         
         it "should assign IDs and names to the entries" do
-          BLASTX.transform(results_file)
+          EST.transform(results_file)
           
           File.open("#{results_file}.gff3") do |f|
             f.each_line do |line|
@@ -29,7 +29,7 @@ module Genomics
             end
           end
           
-          File.unlink("#{results_file}.gff3")
+          # File.unlink("#{results_file}.gff3")
         end
 
         # TODO: Implement this after a GFF parser is written, otherwise it it too tedious.

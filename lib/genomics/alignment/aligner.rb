@@ -69,24 +69,42 @@ module Genomics
           clusters
         end
         
+        
+        # Returns a set of clusters of hits, where each cluster can be taken as a single discontiguous entity.  Clusters are determined
+        # by hits that are in proximity of each other on the same strand on the same sequence.
+        #
+        # * *Args*    :
+        #   - +hits+ -> The Hit objects to be clustered together, which are assumed to be sorted in increasing position.
+        #   - +cutoff+ -> A numeric value setting the maximum distance that two hits can be separate and still be called in the same cluster.
+        # * *Options*    :
+        #   - +cluster_on+ -> A symbol specifying which sequence object to position based cluster on.  This can be ither the :subject, or 
+        #   the :query. (Default :subject)
+        # * *Returns* :
+        #   - An array of arrays of clustered hits determined by the cutoff.
+        #
         def cluster_hits(hits, options = {})
           options = { cluster_on: :subject }.merge(options)
+          cluster_on = options[:cluster_on]
           
           # Separate the hits based on their orientations
-          positive_hits, negative_hits, average_length = [], [], nil
-          case options[:cluster_on]
-          when :query
-            hits.sort_by(&:query_start).each { |hit| hit.query_end > hit.query_start ? positive_hits << hit : negative_hits << hit }
-            average_length = hits.inject(0) { |sum, hit| sum + hit.query_length } / hits.size.to_f
-          when :subject
-            hits.sort_by(&:subject_start).each { |hit| hit.subject_end > hit.subject_start ? positive_hits << hit : negative_hits << hit }
-            average_length = hits.inject(0) { |sum, hit| sum + hit.subject_length } / hits.size.to_f
+          categorized_hits = { forward: {}, reverse: {} }
+          sort_symbol = cluster_on == :subject ? :subject_start : :query_start
+          hits.sort_by(&sort_symbol).each do |hit|
+            strand = hit.forward_strand?(on: cluster_on) ? :forward : :reverse
+            categorized_query_hits = categorized_hits[strand][hit.query] ||= []
+            categorized_query_hits << hit
           end
+          
+          # Get the average length, which will determine the cutoff
+          average_length = hits.inject(0) { |sum, hit| sum + hit.length(on: cluster_on) } / hits.size.to_f
 
-          # Call the hit clusters based on separation on the query sequence.  Use the average length of the hit to set the scale.
+          # Call the hit clusters based on separation.
           clustered_hits = []
-          clustered_hits += cluster(positive_hits, cutoff: average_length * 10, cluster_on: options[:cluster_on]) if positive_hits.any?
-          clustered_hits += cluster(negative_hits, cutoff: average_length * 10, cluster_on: options[:cluster_on]) if negative_hits.any?
+          categorized_hits.each do |strand, query_hits|
+            query_hits.each do |query, hits|
+              clustered_hits += cluster(hits, cutoff: average_length * 10, cluster_on: options[:cluster_on]) if hits.any?
+            end
+          end
           
           clustered_hits
         end

@@ -30,6 +30,9 @@ module Genomics
       # Iterates through the file by the queries rather than by individual hits.  The block is successively yielded the string
       # name of the query and a list of the hits for that query.
       #
+      # * *Arguments*   :
+      #   - +block+ -> A block that is passed the name of a query (String) and an Array of the Hits for the query.
+      #
       def each_query
         # Set the state variables
         current_rows = []

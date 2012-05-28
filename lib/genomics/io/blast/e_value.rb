@@ -26,7 +26,7 @@ module Genomics
         def to_f
           @coefficient.to_f * 10 ** @exponent
         end
-      
+        
         def method_missing(name, *args, &block)
           ret = to_f.send(name, *args, &block)
           ret.is_a?(Numeric) ? EValue.new(ret) : ret

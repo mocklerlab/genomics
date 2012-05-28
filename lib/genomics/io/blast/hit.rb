@@ -32,33 +32,45 @@ module Genomics
           attribute_strings = ATTRIBUTE_NAMES.map { |attribute| "#{attribute}: \"#{send(attribute)}\"" }
           "#<Genomics::Alignment::Hit #{attribute_strings.join(", ")}>" 
         end
-      
-        # Returns the length of the alignment as matched on the query sequence.  Strandedness issues are taken into account
-        # when calculating this value.
+        
+        # Returns a boolean indicating the orientation of the hit relative to the strandedness of the subject or query.
+        # The hit is on the forward strand if the positions are increasing.
         #
+        # * *Options*    :
+        #   - +:on+ -> A symbol indicating which of the query or the subject to use.  (Default: :subject)
         # * *Returns* :
-        #   - An integer describing the length of the alignment on the query sequence.
+        #   - A boolean indicating if the Hit is on the forward strand.
         #
-        def query_length
-          if query_end > query_start
-            query_end - query_start + 1
-          else
-            query_start - query_end + 1
-          end
+        def forward_strand?(options = {})
+          options = { on: :subject }.merge(options)
+          
+          case options[:on]
+          when :subject
+            subject_end > subject_start
+          when :query
+            query_end > query_start
+          end 
         end
         
-        # Returns the length of the alignment as matched on the subject sequence.  Strandedness issues are taken into account
+        # Returns the length of the alignment as matched on the specified sequence.  Strandedness issues are taken into account
         # when calculating this value.
         #
+        # * *Options*    :
+        #   - +:on+ -> A symbol indicating which of the query or the subject to use.  (Default: :subject)
         # * *Returns* :
         #   - An integer describing the length of the alignment on the query sequence.
         #
-        def subject_length
-          if subject_end > subject_start
-            subject_end - subject_start + 1
-          else
-            subject_start - subject_end + 1
+        def length(options = {})
+          options = { on: :subject }.merge(options)
+          
+          value = case options[:on]
+          when :subject
+            forward_strand?(on: options[:on]) ? subject_end - subject_start : subject_start - subject_end
+          when :query
+            forward_strand?(on: :query) ? query_end - query_start : query_start - query_end
           end
+          
+          value + 1
         end
       end
     end

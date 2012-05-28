@@ -48,7 +48,7 @@ module Genomics
               hits.sort_by(&:query_start).each { |hit| hit.query_end > hit.query_start ? positive_hits << hit : negative_hits << hit }
               
               # Call the hit clusters based on separation on the query sequence.  Use the average length of the hit to set the scale.
-              average_length = hits.inject(0) { |sum, hit| sum + hit.query_length } / hits.size.to_f
+              average_length = hits.inject(0) { |sum, hit| sum + hit.length(on: :query) } / hits.size.to_f
               clustered_hits += cluster(positive_hits, average_length * 10) if positive_hits.any?
               clustered_hits += cluster(negative_hits, average_length * 10) if negative_hits.any?
             end
