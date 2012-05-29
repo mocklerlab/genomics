@@ -17,6 +17,10 @@ module Genomics
           end
         end
         
+        def <=>(other)
+          bit_score <=> other.bit_score
+        end
+        
         # Allows the e_value to be set for the hit, converting from both string and numerics to an EValue object.
         # 
         # * *Argument* :
@@ -71,6 +75,18 @@ module Genomics
           end
           
           value + 1
+        end
+        
+        # Returns the hit object with the query and subject related fields interchanged.
+        #
+        # * *Returns* :
+        #   - The Hit object.
+        #
+        def transpose!
+          @query, @subject = subject, query
+          @query_start, @query_end, @subject_start, @subject_end = subject_start, subject_end, query_start, query_end
+          
+          self
         end
       end
     end

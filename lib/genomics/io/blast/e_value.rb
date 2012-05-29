@@ -19,8 +19,10 @@ module Genomics
           @coefficient <=> other.coefficient
         end
       
-        def to_s
-          "%.2e" % to_f
+        def to_s(options = {})
+          options = { precision: 2 }.merge(options)
+          
+          "%.#{options[:precision]}e" % to_f
         end
       
         def to_f

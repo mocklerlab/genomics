@@ -9,7 +9,19 @@ module Genomics
     def identify
       command_options = {}
       command_options[:output_file] = options[:output] if options[:output]
-      puts "#{Genomics::Alignment::RBB.identify(options[:files], command_options)} Reciprocal Best Alignments Identified"
+      puts "#{Genomics::Operation::RBB.identify_orthologs(options[:files], command_options)} Reciprocal Best Alignments Identified"
+    end
+  
+    desc "rbb", "Identifies putative orthologs between proteomes, which are reciprocal best blasts of each other."
+    method_option :protein_files, type: :array, required: true, aliases: '-p'
+    method_option :database_files, type: :array, required: true, aliases: '-d'
+    method_option :output, type: :string, aliases: '-o'
+    def rbb
+      proteomes = []
+      options[:protein_files].each_with_index do |filepath, index|
+        proteomes << { file: filepath, database: options[:database_files][index] }
+      end
+      puts "#{Genomics::Operation::RBB.perform(proteomes)} Reciprocal Best Alignments Identified"
     end
     
     desc "blastx", "Takes the supplied alignment file and generates a BLASTX GFF3 file from the results."

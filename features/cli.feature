@@ -3,10 +3,13 @@ Feature: CLI
   As a CLI
   I want to be able to execute basic commands
 
-	@announce-dir
+  Scenario: Two Proteomes
+    When I run `genomics rbb --protein_files=/Users/mcentee/Documents/genomics/spec/fixtures/Athaliana.fa /Users/mcentee/Documents/genomics/spec/fixtures/Spolyrrhiza.fa --database_files=/Users/mcentee/Documents/genomics/spec/fixtures/Athaliana.fa /Users/mcentee/Documents/genomics/spec/fixtures/Spolyrrhiza.fa`
+    Then the output should contain "6 Reciprocal Best Alignments Identified"
+
   Scenario: Two Alignment Files
-    When I run `genomics identify --files=/Users/mcentee/Documents/genomics/spec/fixtures/query_alignment.tab /Users/mcentee/Documents/genomics/spec/fixtures/target_alignment.tab`
-    Then the output should contain "3 Reciprocal Best Alignments Identified"
+    When I run `genomics identify --files=/Users/mcentee/Documents/genomics/spec/fixtures/alignment/rbb/Athaliana_vs_Spolyrrhiza.tab /Users/mcentee/Documents/genomics/spec/fixtures/alignment/rbb/Spolyrrhiza_vs_Athaliana.tab`
+    Then the output should contain "1 Reciprocal Best Alignments Identified"
 
   Scenario: BLASTX Alignment File
     When I run `genomics blastx -i=/Users/mcentee/Documents/genomics/spec/fixtures/alignment/blastx_results.tab`

@@ -42,28 +42,6 @@ module Genomics
           
           # Merge all of the entries together
           entries = threads.map(&:value).flatten
-          
-          # entries = []
-          # IO::BLASTFormat.open(filename) do |f|
-          #   # Turn each query into one or more entries
-          #   f.each_query do |query, hits|
-          #     # # Break the hits up by contig and then cluster
-          #     # contig_hits_hash = {}
-          #     # hits.each do |hit|
-          #     #   # Grows huge!!!
-          #     #   contig_hits = contig_hits_hash[hit.subject] ||= []
-          #     #   contig_hits << hit
-          #     # end
-          #     
-          #     clusters = cluster_hits(hits, cluster_on: :subject)
-          #     # contig_hits_hash.each do |contig, contig_hits| 
-          #     #   clusters += cluster_hits(contig_hits, cluster_on: :subject)
-          #     # end
-          # 
-          #     # Convert the clusters to entries
-          #     entries += clusters.map { |clustered_hits| create_entry(clustered_hits) }
-          #   end
-          # end
 
           # Write the file
           puts "Writing entries to file..."

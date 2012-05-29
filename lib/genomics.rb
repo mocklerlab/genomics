@@ -5,11 +5,14 @@ require 'progressbar'
 
 ##### Require internal files #####
 
+require 'genomics/command_line'
+
 # Require the alignment module
+require 'genomics/alignment/blast'
+
 require 'genomics/alignment/aligner'
 require 'genomics/alignment/blastx'
 require 'genomics/alignment/est'
-require 'genomics/alignment/rbb'
 
 ### Require the IO module ###
 # Require the base IO wrapper first
@@ -25,6 +28,9 @@ require 'genomics/io/blast/hit'
 
 # Require GFF data sctructures
 require 'genomics/io/gff/entry'
+
+### Require the Operations ###
+require 'genomics/operation/rbb'
 
 module Genomics
 end
