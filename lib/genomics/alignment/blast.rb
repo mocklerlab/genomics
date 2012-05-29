@@ -23,11 +23,12 @@ module Genomics
                          },
                          scoring_matrix:  ->(value) { "-matrix #{value}" },
                          allow_gaps:      ->(value) { '-ungapped -comp_based_stats F' if value },
-                         filter_query:    ->(value) { '-dust no -seg no' unless value }
+                         filter_query:    ->(value) { '-dust no -seg no' unless value },
+                         threads:         ->(value) { "-num_threads #{value}" }
                         }
       
       attr_reader :blast_command
-      attr_accessor :database, :e_value, :out_format, :scoring_matrix, :word_size, :allow_gaps, :filter_query
+      attr_accessor :database, :e_value, :out_format, :scoring_matrix, :word_size, :allow_gaps, :filter_query, :threads
       
       # * *Args*    :
       #   - +blast_command+ -> A string with the path to the BLAST program to be run or a symbol represeting a standard BLAST
@@ -63,7 +64,7 @@ module Genomics
       #   - The newly created File object.
       #
       def output_file=(new_output_file)
-        @output_file = File.new(new_output_file.respond_to?(:path) ? new_output_file.path : new_output_file.to_s)
+        @output_file = File.new(new_output_file.respond_to?(:path) ? new_output_file.path : new_output_file.to_s, 'w')
       end
       
       # Runs the BLAST instance against the query provided returning a file to the results of the alignment. 

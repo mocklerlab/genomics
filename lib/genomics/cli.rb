@@ -15,13 +15,21 @@ module Genomics
     desc "rbb", "Identifies putative orthologs between proteomes, which are reciprocal best blasts of each other."
     method_option :protein_files, type: :array, required: true, aliases: '-p'
     method_option :database_files, type: :array, required: true, aliases: '-d'
+    method_option :alignment_file_dir, type: :string, aliases: '-a', desc: 'The path to the directory where intermediate alignment files should be written.'
     method_option :output, type: :string, aliases: '-o'
+    method_option :e_value, type: :numeric, aliases: '-e', desc: 'The evalue used as the cutoff for the alignment.'
+    method_option :threads, type: :numeric, aliases: '-t', desc: 'The number of threads to use in each BLAST alignment.'
     def rbb
       proteomes = []
       options[:protein_files].each_with_index do |filepath, index|
         proteomes << { file: filepath, database: options[:database_files][index] }
       end
-      puts "#{Genomics::Operation::RBB.perform(proteomes)} Reciprocal Best Alignments Identified"
+      command_options = { blast_options: {} }
+      command_options[:alignment_file_dir] = options[:alignment_file_dir] if options[:alignment_file_dir]
+      command_options[:blast_options][:threads] = options[:threads] if options[:threads]
+      command_options[:blast_options][:e_value] = options[:e_value] if options[:e_value]
+      
+      puts "#{Genomics::Operation::RBB.perform(proteomes, command_options)} Reciprocal Best Alignments Identified"
     end
     
     desc "blastx", "Takes the supplied alignment file and generates a BLASTX GFF3 file from the results."

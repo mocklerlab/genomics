@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Genomics
   module Operation
     # This class handles the operation logic of conducting a reciprocal best BLAST analysis.  The alignments can be generated and the 
@@ -15,7 +17,7 @@ module Genomics
         def perform(proteomes, options = {})
           # Create the alignment files
           alignment_files = generate_alignments(proteomes, options)
-          
+
           # Pass the alignment files onto the ortholog identification
           identify_orthologs(alignment_files)
         end
@@ -24,11 +26,15 @@ module Genomics
         #
         # * *Args*    :
         #   - +proteomes+ -> An Array of hashes specifying the files to be used.
+        # * *Options* :
+        #   - +blast_path+ -> A String giving the path to blastp.
+        #   - +blast_options+ -> A Hash of options to be passed directly to the Alignment::BLAST object used to conduct the alignment.
+        #   - +alignment_file_dir+ -> A String specifying the directory where the alignment files should be written.  (Default: temporary directory)
         # * *Returns* :
         #   - An Array of file paths containing the alignment results 
         #
         def generate_alignments(proteomes, options = {})
-          options = { blast_path: :blastp, threads: proteomes.size, blast_options: {} }.merge(options)
+          options = { blast_path: :blastp, blast_options: {} }.merge(options)
           options[:blast_options] = { e_value: 0.00001 }.merge(options[:blast_options])
           options[:blast_options][:out_format] = :tab
           
@@ -38,17 +44,28 @@ module Genomics
           alignment_combinations.map! { |combination| [combination[0][:file], combination[1][:database]] }
 
           # Break up the processing into threads
-          threads = alignment_combinations.map do |combination|
-            Thread.new do
-              # Create and run the alignment
-              blast = Alignment::BLAST.new(options[:blast_path], options[:blast_options])
-              blast.database = combination[1]
-              blast.run(combination[0])
+          # threads = alignment_combinations.map do |combination|
+          #   Thread.new do
+          alignment_combinations.map do |combination|
+            # Create and run the alignment
+            blast = Alignment::BLAST.new(options[:blast_path], options[:blast_options])
+            blast.database = combination[1]
+            
+            # Optionally set a permanent file to write the results to
+            if options[:alignment_file_dir]
+              filename = "#{Pathname.new(combination[0]).basename}_vs_#{Pathname.new(combination[1]).basename}"
+              blast.output_file = File.join(options[:alignment_file_dir], filename) 
             end
+            
+            # Get the results and clean up the file resoursces
+            result_file = blast.run(combination[0])
+            result_file.path
           end
+          #   end
+          # end
           
           # Collect the threads and return
-          threads.map { |thread| thread.value.path }
+          # threads.map { |thread| thread.value.path }
         end
         
         # Reads the two files supplied and identifies the reciprocal best hits, writing them to an output file.
