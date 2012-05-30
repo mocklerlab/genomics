@@ -8,7 +8,7 @@ module Genomics
 
         def initialize(coefficient, exponent = 0)
           value = coefficient.to_f * 10 ** exponent
-          @coefficient, @exponent = ("%.2e" % value).split('e').map(&:to_f)
+          @coefficient, @exponent = ("%.5e" % value).split('e').map(&:to_f)
           @exponent = @exponent.to_i
         end
       

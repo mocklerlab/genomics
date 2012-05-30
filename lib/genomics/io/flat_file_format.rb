@@ -7,28 +7,39 @@ module Genomics
     class FlatFileFormat
       include Enumerable
       
+      # A list of recognized file formats.
+      FILE_FORMATS = [:text, :tab, :xml]
+      
       class << self
-        def open(filename, *args)
+        def open(filename, options = {})
+          # Pull out the optional IO options
+          args = [options.delete(:mode), options.delete(:opt)].compact
+          
           if block_given?
             # Open the file using the block analogous to opening a standard file.
             File.open(filename, *args) do |f|
-              yield self.new(f)
+              yield self.new(f, options)
             end
           else
             # Return a new instance of the IO object, which must be explicitly closed
-            self.new(File.open(filename, *args))
+            self.new(File.open(filename, *args), options)
           end
         end
       end
+      
+      attr_reader :format
       
       # This creates a Genomic::IO::GFFFormat object that wraps around a standard IO stream object.
       # This endows the IO stream with additional methods for accessing the records inside.
       #
       # * *Args*    :
       #   - +io+ -> An the IO object that is being read/written to. 
+      # * *Options*
+      #   - +format+ -> A symbol speciyfing the format of the file, which may affect the parsing of the file.
       #
-      def initialize(io)
+      def initialize(io, options = {})
         @io = io
+        @format = options[:format]
       end
       
       # Executes the block for every line in the IO stream. Extra sanitation is applied to the contents of the file

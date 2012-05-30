@@ -2,6 +2,7 @@ require "genomics/version"
 
 # Require external gems
 require 'progressbar'
+require 'ox'
 
 ##### Require internal files #####
 

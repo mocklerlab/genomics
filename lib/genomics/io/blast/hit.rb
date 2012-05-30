@@ -4,7 +4,8 @@ module Genomics
       # This object represents a fundamental unit of an alignment.
       class Hit
         ATTRIBUTE_NAMES = [ :query, :subject, :query_start, :query_end, :subject_start, :subject_end, :e_value, :bit_score,
-                            :percentage_identity, :alignment_length, :mismatches, :gap_openings]
+                            :alignment_length, :gap_openings, :query_frame, :subject_frame,
+                            :identities, :positives, :query_sequence, :subject_sequence, :midline]
       
         attr_accessor *ATTRIBUTE_NAMES
       
@@ -75,6 +76,15 @@ module Genomics
           end
           
           value + 1
+        end
+        
+        # Returns the number of mismatches.
+        #
+        # * *Returns* :
+        #   - Integer
+        #
+        def mismatches
+          alignment_length - identities - gap_openigns
         end
         
         # Returns the hit object with the query and subject related fields interchanged.

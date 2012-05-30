@@ -7,23 +7,64 @@ module Genomics
       # Iterates through each of the Hits in the file yield each successively to the block. 
       #
       def each
-        super do |row|
-          # Pull out the attribute values from the row
-          attributes = { query:                row[0],
-                         subject:              row[1],
-                         query_start:          row[6].to_i,
-                         query_end:            row[7].to_i,
-                         subject_start:        row[8].to_i,
-                         subject_end:          row[9].to_i,
-                         e_value:              row[10], 
-                         bit_score:            row[11].to_f,
-                         percentage_identity:  row[2].to_f,
-                         alignment_length:     row[3].to_i,
-                         mismatches:           row[4].to_i,
-                         gap_openings:         row[5].to_i }
+        unless @format == :xml
+          super do |row|
+            # Pull out the attribute values from the row
+            attributes = { query:                row[0],
+                           subject:              row[1],
+                           query_start:          row[6].to_i,
+                           query_end:            row[7].to_i,
+                           subject_start:        row[8].to_i,
+                           subject_end:          row[9].to_i,
+                           e_value:              row[10], 
+                           bit_score:            row[11].to_f,
+                           identities:           (row[2].to_f * row[3].to_i / 100).round,
+                           alignment_length:     row[3].to_i,
+                           gap_openings:         row[5].to_i 
+                         }
 
-          # Create the new Hit object and yield it to the block for processing
-          yield BLAST::Hit.new(attributes)
+            # Create the new Hit object and yield it to the block for processing
+            yield BLAST::Hit.new(attributes)
+          end
+        else
+          # Load the entire file into memory and parse the xml structure yielding the individual hits
+          root_element = Ox.load_file(@io.path).root
+          root_element.locate('BlastOutput_iterations/Iteration').each do |iteration_node|
+            # Pull out the query
+            query = iteration_node.locate('Iteration_query-def/?').first
+            
+            # Start pulling out individual hits
+            iteration_node.locate('Iteration_hits/Hit').each do |hit_node|
+              subject = hit_node.locate('Hit_def/?').first
+              
+              # Create the individual hits from the HSPs
+              hit_node.locate('Hit_hsps/Hsp').each do |hsp|
+                # Pick out the individual HSP details
+                attributes = { query: query, 
+                               subject: subject,
+                               bit_score:         hsp.locate('Hsp_bit-score/?').first.to_f,
+                               e_value:           hsp.locate('Hsp_evalue/?').first,
+                               query_start:       hsp.locate('Hsp_query-from/?').first.to_i,
+                               query_end:         hsp.locate('Hsp_query-to/?').first.to_i,
+                               subject_start:     hsp.locate('Hsp_hit-from/?').first.to_i,
+                               subject_end:       hsp.locate('Hsp_hit-to/?').first.to_i,
+                               query_frame:       hsp.locate('Hsp_query-frame/?').first.to_i,
+                               subject_frame:     hsp.locate('Hsp_hit-frame/?').first.to_i,
+                               identities:        hsp.locate('Hsp_identity/?').first.to_i,
+                               positives:         hsp.locate('Hsp_positive/?').first.to_i,
+                               gap_openings:      hsp.locate('Hsp_gaps/?').first.to_i,
+                               alignment_length:  hsp.locate('Hsp_align-len/?').first.to_i,
+                               query_sequence:    hsp.locate('Hsp_qseq/?').first,
+                               subject_sequence:  hsp.locate('Hsp_hseq/?').first,
+                               midline:           hsp.locate('Hsp_midline/?').first,
+                             }
+                             
+                # Create the new Hit object and yield it to the block for processing
+                yield BLAST::Hit.new(attributes)
+              end
+            end
+            
+          end
         end
       end
       

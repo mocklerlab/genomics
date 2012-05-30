@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   
   s.add_dependency "thor"
   s.add_dependency "ruby-progressbar"
+  s.add_dependency "ox"
 
   s.add_development_dependency "ruby-debug19"
   s.add_development_dependency "ruby-prof"
