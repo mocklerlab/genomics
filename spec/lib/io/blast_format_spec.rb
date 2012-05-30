@@ -72,22 +72,66 @@ module Genomics
           let(:blast_format) { BLASTFormat.open(blast_file_path) }
           
           it "should iterate through each query, hits pair" do
+            debugger
             blast_format.each_query do |query, hits|
               query.should be_a(String)
               hits.should be_an(Array)
               hits.each do |hit|
-                hits.should be_a(BLAST::Hit)
+                hit.should be_a(BLAST::Hit)
               end
             end
           end
         end
         
-        describe '#entries' do
+        describe '#each_cluster' do
+          let(:blast_format) { BLASTFormat.open(blast_xml_file_path, format: :xml) }
+          
+          it "should iterate through each query, hits pair" do
+            blast_format.each_cluster do |query, subject, hits|
+              query.should be_a(String)
+              subject.should be_a(String)
+              hits.should be_an(Array)
+              hits.each do |hit|
+                hit.should be_a(BLAST::Hit)
+              end
+            end
+          end
+        end
+        
+        describe '#query_hits' do
+          let(:blast_format) { BLASTFormat.open(blast_xml_file_path, format: :xml) }
+          
+          it "should return a hash of hits" do
+            blast_format.query_hits.should be_a(Hash)
+            blast_format.query_hits.each do |query, hits|
+              query.should be_a(String)
+              hits.first.should be_a(BLAST::Hit)
+            end
+          end
+        end
+        
+        describe '#clustered_hits' do
+          let(:blast_format) { BLASTFormat.open(blast_xml_file_path, format: :xml) }
+          
+          it "should return a hash of hits" do
+            blast_format.clustered_hits.should be_a(Hash)
+            blast_format.clustered_hits.each do |query, subject_hash|
+              query.should be_a(String)
+              subject_hash.each do |subject, clusters|
+                subject.should be_a(String)
+                clusters.should be_a(Array)
+                clusters.first.should be_a(Array)
+              end
+            end
+          end
+        end
+        
+        describe '#hits' do
           let(:blast_format) { BLASTFormat.open(blast_xml_file_path, format: :xml) }
           
           it "should return an Array of Hits" do
-            blast_format.entries.should be_an(Array)
-            blast_format.entries.each do |entry|
+            blast_format.hits.should be_an(Array)
+            blast_format.hits.each do |entry|
               entry.should be_a(BLAST::Hit)
             end
           end

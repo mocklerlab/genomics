@@ -72,9 +72,13 @@ module Genomics
       # name of the query and a list of the hits for that query.
       #
       # * *Arguments*   :
-      #   - +block+ -> A block that is passed the name of a query (String) and an Array of the Hits for the query.
+      #   - +block+ -> A block th at is passed the name of a query (String) and an Array of the Hits for the query.
+      # * *Options*
+      #   - +sort+ -> A boolean specifying whether or not to sort the hits for each query (Default false).
       #
-      def each_query
+      def each_query(options = {})
+        options = { sort: false }.merge(options)
+        
         # Set the state variables
         current_rows = []
         current_query = nil
@@ -84,10 +88,131 @@ module Genomics
           if hit.query == current_query
             current_rows << hit
           else
-            yield current_query, current_rows if current_query
+            if current_query
+              current_rows.sort! if options[:sort]
+              yield current_query, current_rows 
+            end
+            
             current_query, current_rows = hit.query, [hit]
           end
         end
+      end
+      
+      # Iterates through the file by clusters of hits.  Hits are clustered together if they are proximal on the target.  This
+      # determination is made while paying respect to orientation and to the increasing positions of individual hits and how they
+      # align as a group. The block is successively yielded the string name of the query, the name of the subject, and the sorted 
+      # Array of hits.
+      #
+      # * *Arguments*   :
+      #   - +block+ -> A block th at is passed the name of a query (String) and an Array of the Hits for the query.
+      # * *Options*
+      #   - +cluster_on+ -> A symbol determining whether to cluster hits based on positions on the :query or :subject sequences.
+      #
+      def each_cluster(options = {})
+        options = { cluster_on: :subject }.merge(options)
+        
+        each_query do |query, hits|
+          # Cluster the hits
+          clusters = Alignment::Aligner.cluster_hits(hits, cluster_on: options[:cluster_on])
+
+          # Yeild the results
+          clusters.each do |cluster|
+            yield query, cluster.first.subject, cluster
+          end
+        end
+      end
+      
+      # Returns an array of all of the hits in the file.
+      #
+      # * *Args*    :
+      #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
+      #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      # * *Returns* :
+      #   - An Array
+      #
+      def hits(options = {})
+        options = { sort: false, transpose: false }.merge(options)
+        
+        # Get the hits
+        hits = []
+        each { |hit| hits << hit }
+        
+        # Transpose the hits if selected
+        hits.map!(&:transpose!) if options[:transpose]
+        
+        # Sort the hits if selected
+        hits.sort! if options[:sort]
+        
+        hits
+      end
+      
+      # Returns a hash of queries paired with their matching hits.
+      #
+      # * *Args*    :
+      #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
+      #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      # * *Returns* :
+      #   - An Array
+      #
+      def query_hits(options = {})
+        options = { sort: false, transpose: false }.merge(options)
+        
+        # Get the hits
+        hits_hash = {}
+        each_query(sort: options[:sort]) do |query, hits| 
+          # hits.map!(&:transpose!) if options[:transpose]
+          hits_hash[query] = hits
+        end
+        
+        # TODO: Transpose.  This needs to actually interchange subject and query on the hash level
+        
+        hits_hash
+      end
+      
+      # Returns a multi-dimmensional hash of queries matched to subjects and their respective clusters of hits.
+      #
+      # * *Args*    :
+      #   - +cluster_on+ -> A symbol determining whether to cluster hits based on positions on the :query or :subject sequences.
+      #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      # * *Returns* :
+      #   - An Array
+      #
+      def clustered_hits(options = {})
+        options = { cluster_on: :subject, transpose: false, sort: false }.merge(options)
+        
+        # Get the hits
+        hits_hash = {}
+        each_cluster(cluster_on: options[:cluster_on]) do |query, subject, hits| 
+          hits.map!(&:transpose!) if options[:transpose]
+          hits_hash[query] ||= {}
+          hits_hash[query][subject] ||= []
+          hits_hash[query][subject] << hits
+        end
+        
+        if options[:sort]
+          sorted_hits_hash = {}
+          # For each query go through and sort the subjects and their respective clusters
+          hits_hash.each do |query, subject_hash|
+            sorted_hits_hash[query] ||= {}
+            
+            sorted_subjects = subject_hash.sort_by do |subject, clusters|
+              clusters.map { |hits| hits.map(&:bit_score).max }.max
+            end
+            
+            sorted_subjects.each do |subject, clusters|
+              sorted_hits_hash[query][subject] ||= []
+              
+              # Sort the clusters
+              clusters.sort_by! { |hits| hits.map(&:bit_score).max }
+              sorted_hits_hash[query][subject] << clusters
+            end
+          end
+          
+          hits_hash = sorted_hits_hash
+        end
+        # TODO: Transpose.  This needs to actually interchange subject and query on the hash level
+        
+        hits_hash
       end
       
       # Retrns a collection of all of the entries in the file.
@@ -100,7 +225,7 @@ module Genomics
       #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
       # * *Returns* :
       #   - A collection of the individual BLAST::Hit objects parsed in the file or a multi-dimensional Hash.
-      #
+      # #TODO Deprecated
       def entries(options = {})
         options = { aggregate: false, sort: false, transpose: false }.merge(options)
         

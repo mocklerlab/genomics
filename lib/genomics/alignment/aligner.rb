@@ -3,8 +3,6 @@ module Genomics
     class Aligner
       class << self
         
-        private
-        
         # Create the list of hits to be converted into single entries based on query, subject, strand, and separation i.e hits widely 
         # will be treated as distinct matches to the query.
         #
