@@ -19,7 +19,7 @@ module Genomics
         end
         
         def <=>(other)
-          bit_score <=> other.bit_score
+          other.bit_score <=> bit_score
         end
         
         # Allows the e_value to be set for the hit, converting from both string and numerics to an EValue object.
@@ -84,7 +84,43 @@ module Genomics
         #   - Integer
         #
         def mismatches
-          alignment_length - identities - gap_openigns
+          alignment_length - identities - gap_openings
+        end
+        
+        # Returns the percentage of the alignment bases that were identical between query and subject.
+        #
+        # * *Returns* :
+        #   - Float
+        #
+        def percentage_identity
+          identities / alignment_length.to_f * 100
+        end
+        
+        # Returns the percentage of the alignment bases that contributed positive scores.
+        #
+        # * *Returns* :
+        #   - Float
+        #
+        def percentage_positive
+          positives / alignment_length.to_f * 100
+        end
+
+        # Returns the percentage of the alignment bases that were mismatches.
+        #
+        # * *Returns* :
+        #   - Float
+        #
+        def percentage_mismatch
+          mismatches / alignment_length.to_f * 100
+        end
+        
+        # Returns the percentage of the alignment bases that were gaps.
+        #
+        # * *Returns* :
+        #   - Float
+        #
+        def percentage_gap
+          gap_openings / alignment_length.to_f * 100
         end
         
         # Returns the hit object with the query and subject related fields interchanged.

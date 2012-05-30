@@ -93,16 +93,16 @@ module Genomics
       # Retrns a collection of all of the entries in the file.
       #
       # * *Options*    :
-      #   - +aggregate_hits+ -> A boolean specifying whether the alignment hits in the file should be returned as a multi-dimmensional
+      #   - +aggregate+ -> A boolean specifying whether the alignment hits in the file should be returned as a multi-dimmensional
       #                         datastructure.  If true, a hash of hashes is returned with the first keys being the query ids, and the
       #                         the second set of keys being the subject ids.
       #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
       #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
       # * *Returns* :
-      #   - A collection of the individual BLAST::Hit objects parsed in the file.
+      #   - A collection of the individual BLAST::Hit objects parsed in the file or a multi-dimensional Hash.
       #
       def entries(options = {})
-        options = { aggregate_hits: false, sort: false, transpose: false }.merge(options)
+        options = { aggregate: false, sort: false, transpose: false }.merge(options)
         
         # Get the hits
         hits = []
@@ -111,10 +111,10 @@ module Genomics
         # Transpose the hits if selected
         hits.map!(&:transpose!) if options[:transpose]
         
-        # Sort the hits if selected, but aggregated hits should be sorted later for performance
+        # Sort the hits if selected
         hits.sort! if options[:sort]
-        
-        return hits unless options[:aggregate_hits]
+
+        return hits unless options[:aggregate]
 
         # Group the hits based on the specifics of what was matched.
         aggregated_hits = {}
