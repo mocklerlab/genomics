@@ -199,15 +199,15 @@ module Genomics
             sorted_hits_hash[query] ||= {}
             
             sorted_subjects = subject_hash.sort_by do |subject, clusters|
-              clusters.map { |hits| hits.map(&:bit_score).max }.max
+              -clusters.map { |hits| hits.map(&:bit_score).max }.max
             end
-            
+
             sorted_subjects.each do |subject, clusters|
               sorted_hits_hash[query][subject] ||= []
               
-              # Sort the clusters
-              clusters.sort_by! { |hits| hits.map(&:bit_score).max }
-              sorted_hits_hash[query][subject] << clusters
+              # Sort the clusters, and sort the hits within the cluster
+              clusters.sort_by! { |hits| -hits.sort!.max.bit_score }
+              sorted_hits_hash[query][subject] = clusters
             end
           end
           

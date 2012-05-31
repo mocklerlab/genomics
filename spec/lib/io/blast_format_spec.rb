@@ -123,6 +123,21 @@ module Genomics
               end
             end
           end
+          
+          context 'with the :sort option' do
+            it "should return a hash of hits" do
+              blast_format.clustered_hits(sort: true).should be_a(Hash)
+              blast_format.clustered_hits(sort: true).each do |query, subject_hash|
+                query.should be_a(String)
+                subject_hash.each do |subject, clusters|
+                  subject.should be_a(String)
+                  debugger
+                  clusters.should be_a(Array)
+                  clusters.first.should be_a(Array)
+                end
+              end
+            end
+          end
         end
         
         describe '#hits' do
