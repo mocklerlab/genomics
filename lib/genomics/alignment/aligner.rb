@@ -89,8 +89,8 @@ module Genomics
           sort_symbol = cluster_on == :subject ? :subject_start : :query_start
           hits.sort_by(&sort_symbol).each do |hit|
             strand = hit.forward_strand?(on: cluster_on) ? :forward : :reverse
-            categorized_query_hits = categorized_hits[strand][hit.query] ||= []
-            categorized_query_hits << hit
+            categorized_subject_hits = categorized_hits[strand][hit.subject] ||= []
+            categorized_subject_hits << hit
           end
           
           # Get the average length, which will determine the cutoff

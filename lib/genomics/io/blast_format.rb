@@ -36,7 +36,7 @@ module Genomics
             # Start pulling out individual hits
             iteration_node.locate('Iteration_hits/Hit').each do |hit_node|
               subject = hit_node.locate('Hit_def/?').first
-              
+
               # Create the individual hits from the HSPs
               hit_node.locate('Hit_hsps/Hsp').each do |hsp|
                 # Pick out the individual HSP details
@@ -82,7 +82,7 @@ module Genomics
         # Set the state variables
         current_rows = []
         current_query = nil
-        
+
         # Read through rows until the query changes.
         each do |hit|
           if hit.query == current_query
@@ -92,10 +92,13 @@ module Genomics
               current_rows.sort! if options[:sort]
               yield current_query, current_rows 
             end
-            
+
             current_query, current_rows = hit.query, [hit]
           end
         end
+        
+        # Yield the last query if any were found
+        yield current_query, current_rows if current_query
       end
       
       # Iterates through the file by clusters of hits.  Hits are clustered together if they are proximal on the target.  This
@@ -163,7 +166,7 @@ module Genomics
           # hits.map!(&:transpose!) if options[:transpose]
           hits_hash[query] = hits
         end
-        
+
         # TODO: Transpose.  This needs to actually interchange subject and query on the hash level
         
         hits_hash

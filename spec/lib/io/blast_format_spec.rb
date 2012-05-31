@@ -72,7 +72,6 @@ module Genomics
           let(:blast_format) { BLASTFormat.open(blast_file_path) }
           
           it "should iterate through each query, hits pair" do
-            debugger
             blast_format.each_query do |query, hits|
               query.should be_a(String)
               hits.should be_an(Array)
