@@ -38,15 +38,15 @@ module Genomics
       puts "BLASTX GFF3 successfully created." if Genomics::Alignment::BLASTX.transform(options[:input])
     end
     
-    desc "est", "Takes the supplied alignment file and generates an EST GFF3 file from the results."
-    method_option :input, type: :string, required: true, aliases: '-i'
-    method_option :output, type: :string, aliases: '-o'
-    method_option :threads, type: :numeric, aliases: '-t'
+    desc "est", "Takes the supplied EST FASTA file and the genome FASTA file and generates a GFF3 file from the alignment."
+    method_option :est, type: :string, required: true, aliases: '-e'
+    method_option :genome, type: :string, required: true, aliases: '-g'
+    method_option :alignment_file_dir, type: :string, aliases: '-a', desc: 'The path to the directory where intermediate alignment files should be written.'
+    # method_option :threads, type: :numeric, aliases: '-t'
     def est
-      command_options = {}
-      command_options[:output_file] = options[:output] if options[:output]
-      command_options[:threads] = options[:threads] if options[:threads]
-      puts "EST GFF3 successfully created." if Genomics::Alignment::EST.transform(options[:input], command_options)
+      command_options = { alignment: {} }
+      command_options[:alignment][:alignment_file_dir] = options[:alignment_file_dir] if options[:alignment_file_dir]
+      puts "EST GFF3 successfully created." if Genomics::Operation::AlignESTs.perform(options[:est], options[:genome], command_options)
     end
   end
 end
