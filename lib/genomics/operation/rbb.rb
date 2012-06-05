@@ -43,9 +43,7 @@ module Genomics
           alignment_combinations = alignment_combinations.select { |combination| combination[0] != combination[1] }
           alignment_combinations.map! { |combination| [combination[0][:file], combination[1][:database]] }
 
-          # Break up the processing into threads
-          # threads = alignment_combinations.map do |combination|
-          #   Thread.new do
+          # Iteratively process the pairs
           alignment_combinations.map do |combination|
             # Create and run the alignment
             blast = Alignment::BLAST.new(options[:blast_path], options[:blast_options])
@@ -61,11 +59,6 @@ module Genomics
             result_file = blast.run(combination[0])
             result_file.path
           end
-          #   end
-          # end
-          
-          # Collect the threads and return
-          # threads.map { |thread| thread.value.path }
         end
         
         # Reads the two files supplied and identifies the reciprocal best hits, writing them to an output file.

@@ -131,7 +131,6 @@ module Genomics
                 query.should be_a(String)
                 subject_hash.each do |subject, clusters|
                   subject.should be_a(String)
-                  debugger
                   clusters.should be_a(Array)
                   clusters.first.should be_a(Array)
                 end

@@ -5,13 +5,25 @@ module Genomics
     class BLASTFormat < FlatFileFormat
       
       # Iterates through each of the Hits in the file yield each successively to the block. 
+      # * *Options*
+      #   - +sort+ -> A boolean specifying whether or not to sort the hits for each query (Default false).
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       #
-      def each
+      def each(options = {})
+        options = { subject_regex: nil }.merge(options)
+        
         unless @format == :xml
           super do |row|
+            # Parse out the name of the subject if instructed
+            subject = if options[:subject_regex] && row[1].match(options[:subject_regex]) then $~.to_s
+            else
+              row[1]
+            end
+            
             # Pull out the attribute values from the row
             attributes = { query:                row[0],
-                           subject:              row[1],
+                           subject:              subject,
                            query_start:          row[6].to_i,
                            query_end:            row[7].to_i,
                            subject_start:        row[8].to_i,
@@ -36,6 +48,9 @@ module Genomics
             # Start pulling out individual hits
             iteration_node.locate('Iteration_hits/Hit').each do |hit_node|
               subject = hit_node.locate('Hit_def/?').first
+
+              # Parse out the name of the subject if instructed
+              subject = $~.to_s if options[:subject_regex] && subject.match(options[:subject_regex])
 
               # Create the individual hits from the HSPs
               hit_node.locate('Hit_hsps/Hsp').each do |hsp|
@@ -75,16 +90,18 @@ module Genomics
       #   - +block+ -> A block th at is passed the name of a query (String) and an Array of the Hits for the query.
       # * *Options*
       #   - +sort+ -> A boolean specifying whether or not to sort the hits for each query (Default false).
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       #
       def each_query(options = {})
-        options = { sort: false }.merge(options)
+        options = { sort: false, subject_regex: nil }.merge(options)
         
         # Set the state variables
         current_rows = []
         current_query = nil
 
         # Read through rows until the query changes.
-        each do |hit|
+        each(subject_regex: options[:subject_regex]) do |hit|
           if hit.query == current_query
             current_rows << hit
           else
@@ -110,11 +127,14 @@ module Genomics
       #   - +block+ -> A block th at is passed the name of a query (String) and an Array of the Hits for the query.
       # * *Options*
       #   - +cluster_on+ -> A symbol determining whether to cluster hits based on positions on the :query or :subject sequences.
+      # * *Options*
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       #
       def each_cluster(options = {})
-        options = { cluster_on: :subject }.merge(options)
+        options = { cluster_on: :subject, subject_regex: nil }.merge(options)
         
-        each_query do |query, hits|
+        each_query(subject_regex: options[:subject_regex]) do |query, hits|
           # Cluster the hits
           clusters = Alignment::Aligner.cluster_hits(hits, cluster_on: options[:cluster_on])
 
@@ -130,15 +150,17 @@ module Genomics
       # * *Args*    :
       #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
       #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       # * *Returns* :
       #   - An Array
       #
       def hits(options = {})
-        options = { sort: false, transpose: false }.merge(options)
+        options = { sort: false, transpose: false, subject_regex: nil }.merge(options)
         
         # Get the hits
         hits = []
-        each { |hit| hits << hit }
+        each(options[:subject_regex]) { |hit| hits << hit }
         
         # Transpose the hits if selected
         hits.map!(&:transpose!) if options[:transpose]
@@ -154,15 +176,17 @@ module Genomics
       # * *Args*    :
       #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
       #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       # * *Returns* :
       #   - An Array
       #
       def query_hits(options = {})
-        options = { sort: false, transpose: false }.merge(options)
+        options = { sort: false, transpose: false, subject_regex: nil }.merge(options)
         
         # Get the hits
         hits_hash = {}
-        each_query(sort: options[:sort]) do |query, hits| 
+        each_query(sort: options[:sort], subject_regex: options[:subject_regex]) do |query, hits| 
           # hits.map!(&:transpose!) if options[:transpose]
           hits_hash[query] = hits
         end
@@ -177,15 +201,17 @@ module Genomics
       # * *Args*    :
       #   - +cluster_on+ -> A symbol determining whether to cluster hits based on positions on the :query or :subject sequences.
       #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
+      #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
+      #   useful for parsing out extraneous information.
       # * *Returns* :
       #   - An Array
       #
       def clustered_hits(options = {})
-        options = { cluster_on: :subject, transpose: false, sort: false }.merge(options)
+        options = { cluster_on: :subject, transpose: false, sort: false, subject_regex: nil }.merge(options)
         
         # Get the hits
         hits_hash = {}
-        each_cluster(cluster_on: options[:cluster_on]) do |query, subject, hits| 
+        each_cluster(cluster_on: options[:cluster_on], subject_regex: options[:subject_regex]) do |query, subject, hits| 
           hits.map!(&:transpose!) if options[:transpose]
           hits_hash[query] ||= {}
           hits_hash[query][subject] ||= []

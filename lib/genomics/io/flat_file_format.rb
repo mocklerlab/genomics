@@ -5,6 +5,7 @@ module Genomics
     # This class wraps a File IO and provides accessor methods for interacting with it.  It is intended to be subclassed
     # by classes that implement specific functionality for dealing with a particular file type.
     class FlatFileFormat
+      # TODO: Do we really want enumerable?
       include Enumerable
       
       # A list of recognized file formats.

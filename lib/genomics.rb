@@ -10,10 +10,10 @@ require 'genomics/command_line'
 
 # Require the alignment module
 require 'genomics/alignment/blast'
+require 'genomics/alignment/blat'
 
 require 'genomics/alignment/aligner'
 require 'genomics/alignment/blastx'
-require 'genomics/alignment/est'
 
 ### Require the IO module ###
 # Require the base IO wrapper first
@@ -31,6 +31,7 @@ require 'genomics/io/blast/hit'
 require 'genomics/io/gff/entry'
 
 ### Require the Operations ###
+require 'genomics/operation/align_ests'
 require 'genomics/operation/rbb'
 
 module Genomics

@@ -2,45 +2,44 @@ require 'tempfile'
 
 module Genomics
   module Alignment
-    # This object handles creating BLAST queries and sending them to the command line to be run.
-    class BLAST
-      # The possible choices of scoring matricies supported by the standard BLAST distribution
-      SCORING_MATRICES = %w{BLOSUM62 BLOSUM80 BLOSUM50 BLOSUM45 BLOSUM90 PAM30 PAM70 PAM250}
-      
+    # This object handles creating BLAT queries and sending them to the command line to be run.
+    class BLAT
       # A hash matching the optional attributes to the corresponding flags for command line execution
-      OPTION_MAPPING = { database:        ->(value) { "-db #{value}"},
-                         output_file:     ->(value) { "-out #{value.path}"},
-                         e_value:         ->(value) { "-evalue #{value.to_f}" }, 
-                         out_format:      ->(value) {
+      OPTION_MAPPING = { header:                  ->(value) { "-noHead" unless value },
+                         query_type:              ->(value) { "-q #{value}"},
+                         target_type:             ->(value) { "-t #{value}"},
+                         extend_through_large_n:  ->(value) { "-extendThroughN" if value }, 
+                         out_format:              ->(value) {
                            numberCode = case value
-                           when :xml then 5
-                           when :tab then 7
-                           when :csv then 10
+                           when :tab then 'blast9'
                            else value
                            end
                            
-                           "-outfmt #{numberCode}"
+                           "-out #{numberCode}"
                          },
-                         scoring_matrix:  ->(value) { "-matrix #{value}" },
-                         allow_gaps:      ->(value) { '-ungapped -comp_based_stats F' if value },
-                         filter_query:    ->(value) { '-dust no -seg no' unless value },
-                         threads:         ->(value) { "-num_threads #{value}" }
+                         database_mask:           ->(value) { "-mask #{value}" },
+                         query_mask:              ->(value) { "-qMask #{value}" },
+                         minimum_match:           ->(value) { "-minMatch #{value}" },
+                         minimum_score:           ->(value) { "-minScore #{value}" },
+                         minimum_identity:        ->(value) { "-minIdentity #{value}" },
+                         maximum_gap:             ->(value) { "-maxGap #{value}" },
+                         title_size:              ->(value) { "-tileSize #{value}" },
+                         step_size:               ->(value) { "-stepSize #{value}" },
+                         maximum_intron_size:     ->(value) { "-maxIntron #{value}" }
                         }
       
-      attr_reader :blast_command
-      attr_accessor :database, :e_value, :out_format, :scoring_matrix, :word_size, :allow_gaps, :filter_query, :threads
+      # attr_reader :blast_command
+      attr_accessor :database, :query_type, :target_type, :header, :extend_through_large_n, :database_mask, :query_mask, 
+                    :minimum_match, :minimum_score, :minimum_identity, :maximum_gap, :tile_size, :step_size, :maximum_intron_size
+      # :threads
       
       # * *Args*    :
-      #   - +blast_command+ -> A string with the path to the BLAST program to be run or a symbol represeting a standard BLAST
-      #   algorithm assumed to be in the PATH.
       # * *Returns* :
       #   -
       # * *Raises* :
       #   - ++ ->
       #
-      def initialize(blast_command, options = {})
-        @blast_command = blast_command
-        
+      def initialize(options = {})
         options.each do |name, value|
           send("#{name}=", value)
         end
@@ -52,7 +51,7 @@ module Genomics
       #   - A File or Tempfile.
       #
       def output_file
-        @output_file ||= Tempfile.new("#{@blast_command}_out")
+        @output_file ||= Tempfile.new("blat_out")
       end
       
       # Uses the supplied File or path string to create the output file object, where the result from the alignment will be
@@ -67,14 +66,12 @@ module Genomics
         @output_file = File.new(new_output_file.respond_to?(:path) ? new_output_file.path : new_output_file.to_s, 'w')
       end
       
-      # Runs the BLAST instance against the query provided returning a file to the results of the alignment. 
+      # Runs the BLAT instance against the query provided returning a file to the results of the alignment. 
       #
       # * *Args*    :
       #   - +query+ -> A String or File.  The former can be an explicit query sequence to be used or the path to a file.
       # * *Returns* :
-      #   - A Tempfile object containing the result of the BLAST alignment.
-      # * *Raises* :
-      #   - ++ ->
+      #   - A Tempfile object containing the result of the BLAT alignment.
       #
       def run(query, options = {})
         options = { verbose: false }.merge(options)
@@ -84,7 +81,7 @@ module Genomics
         when File.exists?(query) then query
         else
           # Write the query to a file.
-          tempfile = Tempfile.new("#{@blast_command}_query")
+          tempfile = Tempfile.new("blast_query")
           tempfile.puts ">Query"
           tempfile.puts query
           tempfile.close
@@ -109,9 +106,9 @@ module Genomics
         # * *Returns* :
         #   - A boolean
         #
-        def installed?(blast_command)
+        def installed?
           begin
-            CommandLine.run("#{blast_command} -version") { |f| f.read }
+            CommandLine.run('blat') { |f| f.read }
             true
           rescue
             false
@@ -134,7 +131,7 @@ module Genomics
           options << value_lambda.call(self.send(option)) if self.send(option)
         end
         
-        command = "#{@blast_command} -query #{query_path} #{options.compact.join(" ")}"
+        command = "blat #{database} #{query_path} #{output_file.path} #{options.compact.join(" ")}"
       end
     end
   end
