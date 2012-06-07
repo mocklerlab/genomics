@@ -4,7 +4,8 @@ module Genomics
     # TODO: Expand with more details
     class BLASTFormat < FlatFileFormat
       
-      # Iterates through each of the Hits in the file yield each successively to the block. 
+      # Iterates through each of the Hits in the file yielding each successively to the block. 
+      #
       # * *Options*
       #   - +sort+ -> A boolean specifying whether or not to sort the hits for each query (Default false).
       #   - +subject_regex+ -> A RegEx used to reduce the subject name of the hit to a substring of the value in the file.  This is
@@ -16,10 +17,8 @@ module Genomics
         unless @format == :xml
           super do |row|
             # Parse out the name of the subject if instructed
-            subject = if options[:subject_regex] && row[1].match(options[:subject_regex]) then $~.to_s
-            else
-              row[1]
-            end
+            subject = row[1]
+            subject = $~.to_s if options[:subject_regex] && subject.match(options[:subject_regex])
             
             # Pull out the attribute values from the row
             attributes = { query:                row[0],
@@ -255,31 +254,31 @@ module Genomics
       # * *Returns* :
       #   - A collection of the individual BLAST::Hit objects parsed in the file or a multi-dimensional Hash.
       # #TODO Deprecated
-      def entries(options = {})
-        options = { aggregate: false, sort: false, transpose: false }.merge(options)
-        
-        # Get the hits
-        hits = []
-        each { |hit| hits << hit }
-        
-        # Transpose the hits if selected
-        hits.map!(&:transpose!) if options[:transpose]
-        
-        # Sort the hits if selected
-        hits.sort! if options[:sort]
-
-        return hits unless options[:aggregate]
-
-        # Group the hits based on the specifics of what was matched.
-        aggregated_hits = {}
-        hits.each do |hit|
-          aggregated_hits[hit.query] ||= {}
-          aggregated_hits[hit.query][hit.subject] ||= []
-          aggregated_hits[hit.query][hit.subject] << hit
-        end
-        
-        aggregated_hits
-      end
+      # def entries(options = {})
+      #   options = { aggregate: false, sort: false, transpose: false }.merge(options)
+      #   
+      #   # Get the hits
+      #   hits = []
+      #   each { |hit| hits << hit }
+      #   
+      #   # Transpose the hits if selected
+      #   hits.map!(&:transpose!) if options[:transpose]
+      #   
+      #   # Sort the hits if selected
+      #   hits.sort! if options[:sort]
+      # 
+      #   return hits unless options[:aggregate]
+      # 
+      #   # Group the hits based on the specifics of what was matched.
+      #   aggregated_hits = {}
+      #   hits.each do |hit|
+      #     aggregated_hits[hit.query] ||= {}
+      #     aggregated_hits[hit.query][hit.subject] ||= []
+      #     aggregated_hits[hit.query][hit.subject] << hit
+      #   end
+      #   
+      #   aggregated_hits
+      # end
       
       # Writes the entries to the IO stream.
       #

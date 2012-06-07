@@ -31,7 +31,7 @@ module Genomics
           # Parse the file to get all of the alignment hits
           aggregated_hits = []
           IO::BLASTFormat.open(filename) do |f|
-            aggregated_hits = f.entries(aggregate: true)
+            # aggregated_hits = f.entries(aggregate: true)
           end
           
           # Create the list of hits to be converted into single entries based on query, subject, strand, and separation

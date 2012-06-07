@@ -6,8 +6,8 @@ module Genomics
     class BLAT
       # A hash matching the optional attributes to the corresponding flags for command line execution
       OPTION_MAPPING = { header:                  ->(value) { "-noHead" unless value },
-                         query_type:              ->(value) { "-q #{value}"},
-                         target_type:             ->(value) { "-t #{value}"},
+                         query_type:              ->(value) { "-q=#{value}"},
+                         target_type:             ->(value) { "-t=#{value}"},
                          extend_through_large_n:  ->(value) { "-extendThroughN" if value }, 
                          out_format:              ->(value) {
                            numberCode = case value
@@ -15,21 +15,20 @@ module Genomics
                            else value
                            end
                            
-                           "-out #{numberCode}"
+                           "-out=#{numberCode}"
                          },
-                         database_mask:           ->(value) { "-mask #{value}" },
-                         query_mask:              ->(value) { "-qMask #{value}" },
-                         minimum_match:           ->(value) { "-minMatch #{value}" },
-                         minimum_score:           ->(value) { "-minScore #{value}" },
-                         minimum_identity:        ->(value) { "-minIdentity #{value}" },
-                         maximum_gap:             ->(value) { "-maxGap #{value}" },
-                         title_size:              ->(value) { "-tileSize #{value}" },
-                         step_size:               ->(value) { "-stepSize #{value}" },
-                         maximum_intron_size:     ->(value) { "-maxIntron #{value}" }
+                         database_mask:           ->(value) { "-mask=#{value}" },
+                         query_mask:              ->(value) { "-qMask=#{value}" },
+                         minimum_match:           ->(value) { "-minMatch=#{value}" },
+                         minimum_score:           ->(value) { "-minScore=#{value}" },
+                         minimum_identity:        ->(value) { "-minIdentity=#{value}" },
+                         maximum_gap:             ->(value) { "-maxGap=#{value}" },
+                         tile_size:               ->(value) { "-tileSize=#{value}" },
+                         step_size:               ->(value) { "-stepSize=#{value}" },
+                         maximum_intron_size:     ->(value) { "-maxIntron=#{value}" }
                         }
       
-      # attr_reader :blast_command
-      attr_accessor :database, :query_type, :target_type, :header, :extend_through_large_n, :database_mask, :query_mask, 
+      attr_accessor :database, :query_type, :target_type, :out_format, :header, :extend_through_large_n, :database_mask, :query_mask, 
                     :minimum_match, :minimum_score, :minimum_identity, :maximum_gap, :tile_size, :step_size, :maximum_intron_size
       # :threads
       

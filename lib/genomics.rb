@@ -29,6 +29,8 @@ require 'genomics/io/blast/hit'
 
 # Require GFF data sctructures
 require 'genomics/io/gff/entry'
+require 'genomics/io/gff/feature'
+require 'genomics/io/gff/region'
 
 ### Require the Operations ###
 require 'genomics/operation/align_ests'

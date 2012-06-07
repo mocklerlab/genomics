@@ -9,7 +9,8 @@ module Genomics
       class Entry
         VALID_STRANDS = %w{+ - .}
     
-        attr_accessor :seqid, :source, :type, :score, :strand, :phase, :attributes
+        attr_accessor :seqid, :source, :type, :score, :strand, :phase, 
+                      :id, :attributes
         attr_reader :regions
   
         # Creates a new object from the supplied attributes.
@@ -18,6 +19,7 @@ module Genomics
         #   - +seqid+ -> The id of the landmark used to establish the coordinate system for the entry.
         #   - +source+ -> The algorithm or operating procedure used to generate the entry.
         #   - +type+ -> The term from the sequence ontology that defines the nature of the record.
+        #   - +attributes+ ->
         # * *Raises* :
         #   - +ArgumentError+ -> If any of the *seqid*, *source*, or *type* attributes are missing.
         #
@@ -86,6 +88,17 @@ module Genomics
         def strand=(new_strand)
           raise ArgumentError, "The strand provided is not valid." unless VALID_STRANDS.include?(new_strand)
           @strand = new_strand
+        end
+    
+        # Sets the type ensuring that it is a valid symbol.
+        #
+        # * *Args*    :
+        #   - +new_type+ -> A String os symbol specifying the type attribute
+        # * *Returns* :
+        #   - A symbol representing the new attribute value.
+        #
+        def type=(new_type)
+          @type = new_type.to_sym
         end
     
         # Returns true if the entry is oriented on the same strand as the landmark sequence.

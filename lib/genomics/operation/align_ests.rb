@@ -37,7 +37,7 @@ module Genomics
         #
         def generate_alignment(est_file, genome_file, options = {})
           options = { blat_path: :blat, blat_options: {} }.merge(options)
-          options[:blat_options] = { e_value: 0.00001 }.merge(options[:blat_options])
+          options[:blat_options] = { }.merge(options[:blat_options])
           options[:blat_options][:out_format] = :tab
           options[:blat_options][:database] = genome_file
           

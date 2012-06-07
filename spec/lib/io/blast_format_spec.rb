@@ -149,51 +149,51 @@ module Genomics
             end
           end
           
-          context 'with the :sort option' do
-            it "should return an Array of Hits sorted by bit score" do
-              entries = blast_format.entries(sort: true)
-              last_bit_score = entries.first.bit_score
-              entries.each do |entry|
-                entry.bit_score.should be <= last_bit_score
-                last_bit_score = entry.bit_score
-              end
-            end
-          end
-          
-          context 'with the :aggregate option' do
-            it "should return a Hash of Hits" do
-              blast_format.entries(aggregate: true).should be_an(Hash)
-              blast_format.entries(aggregate: true).each do |query, subject_hash|
-                query.should be_a(String)
-                subject_hash.each do |subject, hits|
-                  subject.should be_a(string)
-                  hits.first.should be_a(BLAT::Hit)
-                end
-              end
-            end
-            
-            context 'with the :sort option' do
-              it "should return a Hash of sorted Hits" do
-                entries = blast_format.entries(aggregate: true, sort: true)
-                entries.each do |query, subjects|
-                  last_bit_score = subjects.values.first.first.bit_score
-
-                  subjects.each do |subject, hits|
-                    # Ensure that the subjects are inserted based on their maximal bit scores
-                    last_hit_bit_score = hits.first.bit_score
-                    last_hit_bit_score.should be <= last_bit_score
-                    last_bit_score = last_hit_bit_score
-
-                    # Check that the hits are sorted
-                    hits.each do |hit|
-                      hit.bit_score.should be <= last_hit_bit_score
-                      last_hit_bit_score = hit.bit_score
-                    end
-                  end
-                end
-              end
-            end
-          end
+          # context 'with the :sort option' do
+          #   it "should return an Array of Hits sorted by bit score" do
+          #     entries = blast_format.entries(sort: true)
+          #     last_bit_score = entries.first.bit_score
+          #     entries.each do |entry|
+          #       entry.bit_score.should be <= last_bit_score
+          #       last_bit_score = entry.bit_score
+          #     end
+          #   end
+          # end
+          # 
+          # context 'with the :aggregate option' do
+          #   it "should return a Hash of Hits" do
+          #     blast_format.entries(aggregate: true).should be_an(Hash)
+          #     blast_format.entries(aggregate: true).each do |query, subject_hash|
+          #       query.should be_a(String)
+          #       subject_hash.each do |subject, hits|
+          #         subject.should be_a(string)
+          #         hits.first.should be_a(BLAT::Hit)
+          #       end
+          #     end
+          #   end
+          #   
+          #   context 'with the :sort option' do
+          #     it "should return a Hash of sorted Hits" do
+          #       entries = blast_format.entries(aggregate: true, sort: true)
+          #       entries.each do |query, subjects|
+          #         last_bit_score = subjects.values.first.first.bit_score
+          # 
+          #         subjects.each do |subject, hits|
+          #           # Ensure that the subjects are inserted based on their maximal bit scores
+          #           last_hit_bit_score = hits.first.bit_score
+          #           last_hit_bit_score.should be <= last_bit_score
+          #           last_bit_score = last_hit_bit_score
+          # 
+          #           # Check that the hits are sorted
+          #           hits.each do |hit|
+          #             hit.bit_score.should be <= last_hit_bit_score
+          #             last_hit_bit_score = hit.bit_score
+          #           end
+          #         end
+          #       end
+          #     end
+          #   end
+          # end
         end
       end
     end
