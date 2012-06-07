@@ -18,6 +18,7 @@ module Genomics
           it "should instantiate features with the correct attributes" do
             gff_format.each do |feature|
               if feature.name == 'FL8T4MU02JLNKH' 
+                debugger
                 feature.id.should eq('EST9')
                 feature.should have(2).regions
                 feature.attributes[:EValue].should eq('4.40e-19')

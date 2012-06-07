@@ -11,8 +11,6 @@ module Genomics
         attr_accessor :seqid, :source, :type, :strand, :attributes
         attr_reader :regions
   
-        alias :stop :end
-  
         # Creates a new object from the supplied attributes.
         #
         # * *Attributes*    :
@@ -25,9 +23,9 @@ module Genomics
         #
         def initialize(__attributes__ = {})
           # Ensure that the required attribues are present.
-          [:seqid, :source, :type].each do |required_attribute|
-            raise ArgumentError, "Missing attribute #{required_attribute}" unless __attributes__[required_attribute] 
-          end
+          # [:seqid, :source, :type].each do |required_attribute|
+          #   raise ArgumentError, "Missing attribute #{required_attribute}" unless __attributes__[required_attribute] 
+          # end
 
           # Set default attribtues
           __attributes__ = { strand: '.' }.merge(__attributes__)
@@ -100,6 +98,7 @@ module Genomics
         def end
           regions.min.end
         end
+        alias :stop :end
     
         # Returns the score associated with the entry.  If the entry contains regions with different scores, this returns
         # the largest value.

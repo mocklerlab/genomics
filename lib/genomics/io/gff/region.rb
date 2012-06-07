@@ -6,6 +6,10 @@ module Genomics
       class Regions
         include Enumerable
     
+        # TODO: Use method_undefined instead defering to the unerlying array.
+        alias :length :count
+        alias :size :count
+    
         def initialize(feature)
           @feature = feature
           @regions = []
@@ -24,6 +28,15 @@ module Genomics
           sorted_regions.reverse if options[:strand_order] && @feature.reverse_strand?
           
           sorted_regions.each { |region| yield region }
+        end
+        
+        # Returns the last object under the default ordering.
+        #
+        # * *Returns* :
+        #   - A Region
+        #
+        def last
+          @regions.sort.last
         end
     
         # Creates a Genomics:IO:GFF:Region object using the supplied attributes and adds it to the collection.
