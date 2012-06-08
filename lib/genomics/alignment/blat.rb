@@ -3,6 +3,9 @@ require 'tempfile'
 module Genomics
   module Alignment
     # This object handles creating BLAT queries and sending them to the command line to be run.
+    #
+    # * *Options* :
+    #
     class BLAT
       # A hash matching the optional attributes to the corresponding flags for command line execution
       OPTION_MAPPING = { header:                  ->(value) { "-noHead" unless value },
@@ -28,16 +31,11 @@ module Genomics
                          maximum_intron_size:     ->(value) { "-maxIntron=#{value}" }
                         }
       
-      attr_accessor :database, :query_type, :target_type, :out_format, :header, :extend_through_large_n, :database_mask, :query_mask, 
-                    :minimum_match, :minimum_score, :minimum_identity, :maximum_gap, :tile_size, :step_size, :maximum_intron_size
+      attr_accessor :database, :query_type, :target_type, :out_format, :e_value, :header, :extend_through_large_n, :database_mask, 
+                    :query_mask, :minimum_match, :minimum_score, :minimum_identity, :maximum_gap, :tile_size, :step_size, 
+                    :maximum_intron_size
       # :threads
       
-      # * *Args*    :
-      # * *Returns* :
-      #   -
-      # * *Raises* :
-      #   - ++ ->
-      #
       def initialize(options = {})
         options.each do |name, value|
           send("#{name}=", value)

@@ -9,7 +9,8 @@ module Genomics
         # This runs the entire process of generating orthologs from two proteomes.
         #
         # * *Args*    :
-        #   - +proteomes+ -> An Array of hashes specifying the files to be used.
+        #   - +est_file+ -> A String specifying the path of the FASTA file with the EST sequences.
+        #   - +genome_file+ -> A String specifying the path of the FASTA file with the genome sequence.
         # * *Returns* :
         #   - Returns the number of orthologs identified.
         #
@@ -63,21 +64,23 @@ module Genomics
         # * *Options*  :
         #   - +threads+ -> An integer number of threads to use for the clustering (Default: 1).
         #   - +id_prefix+ -> A String that will be used as a prefix for the ID field in the resultant GFF3 file (Default: 'EST'). 
+        #   - +e_value+ -> A float specifying the minimum EValue that a hit must have in order to be clustered (Default: 1e^-5).
         # * *Returns* :
         #   - A boolean describing whether or not the transformation was successful.
         #
         def identify_est_clusters(filename, options = {})
-          options = { format: :gff3, output_file: "#{filename}.gff3", threads: 1, id_prefix: 'EST' }.merge(options)
+          options = { format: :gff3, output_file: "#{filename}.gff3", threads: 1, id_prefix: 'EST', e_value: 1e-5 }.merge(options)
           
           # Pull out all of the hits clustered by the query into an array
           query_hits = []
           IO::BLASTFormat.open(filename) do |f|
-            f.each_query { |query, hits| query_hits << hits }
+            f.each_query do |query, hits| 
+              query_hits << hits.select { |hit| hit.e_value <= options[:e_value] }
+            end
           end
           
           # Create a status bar to monitor thread process
-          num_queries = query_hits.size
-          pbar = ProgressBar.new("Converting Hits", num_queries, STDOUT)
+          pbar = ProgressBar.new("Converting Hits", query_hits.size, STDOUT)
           
           # Thread the creation of the entries from the hits
           entries = Utilities::Threader.thread(query_hits, threads: options[:threads]) do |thread_query_hits|
