@@ -95,6 +95,42 @@ module Genomics
             Feature.parse_attributes(new_attributes, except: [:ID, :Name])
           end
         end
+
+        # Sets the end position of the region converting the argument to an integer.
+        #
+        # * *Returns* :
+        #   - An integer
+        #
+        def end=(new_end)
+          @end = new_end ? new_end.to_i : nil
+        end
+        
+        # Sets the phase of the region converting the argument to an integer.
+        #
+        # * *Returns* :
+        #   - An integer
+        #
+        def phase=(new_phase)
+          @phase = new_phase ? new_phase.to_i : nil
+        end
+        
+        # Sets the score of the region converting the argument to a float.
+        #
+        # * *Returns* :
+        #   - An float
+        #
+        def score=(new_score)
+          @score = new_score ? new_score.to_f : nil
+        end
+        
+        # Sets the start position of the region converting the argument to an integer.
+        #
+        # * *Returns* :
+        #   - An integer
+        #
+        def start=(new_start)
+          @start = new_start ? new_start.to_i : nil
+        end
         
         def <=>(other)
           start <=> other.start

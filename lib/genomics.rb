@@ -8,7 +8,7 @@ require 'ox'
 
 require 'genomics/command_line'
 
-# Require the alignment module
+### Require the alignment module ###
 require 'genomics/alignment/blast'
 require 'genomics/alignment/blat'
 
@@ -32,9 +32,12 @@ require 'genomics/io/gff/entry'
 require 'genomics/io/gff/feature'
 require 'genomics/io/gff/region'
 
-### Require the Operations ###
+### Require the Operations module ###
 require 'genomics/operation/align_ests'
 require 'genomics/operation/rbb'
+
+### Require the Utilities module ###
+require 'genomics/utilities/threader'
 
 module Genomics
 end

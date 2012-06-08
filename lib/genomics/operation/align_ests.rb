@@ -79,25 +79,18 @@ module Genomics
           num_queries = query_hits.size
           pbar = ProgressBar.new("Converting Hits", num_queries, STDOUT)
           
-          # Create the number of threads specified and split up the array to be processed
-          threads = []
-          queries_for_thread = (num_queries / options[:threads].to_f).ceil
-          query_hits.each_slice(queries_for_thread) do |thread_query_hits|
-            threads << Thread.new do
-              thread_query_hits.map do |hits|
-                pbar.inc
-                
-                # Cluster the hits
-                clusters = Alignment::Aligner.cluster_hits(hits, cluster_on: :subject)
-
-                # Convert the clusters to entries
-                clusters.map { |clustered_hits| create_entry(clustered_hits) }
-              end
+          # Thread the creation of the entries from the hits
+          entries = Utilities::Threader.thread(query_hits, threads: options[:threads]) do |thread_query_hits|
+            thread_query_hits.map do |hits|
+              pbar.inc
+            
+              # Cluster the hits
+              clusters = Alignment::Aligner.cluster_hits(hits, cluster_on: :subject)
+      
+              # Convert the clusters to entries
+              clusters.map { |clustered_hits| create_entry(clustered_hits) }
             end
-          end
-          
-          # Merge all of the entries together
-          entries = threads.map(&:value).flatten
+          end.flatten
 
           # Write the file
           puts "Writing entries to file..."
