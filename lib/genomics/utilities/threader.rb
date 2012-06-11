@@ -12,10 +12,12 @@ module Genomics
         # * *Options* :
         #   - +threads+ -> An integer specifying the number of threads to use.
         # * *Returns* :
-        #   -
+        #   - An array
         #
         def thread(list, options = {})
           options = { threads: 2 }.merge(options)
+          
+          return list if list.empty?
           
           # Determine the maximum number of elements for each thread.
           elements_for_thread = (list.size / options[:threads].to_f).ceil
