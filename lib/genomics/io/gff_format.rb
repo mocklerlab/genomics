@@ -2,55 +2,63 @@ module Genomics
   module IO
     # This class acts as an IO allowing GFF3 files to be read and written.
     class GFFFormat < FlatFileFormat
-      GFF3_ID_REGEX = /ID=([A-Za-z0-9:\-_.]+);?/
-      GFF3_NAME_REGEX = /Name=([A-Za-z0-9:\-_.]+);?/
-      GFF3_PARENT_REGEX = /Parent=([A-Za-z0-9:\-_.]+);?/
       
       # Iterates through each of the Features in the file yielding each successively to the block. 
       #
       def each(options = {})
         # Initialize the previously parsed data
-        current_feature = nil
+        current_feature_hierarchy = []
         
         # Iterate through the rows
         super do |row|
-          # Get the ID
-          id = if row[8].match(GFF3_ID_REGEX)
-            $~[1]
-          else
-            warn "Missing valid GFF3 ID: #{row.join("\t")}"
-            nil
+          parsed_attributes = GFF::Feature.parse_attributes(row[8])
+          id = parsed_attributes[:ID]
+          
+          # Handle the row depending on the state of iteration
+          last_feature = nil
+          while current_feature_hierarchy.any?
+            # Get the feature at the bottom and check to see if matches the present row
+            current_feature = current_feature_hierarchy.pop
+            next unless current_feature.id
+
+            if current_feature.id == (parsed_attributes[:Parent].is_a?(Array) ? parsed_attributes[:Parent].first : parsed_attributes[:Parent])
+              last_feature = current_feature.features.create(parse_attributes(row))
+              
+              # Add both onto the hierarchy
+              current_feature_hierarchy << current_feature << last_feature
+              break
+            elsif current_feature.id == id
+              # Re-append the feature to the hierarchy
+              current_feature_hierarchy << last_feature = current_feature
+              break
+            elsif parsed_attributes[:Derives_from] && current_feature.id == parsed_attributes[:Derives_from]
+              # The feature is a special derivative instance
+              last_feature = current_feature.derivatives.create(parse_attributes(row))
+              
+              # The derivative is an offshoot, only add the feature back onto the hierarchy
+              current_feature_hierarchy << current_feature
+              break
+            elsif current_feature_hierarchy.empty?
+              # None of the nodes were matched, so the current feature has been exhausted
+              yield current_feature
+            end
           end
           
-          # Get the region specific attributes
-          region_attributes = { start: row[3], end: row[4], score: row[5], phase: row[7], attributes: row[8] }
-          
-          # Check to see if the previous row has the same ID
-          if current_feature && current_feature.id == id
-            # Add the row to the feature
-            # current_feature.regions.create(region_attributes)
-          else
-            # The feature has been completely read, so pass it to the block
-            yield current_feature if current_feature
-            
+          if current_feature_hierarchy.empty?
             ### Instantiate the next Feature ###
-            
+          
             # Pull out the attribute and create the object
-            attributes = { seqid:       row[0],
-                           source:      row[1],
-                           type:        row[2],
-                           strand:      row[6],
-                           attributes:  row[8]
-                         }
-            current_feature = GFF::Feature.new(attributes)
+            current_feature_hierarchy << last_feature = GFF::Feature.new(parse_attributes(row))          
           end
           
-          # Add the region
-          current_feature.regions.create(region_attributes)
+          # Add the region to the feature created by this row
+          region_attributes = { start: row[3], end: row[4], score: row[5], phase: row[7], attributes: parsed_attributes }
+          last_feature.regions.create(region_attributes)
+          last_feature = nil
         end
         
         # Yield the last feature
-        yield current_feature if current_feature
+        yield current_feature_hierarchy.first if current_feature_hierarchy.any?
       end
       
       # Writes the entries to the IO stream.  In order to maintain a valid gff3 file, it ensures that unique IDs are assigned to
@@ -81,6 +89,19 @@ module Genomics
       def puts_header
         @io.puts '##gff-version 3'
       end
+      
+      private
+      
+      # Returns an attributes hash derived from the row.
+      #
+      def parse_attributes(row)
+        { seqid:       row[0],
+          source:      row[1],
+          type:        row[2],
+          strand:      row[6],
+          attributes:  row[8] }
+      end
+      
     end
   end
 end

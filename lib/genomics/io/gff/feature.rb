@@ -3,13 +3,66 @@ require 'stringio'
 module Genomics
   module IO
     module GFF
-      # Genomics::IO::GFF::Featrue represents a single feature in a GFF file.  This entry can consist of more than one
+      # Genomics::IO::GFF::Features extends enumerable to provide custom accessor functions for manipulating the child features of a
+      # Feature.
+      class Features
+        include Enumerable
+    
+        # TODO: Use method_undefined instead defering to the unerlying array.
+        alias :length :count
+        alias :size :count
+    
+        def initialize(feature)
+          @feature = feature
+          @features = []
+        end
+        
+        # Iterates through each of the Features increaing in position.
+        #
+        # * *Options*   :
+        #   - +strand_order+ -> A boolean that indicates whether the order should account for the strand the feature is on (Default: false). 
+        #
+        def each(options = {})
+          options = { strand_order: false }.merge(options)
+          
+          # Sort the regions
+          sorted_features = @features.sort
+          sorted_features.reverse if options[:strand_order] && @feature.reverse_strand?
+          
+          sorted_features.each { |feature| yield feature }
+        end
+        
+        # Returns the last object under the default ordering.
+        #
+        # * *Returns* :
+        #   - A Feature
+        #
+        def last
+          @features.sort.last
+        end
+    
+        # Creates a Genomics:IO:GFF:FEature object using the supplied attributes and adds it to the collection.
+        #
+        # * *Attributes*    :
+        #   - +start+ -> An integer specifying the position where the region begins.
+        #   - +end+ -> An integer specifying the position where the region stops.
+        # * *Returns* :
+        #   - Genomics::IO:GFF:Feature
+        #
+        def create(attributes = {})
+          @features << Feature.new(attributes)
+          @features.last
+        end
+  
+      end
+      
+      # Genomics::IO::GFF::Feature represents a single feature in a GFF file.  This entry can consist of more than one
       # line, but all of the line are grouped together via so structure as reflected in the ID(s).
       class Feature
         VALID_STRANDS = %w{+ - . ?}
     
         attr_accessor :seqid, :source, :type, :strand, :attributes
-        attr_reader :regions
+        attr_reader :features, :regions, :derivatives
   
         # Creates a new object from the supplied attributes.
         #
@@ -36,7 +89,9 @@ module Genomics
       
           # Create the regions object that holds the specifics of the sequence positioning.
           @regions = Regions.new(self)
-
+          @features = Features.new(self)
+          @derivatives = Features.new(self)
+          
           @regions.create(start: start, end: stop) if start && stop
     
           __attributes__.each do |name, value|
@@ -58,10 +113,17 @@ module Genomics
         # * *Returns* :
         #   - The new attributes Hash
         def attributes=(new_attributes)
+          acceptable_attributes = [:ID, :Name, :Note, :Alias]
           @attributes = if new_attributes.is_a?(Hash)
-            new_attribtues
+            # Pull out the acceptable attributes
+            detected_attributes = {}
+            acceptable_attributes.each do |attribute|
+              detected_attributes[attribute] = new_attributes[attribute] if new_attributes[attribute]
+            end
+            
+            acceptable_attributes
           else
-            Feature.parse_attributes(new_attributes, only: [:ID, :Name])
+            Feature.parse_attributes(new_attributes, only: acceptable_attributes)
           end
         end
     

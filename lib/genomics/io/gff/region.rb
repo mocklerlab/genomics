@@ -1,7 +1,7 @@
 module Genomics
   module IO
     module GFF
-      # Genomics::IO::GFF::EntryRegions extends enumerable to provide custom accessor functions for manipulating the regions of a
+      # Genomics::IO::GFF::Regions extends enumerable to provide custom accessor functions for manipulating the regions of a
       # GFF::Feature.
       class Regions
         include Enumerable
@@ -90,7 +90,10 @@ module Genomics
         #   - The new attributes Hash
         def attributes=(new_attributes)
           @attributes = if new_attributes.is_a?(Hash)
-            new_attribtues
+            cloned_attributes = new_attributes.clone
+            cloned_attributes.delete(:ID)
+            cloned_attributes.delete(:Name)
+            cloned_attributes
           else
             Feature.parse_attributes(new_attributes, except: [:ID, :Name])
           end
