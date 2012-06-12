@@ -108,6 +108,15 @@ module Genomics
           @end = new_end ? new_end.to_i : nil
         end
         
+        # Returns the length of the region.
+        #
+        # * *Returns* :
+        #   - An integer
+        #
+        def length
+          @stop - @start + 1
+        end
+        
         # Sets the phase of the region converting the argument to an integer.
         #
         # * *Returns* :
