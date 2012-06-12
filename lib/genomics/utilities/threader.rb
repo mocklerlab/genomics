@@ -14,7 +14,7 @@ module Genomics
         # * *Returns* :
         #   - An array
         #
-        def thread(list, options = {})
+        def thread(list, options = {}, &action)
           options = { threads: 2 }.merge(options)
           
           return list if list.empty?
@@ -25,11 +25,25 @@ module Genomics
           # Create the threads and yeild to the block
           threads = []
           list.each_slice(elements_for_thread) do |sub_list|
-            threads << Thread.new { yield sub_list }
+            threads << create_thread(list, action)
           end
           
           # Collected all of the results from the threads and join
           threads.map(&:value)
+        end
+        
+        private
+        
+        # Creates a thread for the list and uses it to execute the supplied block on the given given list.
+        #
+        # * *Args*    :
+        #   - +list+ -> The list to have the thread operate on.
+        #   - +action+ -> A block to be invoked on the list.
+        # * *Returns* :
+        #   - The Thread
+        #
+        def create_thread(list, action)
+          Thread.new { action.call(list) }
         end
       end
     end

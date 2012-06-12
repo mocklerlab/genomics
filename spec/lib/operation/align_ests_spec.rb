@@ -19,13 +19,10 @@ module Genomics
         it "should assign IDs and names to the entries" do
           AlignESTs.identify_est_clusters(results_file)
           
-          File.open("#{results_file}.gff3") do |f|
-            f.each_line do |line|
-              next if line =~ /^#/
-              values = line.split("\t")
-        
-              values[8].should match(IO::GFFFormat::GFF3_ID_REGEX)
-              values[8].should match(IO::GFFFormat::GFF3_NAME_REGEX)
+          IO::GFFFormat.open("#{results_file}.gff3") do |f|
+            f.each do |feature|
+              feature.name.should_not be_nil
+              feature.id.should_not be_nil
             end
           end
           
