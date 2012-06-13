@@ -114,7 +114,7 @@ module Genomics
         #   - An integer
         #
         def length
-          @stop - @start + 1
+          @end - @start + 1
         end
         
         # Sets the phase of the region converting the argument to an integer.

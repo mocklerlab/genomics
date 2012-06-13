@@ -25,7 +25,7 @@ module Genomics
           # Create the threads and yeild to the block
           threads = []
           list.each_slice(elements_for_thread) do |sub_list|
-            threads << create_thread(list, action)
+            threads << create_thread(sub_list, action)
           end
           
           # Collected all of the results from the threads and join
