@@ -44,6 +44,7 @@ module Genomics
 
             it "should have entries with features" do
               gff_format.each do |feature|
+                debugger
                 if feature.name == "AT1G01020"
                   feature.should have(2).features
                 end

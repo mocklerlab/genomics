@@ -49,14 +49,8 @@ module Genomics
         #   - The newly created Genomics::IO:GFF:EntryRegion object.
         #
         def create(attributes = {})
-          # Ensure that positions are always increasing.
-          positions = [attributes.delete(:start), attributes.delete(:end)]
-          # TODO: Figure out if this is necessary, maybe legacy?
-          positions.sort! if @feature.strand != '.'
-          start, stop = positions
-      
           # Add the region
-          @regions << Region.new(attributes.merge(start: start, end: stop))
+          @regions << Region.new(attributes)
       
           @regions.last
         end
@@ -73,7 +67,7 @@ module Genomics
     
         # * *Attributes*    :
         #   - +start+ -> The position on the landmark sequence where the region starts.
-        #   - +end+ -> The positio on the landmark sequence where the region ends.
+        #   - +end+ -> The position on the landmark sequence where the region ends.
         #   - +score+ -> A numeric value representing the score of the sequence, which is typically uses for regions generated via alignments.
         #   - +phase+ -> A intger indicate the number of bases that need to be removed from the beginning of this region to reach the next codon.
         def initialize(__attributes__ = {})
