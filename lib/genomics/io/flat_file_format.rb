@@ -15,7 +15,7 @@ module Genomics
         def open(filename, options = {})
           # Pull out the optional IO options
           args = [options.delete(:mode), options.delete(:opt)].compact
-          
+
           if block_given?
             # Open the file using the block analogous to opening a standard file.
             File.open(filename, *args) do |f|

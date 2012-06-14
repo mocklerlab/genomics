@@ -66,21 +66,21 @@ module Genomics
       # order by increasing seqid and then start position along it.
       #
       # * *Args*    :
-      #   - +objects+ -> The Genomic::IO:GFF:Entry objects to be written successively to the stream.
+      #   - +features+ -> The Genomic::IO:GFF:Feature objects to be written successively to the stream.
       #
-      def puts(entries, options = {})
+      def puts(features, options = {})
         options = { progress_bar: false, id_prefix: '' }.merge(options)
-        entries = [entries] unless entries.is_a?(Array)
+        features = [features] unless features.is_a?(Array)
         
         # Create the progress bar
-        pbar = ProgressBar.new("Writing #{Pathname.new(@io.path).basename}", entries.size, STDOUT) if options[:progress_bar]
+        pbar = ProgressBar.new("Writing #{Pathname.new(@io.path).basename}", features.size, STDOUT) if options[:progress_bar]
         
         @last_id ||= 0
-        entries.sort.each do |entry|
+        features.sort.each do |feature|
           pbar.inc if options[:progress_bar]
           
-          entry.attributes["ID"] ||= "#{options[:id_prefix]}#{@last_id += 1}"
-          @io.puts entry.to_gff
+          feature.id ||= "#{options[:id_prefix]}#{@last_id += 1}"
+          @io.puts feature.to_gff
         end
       end
       

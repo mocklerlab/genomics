@@ -25,8 +25,8 @@ module Genomics
           
           # Sort the regions
           sorted_regions = @regions.sort
-          sorted_regions.reverse if options[:strand_order] && @feature.reverse_strand?
-          
+          sorted_regions.reverse! if options[:strand_order] && @feature.reverse_strand?
+
           sorted_regions.each { |region| yield region }
         end
         
@@ -54,7 +54,7 @@ module Genomics
       
           @regions.last
         end
-  
+        
       end
   
       # Represents a contiguous part of the Feature, which is taken to be on the same strand as the wrapping feature.
@@ -117,7 +117,7 @@ module Genomics
         #   - An integer
         #
         def phase=(new_phase)
-          @phase = new_phase ? new_phase.to_i : nil
+          @phase = new_phase && new_phase != '.' ? new_phase.to_i : nil
         end
         
         # Sets the score of the region converting the argument to a float.
@@ -126,7 +126,7 @@ module Genomics
         #   - An float
         #
         def score=(new_score)
-          @score = new_score ? new_score.to_f : nil
+          @score = new_score && new_score != '.' ? new_score.to_f : nil
         end
         
         # Sets the start position of the region converting the argument to an integer.

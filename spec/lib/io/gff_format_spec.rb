@@ -60,6 +60,18 @@ module Genomics
             end
           end
         end
+        
+        describe '#puts' do
+          let(:gff_format) { GFFFormat.open(genome_file_path) }
+          
+          it "should write entries in valid gff3 format" do
+            GFFFormat.open('test.gff3', mode: 'w') do |f|
+              gff_format.each do |feature|
+                f.puts feature
+              end
+            end
+          end
+        end
       end
     end
     

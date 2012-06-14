@@ -27,7 +27,7 @@ module Genomics
           
           # Sort the regions
           sorted_features = @features.sort
-          sorted_features.reverse if options[:strand_order] && @feature.reverse_strand?
+          sorted_features.reverse! if options[:strand_order] && @feature.reverse_strand?
           
           sorted_features.each { |feature| yield feature }
         end
@@ -103,7 +103,11 @@ module Genomics
           seqid_sort = @seqid <=> other.seqid
           return seqid_sort if seqid_sort != 0
 
-          start <=> other.start
+          start_sort = start <=> other.start
+          return start_sort if start_sort != 0
+          
+          type_order = [:exon, :CDS, :five_prime_UTR, :three_prime_UTR]
+          type_order.index(type) <=> type_order.index(other.type)
         end
     
         # Sets the attributes.
@@ -136,6 +140,15 @@ module Genomics
           @attributes[:ID]
         end
         
+        # Allows the ID attribute to be directly set.
+        #
+        # * *Returns* :
+        #   - A string
+        #
+        def id=(new_id)
+          @attributes[:ID] = new_id
+        end
+        
         # Returns the Name of the feature.
         #
         # * *Returns* :
@@ -143,6 +156,15 @@ module Genomics
         #
         def name
           @attributes[:Name]
+        end
+        
+        # Allows the Name attribute to be directly set.
+        #
+        # * *Returns* :
+        #   - A string
+        #
+        def name=(new_name)
+          @attributes[:Name] = new_name
         end
     
         # Returns the start position.
@@ -214,21 +236,55 @@ module Genomics
         def to_gff
           gff_string = StringIO.new
       
-          case type
-          when :match, :EST_match
-            # The entry is due to an alignment.  All of the regions will be printed as part of one discontiguous entry.
-            common_values = "#{seqid}\t#{source}\t#{type}"
-            @regions.sort.each do |region|
-              segment_attributes = sort_attributes(region.attributes.merge(attributes))
-              segment_attributes.map! { |attribute, value| "#{attribute}=#{value}"}
-              gff_string.puts "#{common_values}\t#{region.start}\t#{region.stop}\t#{region.score}\t#{strand}\t#{phase}\t#{segment_attributes.join(";")}"
-            end
+          # Print each region as a seperate line united by a common ID
+          common_values = "#{seqid}\t#{source}\t#{type}"
+          @regions.each(strand_order: true) do |region|
+            region_attributes = Feature.encode_attributes(region.attributes.merge(attributes))
+            gff_string.puts "#{common_values}\t#{region.start}\t#{region.stop}\t#{region.score || '.'}\t#{strand}\t#{region.phase || '.'}\t#{region_attributes}"
           end
-      
+
+          # Printe derivatives recursively
+          @derivatives.each(strand_order: true) do |feature|
+            gff_string.puts feature.to_gff
+          end
+          
+          # Print features recursively
+          @features.each(strand_order: true) do |feature|
+            gff_string.puts feature.to_gff
+          end
+          
           gff_string.string
         end
     
         class << self
+          
+          # Takes a hash of attribtues and encodes them properly for injection into a GFF3 file.
+          #
+          # * *Args*    :
+          #   - +attributes+ -> A hash of attributes to be written as a string
+          # * *Returns* :
+          #   - A string
+          #
+          def encode_attributes(attributes)
+            # Encode the GFF special characters
+            encoded_attributes = {}
+            attributes.each do |attribute, value|
+              # The value could possibly be an array, so convert everything to an array
+              values = !value.is_a?(Array) ? [value] : value
+              values.map! do |value|
+                value.gsub(/[=;,\t]/) do |match|
+                  { '=' => '%3D', ';' => '%3B', ',' => '%2C', "\t" => '%09'}[match.to_s]
+                end
+              end.join(',')
+
+              encoded_attributes[attribute] = values.join(',')
+            end
+
+            # Join key/value pairs and then concatenate
+            sort_attributes(encoded_attributes).map do |(name, value)|
+              "#{name}=#{value}"
+            end.join(';')
+          end
           
           # Takes a GFF attribute string and converts it into a hash, properly accounting for special characters and encodings.
           #
@@ -275,23 +331,26 @@ module Genomics
             
             attributes_hash
           end
-        end
-    
-        private
-    
-        # Sorts the attributes hash into the correct order for printing.
-        # TODO: Slow and inefficient
-        def sort_attributes(attributes_hash)
-          attributes_order = %w{ID Name * Target Gap}
-      
-          attributes_hash.sort do |(a_key, a_value), (b_key, b_value)|
-            # Reduce each of the attribute pairs to their correct index in the order
-            a_key_val = attributes_order.include?(a_key) ? a_key : '*'
-            b_key_val = attributes_order.include?(b_key) ? b_key : '*'
-        
-            index_sort = attributes_order.index(a_key_val) <=> attributes_order.index(b_key_val)
-        
-            index_sort == 0 ? a_key_val <=> b_key_val : index_sort
+          
+          private
+          
+          # Sorts the attributes hash into the correct order for printing.
+          # TODO: Slow and inefficient
+          def sort_attributes(attributes_hash)
+            attributes_order = %w{ID Name * Target Gap}
+
+            attributes_hash.sort do |(a_key, a_value), (b_key, b_value)|
+              a_key = a_key.to_s
+              b_key = b_key.to_s
+              
+              # Reduce each of the attribute pairs to their correct index in the order
+              a_key_val = attributes_order.include?(a_key) ? a_key : '*'
+              b_key_val = attributes_order.include?(b_key) ? b_key : '*'
+
+              index_sort = attributes_order.index(a_key_val) <=> attributes_order.index(b_key_val)
+
+              index_sort == 0 ? a_key_val <=> b_key_val : index_sort
+            end
           end
         end
   
