@@ -71,6 +71,8 @@ module Genomics
         #   - +score+ -> A numeric value representing the score of the sequence, which is typically uses for regions generated via alignments.
         #   - +phase+ -> A intger indicate the number of bases that need to be removed from the beginning of this region to reach the next codon.
         def initialize(__attributes__ = {})
+          @attributes = {}
+          
           __attributes__.each do |name, value|
             send("#{name}=", value)
           end

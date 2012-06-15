@@ -107,7 +107,7 @@ module Genomics
           return start_sort if start_sort != 0
           
           type_order = [:exon, :CDS, :five_prime_UTR, :three_prime_UTR]
-          type_order.index(type) <=> type_order.index(other.type)
+          (type_order.index(type) || type_order.length) <=> (type_order.index(other.type) || type_order.length)
         end
     
         # Sets the attributes.
@@ -122,10 +122,10 @@ module Genomics
             # Pull out the acceptable attributes
             detected_attributes = {}
             acceptable_attributes.each do |attribute|
-              detected_attributes[attribute] = new_attributes[attribute] if new_attributes[attribute]
+              detected_attributes[attribute.to_sym] = new_attributes[attribute] if new_attributes[attribute]
             end
             
-            acceptable_attributes
+            detected_attributes
           else
             Feature.parse_attributes(new_attributes, only: acceptable_attributes)
           end
