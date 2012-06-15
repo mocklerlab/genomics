@@ -75,11 +75,14 @@ module Genomics
         #   - +ArgumentError+ -> If any of the *seqid*, *source*, or *type* attributes are missing.
         #
         def initialize(__attributes__ = {})
+          # TODO: This was causing problems when features got serialized to a db, since null features were being instantiated
           # Ensure that the required attribues are present.
           # [:seqid, :source, :type].each do |required_attribute|
           #   raise ArgumentError, "Missing attribute #{required_attribute}" unless __attributes__[required_attribute] 
           # end
-
+          
+          @attributes = {}
+          
           # Set default attribtues
           __attributes__ = { strand: '.' }.merge(__attributes__)
 
@@ -119,10 +122,13 @@ module Genomics
         def attributes=(new_attributes)
           acceptable_attributes = [:ID, :Name, :Note, :Alias]
           @attributes = if new_attributes.is_a?(Hash)
+            # Symbolify the keys in the hash
+            symbolized_attributes = Hash[new_attributes.map { |(attribute, value)| [attribute.to_sym, value] }]
+            
             # Pull out the acceptable attributes
             detected_attributes = {}
             acceptable_attributes.each do |attribute|
-              detected_attributes[attribute.to_sym] = new_attributes[attribute] if new_attributes[attribute]
+              detected_attributes[attribute] = symbolized_attributes[attribute] if symbolized_attributes[attribute]
             end
             
             detected_attributes
@@ -272,7 +278,7 @@ module Genomics
               # The value could possibly be an array, so convert everything to an array
               values = !value.is_a?(Array) ? [value] : value
               values.map! do |value|
-                value.gsub(/[=;,\t]/) do |match|
+                value.to_s.gsub(/[=;,\t]/) do |match|
                   { '=' => '%3D', ';' => '%3B', ',' => '%2C', "\t" => '%09'}[match.to_s]
                 end
               end.join(',')

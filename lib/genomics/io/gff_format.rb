@@ -78,8 +78,8 @@ module Genomics
         @last_id ||= 0
         features.sort.each do |feature|
           pbar.inc if options[:progress_bar]
-          
-          feature.id ||= "#{options[:id_prefix]}#{@last_id += 1}"
+
+          feature.attributes[:ID] = "#{options[:id_prefix]}#{@last_id += 1}"
           @io.puts feature.to_gff
         end
       end

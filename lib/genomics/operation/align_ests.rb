@@ -91,7 +91,7 @@ module Genomics
               clusters = Alignment::Aligner.cluster_hits(hits, cluster_on: :subject)
       
               # Convert the clusters to entries
-              clusters.map { |clustered_hits| create_entry(clustered_hits) }
+              clusters.map { |clustered_hits| create_feature(clustered_hits) }
             end
           end.flatten
 
@@ -112,25 +112,25 @@ module Genomics
         # * *Args*    :
         #   - +hit_clusters+ -> An array of BLAST::Hits to source the entry.
         # * *Returns* :
-        #   - A GFF::Entry representing the collection of hits.
+        #   - A GFF::Feature representing the collection of hits.
         #
-        def create_entry(hits)
+        def create_feature(hits)
           # Initialize the entry
           query, subject = hits.first.query, hits.first.subject
-          entry = IO::GFF::Entry.new(seqid: subject, source: 'BLATN', type: :EST_match, attributes: { 'Name' => query })
+          feature = IO::GFF::Feature.new(seqid: subject, source: 'BLATN', type: :EST_match, attributes: { 'Name' => query })
 
           # Determine the orientation based on the query start/end positions
-          entry.strand = hits.first.subject_start < hits.first.subject_end ? '+' : '-'
+          feature.strand = hits.first.subject_start < hits.first.subject_end ? '+' : '-'
 
           # Add each of the hits to the entry
           hits.each do |hit|
-            entry.regions.create(start: hit.subject_start, 
+            feature.regions.create(start: hit.subject_start, 
                                  end: hit.subject_end, 
                                  score: hit.bit_score, 
                                  attributes: { 'EValue' => hit.e_value, 'Target' => "#{query} #{hit.query_start} #{hit.query_end}" })
           end
         
-          entry
+          feature
         end
         
       end
