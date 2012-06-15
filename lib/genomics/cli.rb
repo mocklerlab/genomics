@@ -1,6 +1,8 @@
 require 'thor'
 require 'genomics'
 
+require 'genomics/generators/test'
+
 module Genomics
   class CLI < Thor
     desc "identify", "Identifies the reciprocally best alignments between the supplied files."

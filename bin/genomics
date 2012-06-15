@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
 require 'genomics/cli'
-require 'genomics/ests'
 
 Genomics::CLI.start
-Genomics::Ests.start
