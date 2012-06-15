@@ -1,10 +1,9 @@
 require 'thor'
 require 'genomics'
 
-require 'genomics/generators/test'
-
 module Genomics
   class CLI < Thor
+    
     desc "identify", "Identifies the reciprocally best alignments between the supplied files."
     method_option :files, type: :array, required: true, aliases: '-f'
     method_option :output, type: :string, aliases: '-o'
@@ -13,7 +12,7 @@ module Genomics
       command_options[:output_file] = options[:output] if options[:output]
       puts "#{Genomics::Operation::RBB.identify_orthologs(options[:files], command_options)} Reciprocal Best Alignments Identified"
     end
-  
+      
     desc "rbb", "Identifies putative orthologs between proteomes, which are reciprocal best blasts of each other."
     method_option :protein_files, type: :array, required: true, aliases: '-p'
     method_option :database_files, type: :array, required: true, aliases: '-d'
@@ -40,15 +39,31 @@ module Genomics
       puts "BLASTX GFF3 successfully created." if Genomics::Alignment::BLASTX.transform(options[:input])
     end
     
+    ### EST Commands ###
+    
     desc "est", "Takes the supplied EST FASTA file and the genome FASTA file and generates a GFF3 file from the alignment."
     method_option :est, type: :string, required: true, aliases: '-e'
     method_option :genome, type: :string, required: true, aliases: '-g'
-    method_option :alignment_file_dir, type: :string, aliases: '-a', desc: 'The path to the directory where intermediate alignment files should be written.'
+    method_option :alignment_file_dir, type: :string, aliases: '-d', desc: 'The path to the directory where intermediate alignment files should be written.'
     # method_option :threads, type: :numeric, aliases: '-t'
     def est
       command_options = { alignment: {} }
       command_options[:alignment][:alignment_file_dir] = options[:alignment_file_dir] if options[:alignment_file_dir]
+      command_options[:alignment][:alignment_file_dir] = options[:alignment_file_dir] if options[:alignment_file_dir]
       puts "EST GFF3 successfully created." if Genomics::Operation::AlignESTs.perform(options[:est], options[:genome], command_options)
+    end
+    
+    desc 'est_cluster', 'Takes ther results of an alignment of ESTs against a genome and aggregates them into clusters ideally indicating intron/exon structure.'
+    method_option :alignment_file, type: :string, required: true, aliases: '-a'
+    method_option :threads, type: :numeric, aliases: '-t'
+    method_options id_prefix: :string, e_value: :numeric
+    def est_cluster
+      arguments = {}
+      arguments[:thread] = options[:threads] if @options[:threads]
+      arguments[:id_prefix] = options[:id_prefix] if @options[:id_prefix]
+      arguments[:e_value] = options[:e_value] if @options[:e_value]
+      
+      puts "Clustering completed" if Genomics::Operation::AlignESTs.identify_est_clusters(options[:alignment_file], arguments)
     end
   end
 end
