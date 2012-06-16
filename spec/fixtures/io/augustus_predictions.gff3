@@ -1,0 +1,2000 @@
+##gff-version 3
+# This output was generated with AUGUSTUS (version 2.5.5).
+# AUGUSTUS is a gene prediction tool for eukaryotes written by Mario Stanke (mario.stanke@uni-greifswald.de)
+# and Oliver Keller (keller@cs.uni-goettingen.de).
+# Please cite: Mario Stanke, Mark Diekhans, Robert Baertsch, David Haussler (2008),
+# Using native and syntenically mapped cDNA alignments to improve de novo gene finding
+# Bioinformatics 24: 637-644, doi 10.1093/bioinformatics/btn013
+# reading in the file hints.est.gff ...
+# Sources of extrinsic information: M E 
+# Have extrinsic information about 6210 sequences (in the specified range). 
+# arabidopsis version. Use default transition matrix.
+# We have hints for 6210 sequences and for 6210 of the sequences in the input set.
+#
+# ----- prediction on sequence number 1 (length = 36482, name = contig_9_length_36482) -----
+#
+# Forced unstranded hint group to the only possible strand for 8 groups.
+# Deleted 4 groups because some hint was not satisfiable.
+
+# Predicted genes for sequence number 1 on both strands
+# start gene g1
+contig_9_length_36482	AUGUSTUS	gene	156	6992	0.14	+	.	ID=g1
+contig_9_length_36482	AUGUSTUS	transcript	156	6992	0.14	+	.	ID=g1.t1;Parent=g1
+contig_9_length_36482	AUGUSTUS	transcription_start_site	156	156	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	156	407	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	start_codon	362	364	.	+	0	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	408	977	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	1076	1513	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	1565	1843	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	1958	2055	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	2257	2338	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	2441	2864	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	2973	3050	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	3285	3374	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	3626	3717	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	3890	3974	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	4131	4219	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	4271	4363	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	4505	4565	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	4770	4852	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	4985	5065	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	5240	5524	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	intron	5765	6429	1	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	362	407	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	978	1075	1	+	2	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	978	1075	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	1514	1564	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	1514	1564	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	1844	1957	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	1844	1957	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	2056	2256	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	2056	2256	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	2339	2440	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	2339	2440	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	2865	2972	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	2865	2972	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	3051	3284	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	3051	3284	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	3375	3625	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	3375	3625	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	3718	3889	1	+	1	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	3718	3889	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	3975	4130	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	3975	4130	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	4220	4270	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	4220	4270	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	4364	4504	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	4364	4504	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	4566	4769	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	4566	4769	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	4853	4984	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	4853	4984	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	5066	5239	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	5066	5239	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	5525	5764	1	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	5525	5764	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	CDS	6430	6657	0.84	+	0	ID=g1.t1.cds;Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	6430	6691	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	stop_codon	6655	6657	.	+	0	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	exon	6772	6992	.	+	.	Parent=g1.t1
+contig_9_length_36482	AUGUSTUS	transcription_end_site	6992	6992	.	+	.	Parent=g1.t1
+# protein sequence = [MAQPLVKKDDDRDEEAEYSPFLGIEKGAVLQEARVFNDPQLDARRCSQVITKLLYLINQGETFTKIEATEVFFAVTKL
+# FQSKDVGLRRMVYLIIKELSPSADEVIIVTSSLMKDMNSRTDMYRANAIRVLCRITDGTLLTQIERYLKQAIVDKNPVVASAALVSGIHLLQTTPEIV
+# KRWSNEVQEAVQSRAALVQFHALALLHQIRQNDRLAVSKLVTSLTKGSVRSPLAQCLLIRYTSQVIRESGANAQNGERPFYDYLEGCLRHKAEMVIFE
+# AARAITELTNVTARELTPAITVLQLFLSSSKPVLRFAAVRTLNKVAMTHPMAVTNCNIDMESLISDPNRSIATLAITTLLKTGNESSVDRLLKQITNF
+# MSDIADEFKIVVVDAIRSLCLKFPLKYRSLMNFLSSVLREEGGFEYKKAIVDSIVILIRDIPDAKESGLLHLCEFIEDCEFTYLSTQILHFLGNEGPK
+# TSDPSKYIRYIYNRVILENATVRASAVSTLAKFGTLVDSLKPRIFVLLRRCLFDIDDEVRDRATLYLNTVDDGSGIEKTDTSVKEFLFGSLDVPLSNF
+# ESSLKNYLQDPSDEPFDIYSVSKEVKSQSLAEKKAPGKKPSGLGAPPSAPVSVVDAYETLLSSIPEFANFGKLFKSSAPVELTEAETEYSVNVVKHIF
+# DQHVVFQFNCTNTIPEQLLENVVVIVDASEAEEFSEVGTKVLKSLPYDTPAQAFVAFDKPESVPAVGKFSNLLKFTVKEVDPSTGEAEDDGVEDEYQL
+# EDFEVVSADYILKVGVSNFRNAWEALGPDGERIDEYGLGPRESLSEAVNVVINLLGMQPCEGTEVVASNSRSHTCLLSGVYMGNVKVLVRLSFGIDGA
+# KEVAMKLAXXXXXXXXXXXXXXXXXXXXXXXXXXXXRQ]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 97.4
+# CDS exons: 17/18
+#      E:  17 
+# CDS introns: 17/17
+#      E:  17 
+# 5'UTR exons and introns: 1/1
+#      E:   1 
+# 3'UTR exons and introns: 3/3
+#      E:   3 
+# hint groups fully obeyed: 1
+#      E:   1 (comp3870_c0_seq2)
+# incompatible hint groups: 1
+#      E:   1 (comp3870_c0_seq1)
+# end gene g1
+###
+# start gene g2
+contig_9_length_36482	AUGUSTUS	gene	7007	8661	0.01	-	.	ID=g2
+contig_9_length_36482	AUGUSTUS	transcript	7007	8661	0.01	-	.	ID=g2.t1;Parent=g2
+contig_9_length_36482	AUGUSTUS	transcription_end_site	7007	7007	.	-	.	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	exon	7007	7232	.	-	.	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	stop_codon	7038	7040	.	-	0	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	intron	7233	7518	0.99	-	.	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	CDS	7038	7232	0.99	-	0	ID=g2.t1.cds;Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	CDS	7519	8283	0.83	-	0	ID=g2.t1.cds;Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	exon	7519	8661	.	-	.	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	start_codon	8281	8283	.	-	0	Parent=g2.t1
+contig_9_length_36482	AUGUSTUS	transcription_start_site	8661	8661	.	-	.	Parent=g2.t1
+# protein sequence = [MDANEEEEVLSCLRNMENSDEEDEIKGMVDNGHRHHSYHHHQLQLKRKGSSLQWLDLRVFYVRLSRCAIIDGETRSAP
+# EFLTLNHVPMARHTLLEVNGSRTGLHSDGVSTLLKRDRLDTRSEEVTFVSTDCIRTTGSVKFEVFHKDVVVLSGTLDLHRGWSINCDDSNNGGIAFSK
+# ESRHHGGSSSSIEPPPPPAAIEVYVAGCFSDSPIVLTKTLQLSHRRKPTRKALTLESIPENETTRSDNSGHLLLLPAVQARQEQRRVVMEYTEGEDGE
+# LSWFNAGVRVGVGIGLSICLGLGIGVGLLVRTYHGTTRNFTRRLL]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 0
+# CDS exons: 0/2
+# CDS introns: 0/1
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 0
+# incompatible hint groups: 0
+# end gene g2
+###
+# start gene g3
+contig_9_length_36482	AUGUSTUS	gene	8796	19979	0.01	+	.	ID=g3
+contig_9_length_36482	AUGUSTUS	transcript	8796	19979	0.01	+	.	ID=g3.t1;Parent=g3
+contig_9_length_36482	AUGUSTUS	transcription_start_site	8796	8796	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	8796	9065	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	start_codon	8878	8880	.	+	0	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	9066	9279	0.78	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	9406	9485	0.45	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	9650	9726	0.94	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	9819	10062	0.85	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	10140	10264	0.83	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	10461	10613	0.87	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	10689	11108	0.79	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	11166	11321	0.88	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	11378	11544	0.88	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	11638	11744	0.97	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	11965	12157	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	12196	12271	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	12311	12398	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	12476	12559	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	12645	12725	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	12823	13313	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	13411	13470	0.89	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	13581	13894	0.68	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	13939	14007	0.68	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	14134	14215	0.98	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	14271	14467	0.98	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	14941	15226	0.45	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	16572	16646	0.98	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	16789	17178	0.89	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	17546	17980	0.85	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	18043	18138	0.44	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	18202	19259	0.41	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	19412	19473	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	intron	19580	19666	1	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	8878	9065	0.61	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	9280	9405	0.59	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	9280	9405	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	9486	9649	0.49	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	9486	9649	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	9727	9818	0.85	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	9727	9818	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	10063	10139	0.93	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	10063	10139	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	10265	10460	0.83	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	10265	10460	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	10614	10688	0.81	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	10614	10688	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	11109	11165	0.88	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	11109	11165	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	11322	11377	0.92	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	11322	11377	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	11545	11637	0.96	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	11545	11637	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	11745	11964	1	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	11745	11964	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	12158	12195	1	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	12158	12195	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	12272	12310	1	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	12272	12310	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	12399	12475	1	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	12399	12475	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	12560	12644	1	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	12560	12644	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	12726	12822	1	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	12726	12822	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	13314	13410	1	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	13314	13410	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	13471	13580	0.62	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	13471	13580	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	13895	13938	0.79	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	13895	13938	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	14008	14133	0.75	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	14008	14133	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	14216	14270	0.98	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	14216	14270	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	14468	14940	0.45	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	14468	14940	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	15227	16571	0.45	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	15227	16571	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	16647	16788	0.91	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	16647	16788	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	17179	17545	0.89	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	17179	17545	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	17981	18042	0.84	+	1	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	17981	18042	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	18139	18201	0.42	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	18139	18201	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	19260	19411	0.96	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	19260	19411	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	19474	19579	1	+	0	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	19474	19579	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	CDS	19667	19932	1	+	2	ID=g3.t1.cds;Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	exon	19667	19979	.	+	.	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	stop_codon	19930	19932	.	+	0	Parent=g3.t1
+contig_9_length_36482	AUGUSTUS	transcription_end_site	19979	19979	.	+	.	Parent=g3.t1
+# protein sequence = [MSRRPQFTAIDHFFLLLLLLVSTDHCLRLTSGIIKDLSIGVGKCAGEWSLAHHVNARLHRMGLASPIYREVFPFRGGA
+# GELIYCQLRVNGGRSGAWKTLYHCPQQAFSASDXXXXAATRKWRKKRCLDIYLEHSVEIPDSGKFAESVGIDHTASGFDDPKHSVEIPDSGKFAEKVG
+# IDHSEIVNVIKSLKHLKEEMKLSYLAQELIYADRLAPQTWEMLSADFSPNLYFDRYLVCFNELQDIKREKWVLTQEGELYAKFGSPEVQLFLAVPSEG
+# ITREGLQKAFESRLPNDVEITNFNYLQQAALHVEHVSDKVRDLLIRIQNGEAVIAEDIDILKRRKLIISQIWKGYSVTKGPNYAPKRKRAATDLTREN
+# LQRGEWKDLEFKEYNFLAKGQPTEGGHFHPLKKACCRTLCSLDFFDRSKGACRNLVQKSVFLICTGNCFVYLPCRSVSDQISRIFLQMGFEEMPTDKY
+# VESSFWNFDALFQPQQHPARDSHDTFFLEDPATTCSLPEDYVERVKKVHESGGYGSKGYGCDWERDEANKNVLRTHTTAVSARMLYALAQGTFEPKRY
+# YSIDLVFRNEAVDRTHLAEFNQIEGIIAVGLVCDRGLTLGHLIGXXXXWIAPILPNSIKSKPGYNPYTEPSMEIFSYHEGLQKWVEIGNSGMFRPEML
+# RTMGFPEDVQVIAWGLSLERPTMILHGIDNIRDLAGHKVDLTLVKRNPICRLGLSESSFSHKVFLRLSKSERPAIHVSIISPAIAADSRRGSGSGGSG
+# CTPKKRQRLCSGGMNNDFASGTPKKRQRIGSSGRISTAVSGYNSLFGHEIYTESSQTPTRSDASSSPTQGGVASAVAGGFNDANTADVILRLVPDLSS
+# SCTPKTFXXXXLPQRLPADVNTADVILRLVPDLSSSSHMETIGAPNPDASTEESEVQIYLHSDFLRRSKYFSVLLSDRWKEASDPISVGFHNESGGIR
+# QFNFHLPADPDSLDFHLTVLKLLYTEDVLPAIQSVTAALNILPVALQLLFEDCVKACVKXXXXLLSDRWKEASDPISVGFRNESGGIRQFNFHLPAGL
+# DSLDFHLTMLKLLYTEDVLPAIQSATAALNILPIALQLLFEDCVKACVKFLEAVPWSEEEESKLLTLIPLMSCEEAMELLQRVSPTRGIPSEEMLRGL
+# IHTATHNHPNMALAKAFVANILRDFSSRESVMRVLDSAFELSLRAVKLSLEEYTGPNFIGDHNETEAMQRVHLHTAATSGKHLLWLIERMIELKVANT
+# AVKVWSEQSSLTSDLHRAFRDDACRNTVPSLPGVVLRCTCKLATAVATGNIIAPTQVRMKLVKEWLPVLILCKDSDSTMGPSHKTLYLELEETFLRXX
+# XXVLVGQRFDDGAESQDAVPGTGGNVSENHIDSSXXXXRQVRMKLVNEWLPVLILCKDSDLTMGPSHKTLYLELEETFLRIISTLPLSAAQELLQRCL
+# SFSTRNLDDCRHLVAAFTTWFRRANLDRLLGCPSDSGGCALLESASGKDLDSSAHXXXXPVSSLPATIPFPWRRVVFVTVGTTSFDKLVGAVDSEDVK
+# KALFERDYTHLVIQMGRGRYLPSKCGGEDGGSSISVDYFTFSSDIAEFLKSASLVISHAGSGSIFETLRMRKPLIVVVNEDLMDNHQTELAEELAERS
+# HLFCARPHTLCETISSLHLDSLVPYEPGDAKPVAKVINRFLGFTDESSI]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 19.7
+# CDS exons: 7/30
+#      E:   7 
+# CDS introns: 5/29
+#      E:   5 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 2
+#      E:   2 (comp3490_c0_seq4,comp14847_c0_seq1)
+# incompatible hint groups: 2
+#      E:   2 (comp3490_c0_seq5,comp14676_c0_seq1)
+# end gene g3
+###
+# start gene g4
+contig_9_length_36482	AUGUSTUS	gene	19988	21531	0.35	-	.	ID=g4
+contig_9_length_36482	AUGUSTUS	transcript	19988	21531	0.35	-	.	ID=g4.t1;Parent=g4
+contig_9_length_36482	AUGUSTUS	transcription_end_site	19988	19988	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	19988	20158	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	stop_codon	20145	20147	.	-	0	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	intron	20159	20229	1	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	intron	20633	20699	1	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	intron	20844	20907	1	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	intron	20956	21198	1	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	CDS	20145	20158	1	-	2	ID=g4.t1.cds;Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	CDS	20230	20632	1	-	0	ID=g4.t1.cds;Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	20230	20632	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	CDS	20700	20843	1	-	0	ID=g4.t1.cds;Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	20700	20843	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	CDS	20908	20955	1	-	0	ID=g4.t1.cds;Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	20908	20955	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	CDS	21199	21318	1	-	0	ID=g4.t1.cds;Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	21199	21318	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	start_codon	21316	21318	.	-	0	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	exon	21410	21531	.	-	.	Parent=g4.t1
+contig_9_length_36482	AUGUSTUS	transcription_start_site	21531	21531	.	-	.	Parent=g4.t1
+# protein sequence = [MEICNLKEEILKKKSEIAFLENQIRYSAMSHGRDKLEESNVKAADNRIIEDQLQKKISECEELQEMIRSLRQQLTNIP
+# DKRSFNPLSSHIQNSTDTTSLLQKTQAAELEELRRKISELAGSKEELELRNMKLSEECSYAKGLASAAAVELKVLSEEVTKLMNDNSQLASELEAKKK
+# SPTTQRRTTFPSTRKDGHPRKHDHQGPPSLSSDIKRELASSREREHSYEAALAEKEEIEVELRCKT]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 61.5
+# CDS exons: 4/5
+#      E:   4 
+# CDS introns: 2/4
+#      E:   2 
+# 5'UTR exons and introns: 2/3
+#      E:   2 
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 2
+#      E:   2 (comp11702_c0_seq1,comp16691_c0_seq1)
+# incompatible hint groups: 0
+# end gene g4
+###
+# start gene g5
+contig_9_length_36482	AUGUSTUS	gene	25926	30881	0.04	-	.	ID=g5
+contig_9_length_36482	AUGUSTUS	transcript	25926	30881	0.04	-	.	ID=g5.t1;Parent=g5
+contig_9_length_36482	AUGUSTUS	transcription_end_site	25926	25926	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	exon	25926	26230	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	stop_codon	25995	25997	.	-	0	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	intron	26231	26372	0.72	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	intron	26633	26935	0.33	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	CDS	25995	26230	0.72	-	2	ID=g5.t1.cds;Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	CDS	26373	26632	0.57	-	1	ID=g5.t1.cds;Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	exon	26373	26632	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	CDS	26936	27132	0.27	-	0	ID=g5.t1.cds;Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	exon	26936	27177	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	start_codon	27130	27132	.	-	0	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	exon	27440	27521	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	exon	30795	30881	.	-	.	Parent=g5.t1
+contig_9_length_36482	AUGUSTUS	transcription_start_site	30881	30881	.	-	.	Parent=g5.t1
+# protein sequence = [MEDWYADAYQQVXXXXTKSQFPEVPNEIRRQIETSRLCASGSLMNTFHEMEDWYADAYQQVARNVCLSWISTNQMKEI
+# AVGLESSKQCFVWVVPKANGVEKWFEEENYEERVRERGVIIRGWAPQLLILSHQSVGAFMTHCSWNSTPEAISADVVKTGVRVGAEACVKDEKSLVKW
+# DQVREAIKKVVMEEGNERRMRAKRLGEMARRSVEEGGSSWLNVSLFIQHVSDHR]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 0
+# CDS exons: 0/3
+# CDS introns: 0/2
+# 5'UTR exons and introns: 0/5
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 0
+# incompatible hint groups: 0
+# end gene g5
+###
+#
+# ----- prediction on sequence number 2 (length = 32607, name = contig_13_length_32607) -----
+#
+# Forced unstranded hint group to the only possible strand for 4 groups.
+# Deleted 2 groups because some hint was not satisfiable.
+
+# Predicted genes for sequence number 2 on both strands
+# start gene g6
+contig_13_length_32607	AUGUSTUS	gene	206	3163	0.11	+	.	ID=g6
+contig_13_length_32607	AUGUSTUS	transcript	206	3163	0.11	+	.	ID=g6.t1;Parent=g6
+contig_13_length_32607	AUGUSTUS	transcription_start_site	206	206	.	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	exon	206	1609	.	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	start_codon	238	240	.	+	0	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	intron	1610	1686	0.72	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	intron	2530	2598	1	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	CDS	238	1609	0.74	+	0	ID=g6.t1.cds;Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	CDS	1687	2529	0.95	+	2	ID=g6.t1.cds;Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	exon	1687	2529	.	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	CDS	2599	3107	1	+	2	ID=g6.t1.cds;Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	exon	2599	3163	.	+	.	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	stop_codon	3105	3107	.	+	0	Parent=g6.t1
+contig_13_length_32607	AUGUSTUS	transcription_end_site	3163	3163	.	+	.	Parent=g6.t1
+# protein sequence = [MGRLLFLALLGLLRFSGGDDSAVMSKLLSSFSPTPRGWSSSASFCTWPNVNCDSASAFVTAINLNSASLAGTLPAELN
+# QLSHLKNLALQKNLLTGSLPSFQNMTSLETIYLDNNGFTSVPPGFLMGLTNLQVFSISENFNLAPWIIPSYLTQSANLVTFYASNASVAGNIPDIFGS
+# FPNLQNLRLSYNNLTGSLPGSFSGSEIQNLWLNNQDVGLSGSIDVLANMNQLTQVWLQANAFSGGIPDLSKCTNLFDLQLRDNSFTGVVPPSLATLTA
+# LTNVSLQNNMLQGPVPQFPSRVSVTLGTTNSFCLDSPGPCDPQVSTLLEIAGAMGYPISLAESWKGNNVCQNWRFINCDSLGKNVTIVNMGKQGFSGS
+# ISPAFANLTSLRNLILSGNNLTGTIPPVLSSLPQLQSIDVSDNNLSGPIPVFPSGVKFSYSGNLLLGQNGGGNGSGAPGSSAGGSGTGVSSGGGGVSG
+# GVIAGIVIGIVLFLGVVVFVSYKCYSRRRVKTFNRVVQGSELVSKPTNGADDEVERQSSSGGDRRGELPILDGSKVTISIQVLRQVTDNFSEGNILGR
+# GGFGVVYKGELHDGTKIAVKRMESVSGVGTKGMNEFQAEIGVLSKVRHRHLVALLGYCINGNERLLVYEYMPQGTLGQHLFEWSEYGYQPLSWKQRVT
+# IALDVARGVEYLHSLAQQSFIHRDLKPSNILLTDDMRAKVADFGLVKNAPDGKYSVETRLAGTFGYLAPEYAATGRVTTKIDVYAFGVVLMELMTGRK
+# ALDETVPDERSHLVTWFRRVLINKQNLVKSLDPILGVDSGEGETYESICTVGELAGHCTARDPSQRPDMGHAVNILGPLVELWKPSNTDQQQEESYGI
+# DLHMSLPQALQRWQANEGTSRMFDDLTTQSTIPGFADSFSSQDCR]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 57.1
+# CDS exons: 3/3
+#      E:   3 
+# CDS introns: 1/2
+#      E:   1 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 2
+#      E:   2 (comp10679_c0_seq1,comp8030_c0_seq1)
+# incompatible hint groups: 0
+# end gene g6
+###
+# start gene g7
+contig_13_length_32607	AUGUSTUS	gene	3198	15281	0.01	-	.	ID=g7
+contig_13_length_32607	AUGUSTUS	transcript	3198	15281	0.01	-	.	ID=g7.t1;Parent=g7
+contig_13_length_32607	AUGUSTUS	transcription_end_site	3198	3198	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	3198	3495	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	stop_codon	3262	3264	.	-	0	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	3496	3568	0.94	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	3845	3911	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	4148	4355	0.53	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	4526	4593	0.54	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	4857	4918	0.69	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	4997	5074	0.59	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	5226	5562	0.81	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	5595	5698	0.6	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	5828	6078	0.46	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	6341	6409	0.93	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	6652	7192	0.76	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	7395	7841	0.45	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	7943	8787	0.79	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	8917	9044	0.91	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	9084	9165	0.92	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	9296	9374	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	9487	9649	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	9778	10447	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	10541	10623	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	10836	10919	0.98	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	11028	11281	0.98	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	11453	11547	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	11727	11859	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	12089	12568	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	12684	13187	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	13364	13961	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	14130	14213	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	intron	14301	15043	1	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	3262	3495	1	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	3569	3844	0.94	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	3569	3844	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	3912	4147	0.56	-	2	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	3912	4147	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	4356	4525	0.52	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	4356	4525	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	4594	4856	0.7	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	4594	4856	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	4919	4996	0.57	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	4919	4996	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	5075	5225	0.8	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	5075	5225	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	5563	5594	0.9	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	5563	5594	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	5699	5827	0.61	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	5699	5827	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	6079	6340	0.43	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	6079	6340	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	6410	6651	0.75	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	6410	6651	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	7193	7394	0.93	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	7193	7394	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	7842	7942	0.9	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	7842	7942	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	8788	8916	0.98	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	8788	8916	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	9045	9083	0.91	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	9045	9083	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	9166	9295	1	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	9166	9295	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	9375	9486	1	-	2	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	9375	9486	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	9650	9777	1	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	9650	9777	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	10448	10540	1	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	10448	10540	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	10624	10835	0.99	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	10624	10835	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	10920	11027	0.98	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	10920	11027	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	11282	11452	0.98	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	11282	11452	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	11548	11726	1	-	2	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	11548	11726	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	11860	12088	1	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	11860	12088	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	12569	12683	1	-	1	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	12569	12683	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	13188	13363	1	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	13188	13363	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	13962	14129	1	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	13962	14129	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	14214	14300	1	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	14214	14300	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	CDS	15044	15166	0.96	-	0	ID=g7.t1.cds;Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	exon	15044	15281	.	-	.	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	start_codon	15164	15166	.	-	0	Parent=g7.t1
+contig_13_length_32607	AUGUSTUS	transcription_start_site	15281	15281	.	-	.	Parent=g7.t1
+# protein sequence = [MSTGDRMLIKGIRSFDPQNKNVITFFRPLTLIVGPNGAGKTTIIECLKVACAGELPPNARSGHSFIHDPKVAGETETK
+# GQIKLRFKTASKKDVVCIRSFQLTQKASKMEYKAIESVLQTINPQTGEKVCLSYRCADLDREIPALMGVSKAVLENVIFVHQDEANWPLQDPSTLKKK
+# FDDIFSATRYTKALEVIKKLHKDQALEIKSYKLKLEHLQTLKDAAFKLRECIELDQGKTETLSCQIQELEIKVQNIDREISESELVLKDLQKLQGQIA
+# TKSGERKSKFEELQKRYAALDEENEDTDEDLTEWKSKFDERIAMLESRISKLFREKSDIEDKSRVLNDVIARNVKEIAKYQAAEEAHMTLKIESNSDI
+# RSLFQKHNLGSLPNEPFSDEVALRLVDQIQLKLTDINKELLDKKTAILKRIQEKEAERDSYDVQISSADVIVLEEREKNLQTEVERRANQLAAREYDY
+# NVQQKQREIFCLEQEIQVCSQERDAMNADSHDRILLSVKKSEFESQRKKHKKILDDCKEQVRILMKGRVPPDKDLKNDVLQIQSSLKKEYEELEKKAD
+# EARNEVTMLKLKAEELNSNLSKFNKDLESRRRFFESKLQTLEPQSGVDSYLKSLEVAKEKRDVKKSKYNIADGMRQMFDPFERVARAHHICPCCERPF
+# SATEEDEFVKKQRVKATSSAEQMKQLDKLRATYEEYVKIGQESVPASMEKLKELNEELTQRHQGLDDRQVEDIECRLDVQDQGAKSLDDVLSELKALE
+# RKRSVLHDEVDKLRQDQMAMEKDYSALQLRWNSLREEKIKVAHILSNIKRVEEELDHLAEEKIHVDLDLKHLAEAFRPLSKQTAQLLNEYNTLEVQLK
+# EEYELQAXXXXXXXXXXXXXXXXXXXXXXXAEKSRKFQQEVDALLNKFSSLKEYDEFNQRGNLKALQEKQVQNETELKSCENRMNELLAELDKSKDLR
+# RNQADLRRNIEDNLEYRKLKAQVDHLTLEIESLEENALKIGGVNRCRGTLSVYKNNIERNRVDLKQTQYKDIDKRYFDQLIQLKVTTEMANKDLDKAL
+# MRFHAMKMEEINKIIRELWQQTYRGQDIDYILIHSDSEAAGTRSYSYKVLMQTGDAELEMRGRCSAGQKARHLIVLASLIIRLALAETFCLNCGILAL
+# DEPTTNLDGANSESLAAALLRIMDDRKGQENFQLIVITHDERFAQLIGRRQHAEKYYRISKDDLVTVSVLMAAITASLKLKRHLIEKXXXXXXXXXXX
+# XXXXXXXXXXXXXXXXXXXXXXALSSSSSSSAVKQTTKSGMKIQCDVCEKAPATVICCADEAALCSRCDTEVHAANKLASKHQRLQLHTLSGKLPPCD
+# ICQDKTAFIFCVEDRALFCKDCDQSIHSANKRAASHQRFLATGIRVSLTASCCKQDNNNQTIADKEAAKQPPSSLSPWDVEDLLRFSDYGSSDKVVVG
+# GLGELEWLSDMDLFNAAEVPQLLPPPPPPPPPARQVKYCYNNTPATSSTTTPHKKPRLEIPDDDDEFLIVPDLG]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 25.4
+# CDS exons: 8/29
+#      E:   8 
+# CDS introns: 7/28
+#      E:   7 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 1
+#      E:   1 (comp11434_c0_seq1)
+# incompatible hint groups: 0
+# end gene g7
+###
+# start gene g8
+contig_13_length_32607	AUGUSTUS	gene	15406	20370	0.05	+	.	ID=g8
+contig_13_length_32607	AUGUSTUS	transcript	15406	20370	0.05	+	.	ID=g8.t1;Parent=g8
+contig_13_length_32607	AUGUSTUS	transcription_start_site	15406	15406	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	15406	15558	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	start_codon	15510	15512	.	+	0	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	intron	15559	15669	0.35	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	intron	15755	15819	0.78	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	intron	16922	17077	0.95	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	intron	18624	18807	0.7	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	intron	18912	19077	0.85	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	15510	15558	0.57	+	0	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	15670	15754	0.58	+	2	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	15670	15754	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	15820	16921	0.75	+	1	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	15820	16921	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	17078	18623	0.85	+	0	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	17078	18623	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	18808	18911	0.67	+	2	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	18808	18911	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	CDS	19078	20346	0.92	+	0	ID=g8.t1.cds;Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	exon	19078	20370	.	+	.	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	stop_codon	20344	20346	.	+	0	Parent=g8.t1
+contig_13_length_32607	AUGUSTUS	transcription_end_site	20370	20370	.	+	.	Parent=g8.t1
+# protein sequence = [MGYGGRGIIVGRLSVLAGAAGRRSESPEEDTETDESDMEEPGLLLRSDSASFSTSRGPCRQSEIRSPSGRIYKGHISR
+# SLRKRINKRARAAAKPLLNEPLFQKVLSQIPARFTNEDLHDVIALQEDPLVCLELFNWASKQHRFRHNVLTFHITIRKLGAAKMYEEMDAVVNQVLAI
+# PAIASEPLYNSMIYYFTQARKLIRAVKIYKLMHSSKKLDCRPSITTYNILFSALLSRGKNTYINHMYMETIRCLFKQMVDDGVEPDVFALNSMIKGYV
+# LSLHVNDALRIFHQMGVVYKCRPNSYSYDYLIHGLCSQGRTENARKVCEMMKESGHVPSSKSYNSLISSMSIGGEIDEAVKYLWEMGESGRMGDLITY
+# RTVVDEMCRRNMLGNAVSLLDELKEKRLVDRHVYRKLMSEGFTVMAAIEEHGGTDLRHVRNICILAHVDHGKTTLADHLIASYGGGVLHPKQAGKLRF
+# MDYLDEEQRRAITMKSSSIALQYKHHFINLIDSPGHMDFCSEVSTAARLSDGALVLVDAVEGVHIQTHAMLRQAWIEKLTPCLVLNKIDRLICELRLS
+# PLEAYNRLVRIIHEVNGIVSAYKSEKYLSDVDSLLSTSSLSGGYADEPNYEQLIDDDNDEDTFQPQKGNVVFACALDGWGFKIHDFADFYAFKLGASS
+# STLEKALWGPRYFNAKTKMIVGKKGISSVAKARPMFVQFILEPLWQVFQATLEADGEKRSVLEKLIKSFNLSIPPRELQHRDPKAVLQAVLSRWLPLS
+# DAVLSMVIKCMPDPVSAQPLRISKLLPKRSGLDNEENSDVLLEAESVRRSVEACDCSPSAPSLVFVSKMFTVPVKMLPRGEFSNSSIDESSSDDVFLA
+# FARIFSGVIYSGQKIFVLSSLYDPTKLESNQKHLQEAELQALYLMMGQGLKPVASAKAGNIVAIRVAPTLRVAIEPSDPADMGALKKGLRQLNRADPF
+# VEDLKERFAKVSLEVSPPLVSYRETVQGEALNPLDDLNGCCISEVVTANGRCVVRVRVMKLPTPLTELLDKSCDLLGEIIGAKSKHAPKSLEEDGNQT
+# EALRKRMIDAVENDLSSRASDIGSDRIEKCRESWRSFFGRIWALGPGEVGPNILLTPPPPPPGSENSSNGSVLVNGRPYASERLGFCDNVDDTTCSSS
+# TMGGDEMLLMKEAESLESSVVSGFQLATSAGPLCDEPMWGLCFTVEANLSRDSASPGDQYGGSLGGQVMTTVKEACRAAVLQNRPRIVEGFYFCELST
+# PTEYLGSTYAVLARRRARVLKEEMQEGSALFSVNAYVPVTESFGFGDELRRWTSGASSALLVFSHWGTLAEDPFFVPKTEEEIEEYGDGSNVPRNISR
+# KLIDAVRRRKGLAVEEKVVEHATKQRTRARKV]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 23.1
+# CDS exons: 3/6
+#      E:   3 
+# CDS introns: 0/5
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 4
+#      E:   4 (comp10343_c0_seq1,comp15434_c0_seq1,comp18440_c0_seq1,comp9307_c0_seq1)
+# incompatible hint groups: 0
+# end gene g8
+###
+# start gene g9
+contig_13_length_32607	AUGUSTUS	gene	20377	21411	0.22	-	.	ID=g9
+contig_13_length_32607	AUGUSTUS	transcript	20377	21411	0.22	-	.	ID=g9.t1;Parent=g9
+contig_13_length_32607	AUGUSTUS	transcription_end_site	20377	20377	.	-	.	Parent=g9.t1
+contig_13_length_32607	AUGUSTUS	exon	20377	21411	.	-	.	Parent=g9.t1
+contig_13_length_32607	AUGUSTUS	stop_codon	20410	20412	.	-	0	Parent=g9.t1
+contig_13_length_32607	AUGUSTUS	CDS	20410	21273	0.96	-	0	ID=g9.t1.cds;Parent=g9.t1
+contig_13_length_32607	AUGUSTUS	start_codon	21271	21273	.	-	0	Parent=g9.t1
+contig_13_length_32607	AUGUSTUS	transcription_start_site	21411	21411	.	-	.	Parent=g9.t1
+# protein sequence = [MPGKRIETGHQDVLHDVQMDYYGKRIATASSDNTIRIIGIGNSQHLANLIGHRGPVWQVAWAHPKFGSMLASCSYDGK
+# VIIWKEEKETEWIQLSVFDDHKASVNSICWAPHESGLSLACGSSDGNISVFSARPDGGWDKSIIEQSHPAGVTSVSWAPTGFTATAGLQKLVSGGCDG
+# TAKVWRRDNGTWRMEDALLHGDWVRDVAWAPNMGLPKSTIASASQDGKVTIWIKPKEGDEWDSKVLDDFEGPVWRVSWSLTGNILAVADSKQNVTLWK
+# EAVDGEWIQVQSC]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 66.7
+# CDS exons: 1/1
+#      E:   1 
+# CDS introns: 0/0
+# 5'UTR exons and introns: 1/1
+#      E:   1 
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 1
+#      E:   1 (comp2227_c0_seq1)
+# incompatible hint groups: 0
+# end gene g9
+###
+# start gene g10
+contig_13_length_32607	AUGUSTUS	gene	21506	32607	0.03	+	.	ID=g10
+contig_13_length_32607	AUGUSTUS	transcript	21506	32607	0.03	+	.	ID=g10.t1;Parent=g10
+contig_13_length_32607	AUGUSTUS	transcription_start_site	21506	21506	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	21506	21806	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	start_codon	21676	21678	.	+	0	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	21807	22476	0.39	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	22919	23326	0.85	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	23609	23838	0.59	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	24079	24398	0.97	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	24518	25124	0.75	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	26296	26380	0.91	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	26459	26565	0.91	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	26756	27441	0.92	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	27606	27894	1	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	27960	28578	1	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	28679	28764	1	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	28827	28897	1	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	29099	29673	0.8	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	29772	30022	0.77	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	30334	30558	0.87	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	31315	31421	0.96	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	intron	31569	32017	0.41	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	21676	21806	0.27	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	22477	22918	0.88	+	1	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	22477	22918	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	23327	23608	0.82	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	23327	23608	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	23839	24078	0.58	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	23839	24078	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	24399	24517	1	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	24399	24517	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	25125	26295	0.6	+	1	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	25125	26295	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	26381	26458	0.91	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	26381	26458	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	26566	26755	0.86	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	26566	26755	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	27442	27605	1	+	2	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	27442	27605	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	27895	27959	1	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	27895	27959	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	28579	28678	1	+	1	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	28579	28678	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	28765	28826	1	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	28765	28826	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	28898	29098	0.81	+	1	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	28898	29098	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	29674	29771	0.77	+	1	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	29674	29771	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	30023	30333	0.85	+	2	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	30023	30333	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	30559	31314	0.9	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	30559	31314	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	31422	31568	0.63	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	31422	31568	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	CDS	32018	32569	0.9	+	0	ID=g10.t1.cds;Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	exon	32018	32607	.	+	.	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	stop_codon	32567	32569	.	+	0	Parent=g10.t1
+contig_13_length_32607	AUGUSTUS	transcription_end_site	32607	32607	.	+	.	Parent=g10.t1
+# protein sequence = [METIFGLPKKIIPNLNRPEKADNGRRRRSLGSAQILWEMPTNARLVHYFGGISETEKNSKTTSIFDGNCTVLDRSLIN
+# QAFAISVGKIIEGYVSALNTLSASVSLRRLSKINAEGCLSAVGNSEITLLEVYLHTAGLRSQIEALGNICKVNHLALGFPVSSLEEICSEAQMEFTAF
+# PRNAALISFLYAQLKVADPENCGLLXXXXXXXXXXXXXXXXXXXXXXXXXKFLFLQSCEPYCGFIRSWIFEGTASDPYNEFVVESITKNSLNASADVG
+# VVSWSPLASDRQLQMIIKLIEMSNVAGAIDTQEEILPCLSALSVKYAWFAVPLTFDKGCMEALVEMRASYYEQMLEKIENITDKFAFISQKAGQRSVF
+# LRLANTLDERINSGSCYAPSRSLVLSEEKVQITACAVLDYEISSILDEDSFVEDNVEPSECSSPETFEDSNDHEKLIFKSHGIEASYLSNLVKNLDRV
+# GSPYPADNVPSNVKWKSLIPEKPLHYETYLVTEHKLSQTSVTCDATSEHNIWFFDGYNTELVKLKDESDEKMSQSLETFSLLDTLLNESVKASKAIGI
+# FEDHNGFMYRASMDMIASQVSSWRNDSVSFTSNPARIQSPFFSPNDSGRSNFIGSFVDFSSITDPAKAFLAKFAGDDLPKDACSPLVINKAPASFGNT
+# RNHSIVKSNSDIVVDSDMKFSSITSPGVENEILDRYAMLQSISGGSSWGSLLDRSEYNVQSTVLNHGAKLVAGADLPLDFVIKKSLLDEILLQYPELC
+# GLYYRLNIRKLGPSSHFLCLSTENEMREPTAVQVHKQACHQVAHRCFQATRTLAISTISRVTLVPHQKWLDTKGDKRISEIQKALELAIQRSSCEGDP
+# HKDRLYVYLKGNHLEHLSSSAWGINSLNFMGLGYHIDWPVNIILTPAALGIYSDIFNFLMQVKLAVFSLSSAWLSLKHCYSSEQHAANRHQMTLLTET
+# RHMVFHFVSTLQQYVRVQLSQLSWCKFQHSIKYKVKDMYDLESEHMAYLTESLHICFLSEETRHIAAAVENILQCAMEYHSSLMGRRMGLVQSIRRRF
+# IQNLEELYLMRLKSPKEGGGGGIGIFGFEDSSSAPRHVTNGGWMDVASSENQPELAGKIFSLLSPNGPLLSSIAECDRVSLVKYVFPSERLPEWCHYM
+# LQSAHNCRILMELFPIFKSPIKEHSTEGGSYQVQLGIFDYYLFWFAYYPLYRCNIEVSEQLKNLIPLRDKNVREHYSSSLLHYTPACDGSASERAEIF
+# LDIIILFWLIDNDFPPLSKDSCKSLGVVLPFKSIHREIPPTPGTGAVINVFIKYLNLRLREAIEGSDQIESVGSLGTRSSDSFDVMPNRGFLSTYSVG
+# SLIFNIQRPFYRYILRTFLFLSAETSIKTAYQAFSVWVDYLEPWSSSINEFADIYESIGRPAKSSVNLLSSSSGYSPRWRQYVLENYLFYTSLVVHFI
+# GFAHRFLHTDIELTLKMVSKVMNILTASSELRDLVKNVEAVFHAKGNPPSKSFQSYFSKYIPTIQQRLHLLVVRAESEIHSASESINLSKDLESLKSR
+# LNQLFGGCPTRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEKGKATADDESRLRCEVFTPRTSSNQMRQRPVIMREEEEGASFFLVSRRG
+# SKEEDLLSGGKALRMVFWWGVEGMRVNLGSKRGALMMFLLIGAAVSLVRRTVGYII]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 29.7
+# CDS exons: 7/18
+#      E:   7 
+# CDS introns: 4/17
+#      E:   4 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 4
+#      E:   4 (comp20417_c0_seq1,comp12836_c0_seq1,comp12836_c0_seq2,comp18842_c0_seq1)
+# incompatible hint groups: 0
+# end gene g10
+###
+#
+# ----- prediction on sequence number 3 (length = 32010, name = contig_14_length_32010) -----
+#
+# Forced unstranded hint group to the only possible strand for 8 groups.
+# Deleted 1 groups because some hint was not satisfiable.
+
+# Predicted genes for sequence number 3 on both strands
+# start gene g11
+contig_14_length_32010	AUGUSTUS	gene	1	3281	0.06	-	.	ID=g11
+contig_14_length_32010	AUGUSTUS	transcript	1	3281	0.06	-	.	ID=g11.t1;Parent=g11
+contig_14_length_32010	AUGUSTUS	intron	1	204	0.57	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	832	931	0.99	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	1157	1317	0.94	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	1392	1466	0.99	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	1758	1831	1	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	1928	2001	0.95	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	2219	2350	0.65	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	2470	2544	1	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	2738	2819	0.92	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	intron	2975	3168	0.83	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	205	831	0.77	-	1	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	205	831	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	932	1156	0.98	-	1	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	932	1156	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	1318	1391	0.95	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	1318	1391	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	1467	1757	0.99	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	1467	1757	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	1832	1927	0.96	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	1832	1927	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	2002	2218	0.6	-	1	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	2002	2218	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	2351	2469	1	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	2351	2469	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	2545	2737	0.95	-	1	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	2545	2737	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	2820	2974	0.82	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	2820	2974	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	CDS	3169	3216	0.6	-	0	ID=g11.t1.cds;Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	exon	3169	3281	.	-	.	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	start_codon	3214	3216	.	-	0	Parent=g11.t1
+contig_14_length_32010	AUGUSTUS	transcription_start_site	3281	3281	.	-	.	Parent=g11.t1
+# protein sequence = [MEEMEQVIEDKAEKSQEAAVVPPYVAFALRPSPGSWEFIKVHSDDLSVDAMTAPEYLKIKEMTVDEKWAKDENSLQLH
+# FGAADFSIPHLTMPSSIGNGVKYVSKFLTSIFNRNFYGAQFLVDYLLSLNHHGEKLMINDKLNNVYKLQNALASAEATLSILPKDAPYQSFETRFREW
+# GFEKGWGDNAERVREMMHSLSEFLQAPDPINIEKFFARLPIIFKIVLFSVHGYFGQSDVLGLPDTGGQVVYILDQVVALEEELLLRIKQQGLNVKPQI
+# LIVTRLIPDAKGTKCNVELEPILKTKYSHILRVPFTTEDGVLQQWVSRFDIYPYLERFTQDATKKIIEVMEGKPDLIVGNYTDGNLVASLMASKLDVT
+# QGTIAHALEMTKYEDSDIKWKELDPNKDRPGQYESYTSFTMPGLYRVVSGINVFNPKFNIASPGADQSVYFPYTDKEQRFTTFGPAIEEILYSNVQND
+# EHIQKEAYYILNGKTRHSQEHDWXXXXXXXXXXXXXXXXXXIVKNMTGLTEWYGKNKKLRDLVNLVIVGGFFDPSKSKDREEAAEIKKMHLLIEKYQL
+# KGEMRWIAAQTDRNRNGELYRYIADTKGAFIQPALYEGFGLTVIEAMNSGLPTFATNQGGPAEIIVDGVSGFHIDPNDGDESSKKIADFFQKCQEDSG
+# YWNRISLQGIQRINE]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 0
+# CDS exons: 0/10
+# CDS introns: 0/10
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/0
+# hint groups fully obeyed: 0
+# incompatible hint groups: 0
+# end gene g11
+###
+# start gene g12
+contig_14_length_32010	AUGUSTUS	gene	3376	6530	0.1	+	.	ID=g12
+contig_14_length_32010	AUGUSTUS	transcript	3376	6530	0.1	+	.	ID=g12.t1;Parent=g12
+contig_14_length_32010	AUGUSTUS	transcription_start_site	3376	3376	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	3376	3605	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	start_codon	3445	3447	.	+	0	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	3606	3882	0.33	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	4925	5115	1	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	5201	5590	0.97	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	5688	5763	1	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	5828	5896	1	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	5954	6063	1	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	intron	6102	6180	1	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	3445	3605	0.32	+	0	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	3883	4924	0.96	+	1	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	3883	4924	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	5116	5200	1	+	0	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	5116	5200	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	5591	5687	1	+	2	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	5591	5687	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	5764	5827	1	+	1	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	5764	5827	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	5897	5953	1	+	0	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	5897	5953	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	6064	6101	1	+	0	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	6064	6101	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	CDS	6181	6358	1	+	1	ID=g12.t1.cds;Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	exon	6181	6530	.	+	.	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	6356	6358	.	+	0	Parent=g12.t1
+contig_14_length_32010	AUGUSTUS	transcription_end_site	6530	6530	.	+	.	Parent=g12.t1
+# protein sequence = [MDYSLLDGEFAEEGISICLHFTRWFWYHFIHSFTTQIQQPSIYLLFRYPTPSFPKRSTSPPSEQITDTEPSIDLSLLE
+# ALEKSHQNSILTLDLKTLNKLALSLERRLKANTAARLKYPDDPEKFADSELELHDELQKLKILAGAPELYKDLVRIGTLESITGLLNHDNTDIAIDAV
+# TLLQDLTDADVVEDNDESAQALVDALIENNAVELLVQNLARLNDSDPDESAAIYNTLSTIENLIEVKPSVSELVCEKTKLLKWLQARIKVREFDSNKQ
+# YASEILAILLQNNVANQKRFGQMNGVDTLLQAVAMYKSKDPKTGDEEEMVENLFDSLCCLLMPLENKERFVKAEGVELMIIIMNQKKLCYGSAIRALD
+# FAMTNYPPACERFVDVMGLKTAFPAFMGKIPLSKKNKRKRYKEELEERLVSVVASLFGGILRGSRRERLFSKFVENEYEKIDRLMELYLRYSDRVKAE
+# IDRLDELELDDLDVDEEEKYNRKLDSGLYTLQLIAVILGHLWTSGHGGIQGRMELVLKQQKLSKKDLKDILQEYHDNIGDLDGPEEKERAQSKVLNFI
+# SSLSY]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 76.5
+# CDS exons: 7/8
+#      E:   7 
+# CDS introns: 6/7
+#      E:   6 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 2
+#      E:   2 (comp5751_c0_seq1,comp5751_c0_seq3)
+# incompatible hint groups: 1
+#      E:   1 (comp5751_c0_seq2)
+# end gene g12
+###
+# start gene g13
+contig_14_length_32010	AUGUSTUS	gene	6766	8590	0.08	+	.	ID=g13
+contig_14_length_32010	AUGUSTUS	transcript	6766	8590	0.08	+	.	ID=g13.t1;Parent=g13
+contig_14_length_32010	AUGUSTUS	transcription_start_site	6766	6766	.	+	.	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	exon	6766	7634	.	+	.	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	start_codon	6804	6806	.	+	0	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	intron	7635	7770	1	+	.	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	CDS	6804	7634	1	+	0	ID=g13.t1.cds;Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	CDS	7771	8463	1	+	0	ID=g13.t1.cds;Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	exon	7771	8590	.	+	.	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	8461	8463	.	+	0	Parent=g13.t1
+contig_14_length_32010	AUGUSTUS	transcription_end_site	8590	8590	.	+	.	Parent=g13.t1
+# protein sequence = [MGCCFSKKVKGAPASAVLNLPENANCEAQLEKKKSVEETPLKKEVFVIKHRRSHERQSSGEVKLEEPTAVLGTPLPCS
+# KDEVDAILIQCGRLSRSSSAVKVAGETPAKCSGTKRSYDFDQEPAKSDENNVAEDEERENRRRDRSRPAGPRRRTPSREREKDRSGRRVSRSPGRRSE
+# SPVPNNTSSGSASQSSRPGKMVSVPATVSSLSHDANSVKRIQVKRNVGASPPRNRSPARLRTGTDNQPPPSLSRSNSKKADNSPFRRNPLAEIDTNVV
+# VAQGPPPSKKPSNPTTKQITTPPDEKKVVTNVISPQQGITRRRSSRLSRDLDMDQESKISSSYTALLLEDIQNFHQKTSADFALPACLTKACSILEAV
+# ADLNSSTAGSTALVEDRRRKAETMMKHEMEEPVMESMIVADVDLMEPSFHKCLTDELGEQESSGSNSVQPQWVSSSNSAAQLSASSSSSAAAASSRKC
+# ERSGNSSSKKRVVGRTRNGTRTTTLGRTNSYTAAAST]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 80
+# CDS exons: 2/2
+#      E:   2 
+# CDS introns: 1/1
+#      E:   1 
+# 5'UTR exons and introns: 1/1
+#      E:   1 
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 1
+#      E:   1 (comp13350_c0_seq1)
+# incompatible hint groups: 0
+# end gene g13
+###
+# start gene g14
+contig_14_length_32010	AUGUSTUS	gene	9695	18521	0.12	-	.	ID=g14
+contig_14_length_32010	AUGUSTUS	transcript	9695	18521	0.12	-	.	ID=g14.t1;Parent=g14
+contig_14_length_32010	AUGUSTUS	transcription_end_site	9695	9695	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	9695	10637	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	9825	9827	.	-	0	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	10638	10884	0.94	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	11032	11110	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	11214	11303	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	11366	11439	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	11739	11808	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	11972	12059	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	12147	12251	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	12361	12450	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	12498	12596	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	12728	12807	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	12894	13004	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	13258	13427	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	13482	13560	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	13712	13927	0.97	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	14360	14462	0.48	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	14574	14657	0.59	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	14873	14948	0.66	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	15107	15178	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	15314	15407	1	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	15506	15580	0.99	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	15747	15811	0.94	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	15867	15948	0.86	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	intron	16270	16894	0.98	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	9825	10637	0.93	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	10885	11031	0.99	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	10885	11031	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	11111	11213	1	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	11111	11213	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	11304	11365	1	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	11304	11365	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	11440	11738	1	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	11440	11738	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	11809	11971	1	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	11809	11971	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	12060	12146	1	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	12060	12146	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	12252	12360	1	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	12252	12360	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	12451	12497	1	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	12451	12497	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	12597	12727	1	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	12597	12727	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	12808	12893	1	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	12808	12893	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	13005	13257	1	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	13005	13257	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	13428	13481	1	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	13428	13481	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	13561	13711	0.97	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	13561	13711	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	13928	14359	0.5	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	13928	14359	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	14463	14573	0.5	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	14463	14573	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	14658	14872	0.39	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	14658	14872	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	14949	15106	0.66	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	14949	15106	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	15179	15313	1	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	15179	15313	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	15408	15505	0.99	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	15408	15505	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	15581	15746	0.95	-	1	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	15581	15746	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	15812	15866	0.97	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	15812	15866	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	15949	16269	0.85	-	2	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	15949	16269	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	CDS	16895	18491	0.91	-	0	ID=g14.t1.cds;Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	exon	16895	18521	.	-	.	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	start_codon	18489	18491	.	-	0	Parent=g14.t1
+contig_14_length_32010	AUGUSTUS	transcription_start_site	18521	18521	.	-	.	Parent=g14.t1
+# protein sequence = [MMDRLKPSAANLSPPLTPLTFLERAATVYTHSPSIIYNTTTYTWPQTHRRCLRLASAISRFSFPPNAVLSVLAPNIPE
+# MYELQFAIPMAGYVINNINTRLDLTTVALILRHAESRALFFDSHLRSLAMGAVSLLPPDFPHPLLIPIHDQDDDESAGSDDLGYEGMLERGDPDFRWV
+# EPKSEWEPMTLNYTSGTTSSPKGVVHSHRSIFVITFDSLLNWSVPTQPVYLWTLPMFHSNGWSYTWGMAAVGGTNVCLRKFNAEIVYDAINRHNVTHM
+# CGAPVVLNMMANYPRLKSPVQILTGGAPPPAPVLLRTESLGFVVSHGYGMTEVAGVVVSCAWKSKWNSFPATEQARLKSRQGVRTLGLAAADVVDPSN
+# GESVPRDGLTMGEIVLRGSCLMLGYLKNPEATAKCMRNGWLFTGDIGVMHRDGYIEIKDRSKDIIISGGENVSSVEVESVLYSNPAVNEAAVVARPDD
+# YWGETPCAFLSLKEGVESRPAENEVIEFCRERLPHYMVPKTVVFMEELPKTATGKVKKFALRGRKIQDELRQSVKSTADDAMKCCMGLLHFKHLPLRE
+# QTLMPKTRKRTAMPMRKAVVRWSRLRRYSKQLTLRAFFVAFILAILFTFIVMKLNLTTGIIPSLNVSAGLLGEHRHSDLRRGRLRHSLQRWFWECYLF
+# GMSEVIASQSTEANDATNVKNPRLSWIIGFLFVVSFLGLFSVVPLRKIMIIDFKLIYPSGTATAHLINSFHTPQGAKLAKKQVKALGKFFSFSFLWGF
+# FQWFFTAGDNCGFASFPTFGLKAYDNRFYFDFSATYVGVGMICPYLINISLLIGAILSWGLMWPLIQNRKGDWGFARLQGLSQQLSRRTDIRPVDGQS
+# SPDISYDDQIRTKLFLKDSIPNWVAVAGYVTIGIVSTVTLPHIFSPLKWYYVVGKLAIFIVGAWAGSAHGGGVLAGSSRLRRHDEHRVDCRVLAFLQG
+# KALKDLGVPGSEYAAPYALVYRNMAVLGVEGLGALPKHCLTDIVLYILWRSHCDERRGWGEMGEVRSSSRSIISRRVLHDRHVCWEGSLIVFVWEKMD
+# KAKADALGPAVASGFGLCQARYWPWLEGSHPTHMHEIPPRHRRRCRNPKPKSKIRFFHPEDEDFTSFPSFRLLTAMVWGLFSVNSHPPGENGYYIFQK
+# GAYQVGRKGCDIIIDDRGVSRLHAEIIVDEMICGDQFLKSSSKVRLKDCSKYGTFVTKAIASSVIKLQECPNKESELVDEDLVAFGTGNARYKFAFIP
+# LVFFASSPKPMNLTILREKMPSIGAGFTQSLTSKCTHVICDDLIPFNDEILDAILARKPVVKISWLELLAGKTVCSEMPDSISHAPNFIIEGATVKIA
+# EPRSREECLKGHTFILESVEKYKFKKKFPVLLELAGAEVVFAETQQNSNHSSGDNAVFVIPATSNGRAGSRHSKYNSSRKMIETQLILAVVSGYLNHS
+# SITSSPELLTSSDSTTEGTVVPDSDLEMETATSNHTSKKVVICVEAEYSEEKNEVGVETDFHDVGSSIVVKDDCPETENVDVIFSSNLMVRKEEGVGS
+# RNFKRFRKMSTPSGNSFSNLIPFSKNPYQEMEWENRDVSEYCRQQKKRKQMEDDGEALFNDDKGSRQPASKSGSVLRIXXXXXXXXXXXXXXXXXXXX
+# XXXXXXXXXXXXXXTPTKPRFLHHSFPFLFFITTMADNNNHLKVHPLLHDPEASPLPKPTAPLMGQLSYPLSQNGDPEGPPSAPPRPRSRCCTCKRCC
+# CWMLFSVILVILILGILAAVVYFVFKPKVPDYSLDAIKITQFKLGSDDTLSTTFDVNLTATNPNKRIGIYYRSGSDLRVLYSGTQLCQGSLPEFYQGH
+# RNTTQLSLNLSGETADGLGLLQSLRTQQQQTGSVPLDLRGRVPVRLKLGSLKLTTWKFLVRCRVTVDSLSADNTIRIRESSCSFRFRL]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 55.1
+# CDS exons: 15/24
+#      E:  15 
+# CDS introns: 12/23
+#      E:  12 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 3
+#      E:   3 (comp11802_c0_seq1,comp6220_c0_seq2,comp11833_c0_seq1)
+# incompatible hint groups: 1
+#      E:   1 (comp6220_c0_seq1)
+# end gene g14
+###
+# start gene g15
+contig_14_length_32010	AUGUSTUS	gene	19564	20431	0.07	-	.	ID=g15
+contig_14_length_32010	AUGUSTUS	transcript	19564	20431	0.07	-	.	ID=g15.t1;Parent=g15
+contig_14_length_32010	AUGUSTUS	transcription_end_site	19564	19564	.	-	.	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	exon	19564	19860	.	-	.	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	19587	19589	.	-	0	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	intron	19861	19971	0.65	-	.	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	CDS	19587	19860	0.64	-	1	ID=g15.t1.cds;Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	CDS	19972	20357	0.79	-	0	ID=g15.t1.cds;Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	exon	19972	20431	.	-	.	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	start_codon	20355	20357	.	-	0	Parent=g15.t1
+contig_14_length_32010	AUGUSTUS	transcription_start_site	20431	20431	.	-	.	Parent=g15.t1
+# protein sequence = [MEWPDFESDPLQHHYQHHCLSTEMMDYSCWSSEENKLFENALAELQPDSPGFFETLASCVPWKPINDITSHYQSLLRD
+# VEMIESDLYPVPKYTDSVKKDHEEEAVSNGKRTKKGRDRRRGVPWTEDEHQLFLMGLHRYGKGDWRSISRYYVITKTPTQVASHAQKYFRRQTCSTPA
+# EKRRPSIHDIQTTPNLVNWEGIHHHEPSFFVRNYWAPSSYSLL]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 0
+# CDS exons: 0/2
+# CDS introns: 0/1
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 0
+# incompatible hint groups: 0
+# end gene g15
+###
+# start gene g16
+contig_14_length_32010	AUGUSTUS	gene	20485	21731	0.28	-	.	ID=g16
+contig_14_length_32010	AUGUSTUS	transcript	20485	21731	0.28	-	.	ID=g16.t1;Parent=g16
+contig_14_length_32010	AUGUSTUS	transcription_end_site	20485	20485	.	-	.	Parent=g16.t1
+contig_14_length_32010	AUGUSTUS	exon	20485	21731	.	-	.	Parent=g16.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	20730	20732	.	-	0	Parent=g16.t1
+contig_14_length_32010	AUGUSTUS	CDS	20730	21692	1	-	0	ID=g16.t1.cds;Parent=g16.t1
+contig_14_length_32010	AUGUSTUS	start_codon	21690	21692	.	-	0	Parent=g16.t1
+contig_14_length_32010	AUGUSTUS	transcription_start_site	21731	21731	.	-	.	Parent=g16.t1
+# protein sequence = [MALFAYTVGGGGAILIGLWESVTSISESTRGENPLYHSSQLVENASRSKPRLTLFSSATTYLLISFLSVLVIVNSLIS
+# LFDAVNYKDSMGLALQLQVIPIASLFLLFSGLGILSNTTDSFHFPKTILNLIYAFAFGEEFFVFYTKINDPSGSGVESRYYDLMLVPIAVCLFSTLLE
+# MRSTYYAKLGRGIGFISQGMWILQMGFSFFTSMISDGCWLSRRSRGNLSIKCKGHSEYHRGSAIATLEFNCHLAVVVSFGVGFYSVLRKVHGMEREAL
+# KYTPIGADKTPHDDNHHQFSLESDDDENGIGVEMTLKGNVWATANN]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 66.7
+# CDS exons: 1/1
+#      E:   1 
+# CDS introns: 0/0
+# 5'UTR exons and introns: 1/1
+#      E:   1 
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 1
+#      E:   1 (comp1421_c0_seq1)
+# incompatible hint groups: 0
+# end gene g16
+###
+# start gene g17
+contig_14_length_32010	AUGUSTUS	gene	21966	23126	0.18	+	.	ID=g17
+contig_14_length_32010	AUGUSTUS	transcript	21966	23126	0.18	+	.	ID=g17.t1;Parent=g17
+contig_14_length_32010	AUGUSTUS	transcription_start_site	21966	21966	.	+	.	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	exon	21966	22891	.	+	.	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	start_codon	22022	22024	.	+	0	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	intron	22892	22982	0.7	+	.	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	CDS	22022	22891	0.76	+	0	ID=g17.t1.cds;Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	CDS	22983	23036	0.7	+	0	ID=g17.t1.cds;Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	exon	22983	23126	.	+	.	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	23034	23036	.	+	0	Parent=g17.t1
+contig_14_length_32010	AUGUSTUS	transcription_end_site	23126	23126	.	+	.	Parent=g17.t1
+# protein sequence = [MRFRNGVSSNAFFNIRIQKRSLVNVKIPWVRNPVLDSVVSRDVELKAASTIVSLIGSHPNSYLPIHRIIKFRGQFGLP
+# SDLKLSTFLRRYPSIFEEFYRPDSAGTPVPCYKLSSPASEIYVEEQHLLFQDCYVDILNRLQKLLMLTKQKLLPLQTIDQLRFDLGLPLDYMDKFVNA
+# RPDLFGLVELPDGREGVKLLYRDDSLAVSHLESKRWRSDDEEQPLAFPIVFTRGFGLKKKSMEWLHDWQKLIYTSPYADASHLDPRTDVSEKRIVGVF
+# HELVQLTILKKMERKNEIPKLWCSERVMTIVGS]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 20
+# CDS exons: 0/2
+# CDS introns: 0/1
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 1/1
+#      E:   1 
+# hint groups fully obeyed: 0
+# incompatible hint groups: 1
+#      E:   1 (comp18105_c0_seq1)
+# end gene g17
+###
+# start gene g18
+contig_14_length_32010	AUGUSTUS	gene	23137	30011	0.15	-	.	ID=g18
+contig_14_length_32010	AUGUSTUS	transcript	23137	30011	0.15	-	.	ID=g18.t1;Parent=g18
+contig_14_length_32010	AUGUSTUS	transcription_end_site	23137	23137	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	23137	23705	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	23176	23178	.	-	0	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	23706	24110	0.98	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	24197	24281	0.97	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	24358	24443	0.95	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	25037	25195	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	25867	25944	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	26137	26205	0.62	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	26305	26392	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	26519	26578	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	26786	26882	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	26968	27085	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	27175	27251	1	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	27529	27616	0.96	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	27728	27802	0.99	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	intron	28848	29012	0.85	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	23176	23705	1	-	2	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	24111	24196	0.97	-	1	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	24111	24196	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	24282	24357	0.96	-	2	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	24282	24357	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	24444	25036	0.95	-	1	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	24444	25036	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	25196	25866	1	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	25196	25866	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	25945	26136	0.89	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	25945	26136	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	26206	26304	0.72	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	26206	26304	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	26393	26518	1	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	26393	26518	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	26579	26785	1	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	26579	26785	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	26883	26967	1	-	1	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	26883	26967	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	27086	27174	1	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	27086	27174	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	27252	27528	0.96	-	1	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	27252	27528	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	27617	27727	0.99	-	1	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	27617	27727	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	27803	28847	0.85	-	2	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	27803	28847	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	CDS	29013	29706	0.77	-	0	ID=g18.t1.cds;Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	exon	29013	30011	.	-	.	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	start_codon	29704	29706	.	-	0	Parent=g18.t1
+contig_14_length_32010	AUGUSTUS	transcription_start_site	30011	30011	.	-	.	Parent=g18.t1
+# protein sequence = [MARGRIRARIRRSSLYTFACLKPTRSDQDVTTKNIPGPGFSRIVFCNQPSKQDQGPYRYCSNYITTTKYNFLTFLPKA
+# IFEQFRRVANFYFLLAALLSLTPISPFGPMSMIAPLAFVVGLSMGKEALEDWRRFLQDMKVNLRKTSVHDGSGKFCLKQWRNLQVGDVVMVEKDQFFP
+# ADLLMLSSSYEDGICYVETMNLDGETNLKVKRSLEATTDLNDEPAFKDFNDATIKYPSQILLRDSKLRNTAYVYGVVIFTGHDSKVMQNSTESPSKRS
+# RIEKQMDKIIYILFIILVFISVISSIGFMMKTRNYLPKWWYLQVPDHEHMYDPGRPIESAIYHLITALMLYGYLIPISLYVSIEVVKVLQALFMNQDI
+# HMYDEESGTPAQARTSNLNEELGQVDTILTDKTGTLTCNQMDFLKCSIAGTGYGTRASDVELAAAKQMSMDSEVPSRSSTLRSSTKSGHGFEESEIQL
+# ETVVTSKGEDTFQPSIKGFSFEDCRLLDGNWQNEANKDDLLMFFRILSLCQSAIPEEIEETGVFTYEAESPDEGALLVAAREFGFEFCKRTQSSVFVR
+# ERYPSFQQPVEREYKVLNLLDFTSKRKRMSVIIQDESGQIILLCKGADSIILDRLSRAGRKYQDATTKHLIDYGEAGLRTLALAYKKLKETEYFAWNE
+# EFTQAKTSFGNDREDNLERLSDEMERDLILVGATALEDKLQKGVPECIDKLAQAGLKIWVLTGDKMETAINIGFACSLLRQGMKQVCITSHVDALVQD
+# PGQAKDDILFQISNATQMISGETDPHAAFALIVDGKTLAYALDDRIKRQFLDLAVECASVICCRVSPRQKALVTRLVKEGTGKITLAIGDGANDVGMI
+# QEADIGVGISGCEGMQAVMASDFSIAQFRFLERLLVIHGHWCYKRIAQMICYFFYKNIAFGLTIFYFEAFAGFSGQSVYDDWYMLLFNVVLTSLPVIS
+# LGVFEQDVDSQVCLQFPALYQQGPKNLFFDWPRIFGWLSNGLYTSFIVFYLNIVIFCNQAFRSGGQTADMVSVGTAMMTCVIWVVNCQIALTMSHFTW
+# IQHILIWGSIATWYLFLIVYGEMKYSIKVDGFRVLVEVLAPAPIYWTTTVLATVLCNLPYLVHISYQRSFHPLDHGIIQEIKYYRKDIEDGHMWNREC
+# SKAREKTKIGFSVRVDAKIRQLKGKLQKKCSVINFSPGHHPVTWKRRKRIWAWAWLLRVMKRRRWIFPAVTACVMSLLILFLTALISSDGSPPLRRFY
+# ANSVAASVSIFVEHRLKPIPVSDAHALPPRFAYLISGSAGDGAMLRRTLQALYHPNNQYVVHLDAESSAEERLDLSNYVDSHLIFRRFENVRMISKAN
+# LVTYRGPTMVANTLHAASILLKAGGDWDWFINLSASDYPLVTQDDLLDVFSRLPRDLNFIDHTSNIGWKEFQRAKPVIIDPGLYMTKKSDVFWITQRR
+# RSAWVVLSRSFVDYCIWGWDNLPRTLLMYYTNFLSSPEGYFHTVICNANDFKNTTINNDLHFISWDNPPKQHPHYLKLDDMQRMVDSNAPFARKFHHN
+# DPILDRIDRELLFRGQGMLVPGGWCVPGMGERKNGTTTDPCSDLGDVNVLRTTAGAKRLDRLITTLLGDDKLAAERCK]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 38.7
+# CDS exons: 6/15
+#      E:   6 
+# CDS introns: 5/14
+#      E:   5 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 1/1
+#      E:   1 
+# hint groups fully obeyed: 1
+#      E:   1 (comp11246_c0_seq1)
+# incompatible hint groups: 1
+#      E:   1 (comp15793_c0_seq1)
+# end gene g18
+###
+# start gene g19
+contig_14_length_32010	AUGUSTUS	gene	30093	31893	0.11	-	.	ID=g19
+contig_14_length_32010	AUGUSTUS	transcript	30093	31893	0.11	-	.	ID=g19.t1;Parent=g19
+contig_14_length_32010	AUGUSTUS	transcription_end_site	30093	30093	.	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	exon	30093	30647	.	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	stop_codon	30184	30186	.	-	0	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	intron	30648	30757	0.38	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	intron	31258	31319	1	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	intron	31466	31539	1	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	CDS	30184	30647	0.37	-	2	ID=g19.t1.cds;Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	CDS	30758	31257	0.38	-	1	ID=g19.t1.cds;Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	exon	30758	31257	.	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	CDS	31320	31465	1	-	0	ID=g19.t1.cds;Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	exon	31320	31465	.	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	CDS	31540	31848	1	-	0	ID=g19.t1.cds;Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	exon	31540	31893	.	-	.	Parent=g19.t1
+contig_14_length_32010	AUGUSTUS	start_codon	31846	31848	.	-	0	Parent=g19.t1
+# protein sequence = [MVKSEEPKRRVAFVLIDGLGDVSLPRFGYKTPLQVANVPNLDAIASAGINGLMDPVEVGLACGSDTAHLSILGYDPRV
+# YYRGRGAFESMGSGLAMSPGDIAFKSNFATLDEKTGIVISRRADRHFEEEGPILCSALDGMKLPNFPEYEVRVRYATEHRCGVVVRGPKLSGNISGTD
+# PLKDNRLLLQAQPLDDSDESKRTAAVVNDLSKEISRILVAHPINARRMVEGKNVANVVILRGCGTRIEVPEFEGLHGLWPCMVAPTKIIAGLGLSLGI
+# DILEAEGATGDYRTLLTAKSTAIARALSAPLNSCPNIFVPGEDEHDAGHDKASSLKVRGLEGVDRAVGQLAKLLWQSESTGEFRYYICVTGDHSTPVE
+# YGDHSFEPVPFGLCGLKEFVGAAGGEWSILEVCLDPFPLETEVEEVEVDDVCSSRGGREVCWAFSGDDVWEFNEIAAARGCLGRFPGSEMMGIIKKFI
+# QL]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 77.8
+# CDS exons: 4/4
+#      E:   4 
+# CDS introns: 2/3
+#      E:   2 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 1/1
+#      E:   1 
+# hint groups fully obeyed: 2
+#      E:   2 (comp6999_c0_seq1,comp7195_c0_seq1)
+# incompatible hint groups: 0
+# end gene g19
+###
+#
+# ----- prediction on sequence number 4 (length = 30612, name = contig_15_length_30612) -----
+#
+# Forced unstranded hint group to the only possible strand for 2 groups.
+
+# Predicted genes for sequence number 4 on both strands
+# start gene g20
+contig_15_length_30612	AUGUSTUS	gene	1	30110	0.01	+	.	ID=g20
+contig_15_length_30612	AUGUSTUS	transcript	1	30110	0.01	+	.	ID=g20.t1;Parent=g20
+contig_15_length_30612	AUGUSTUS	intron	258	381	0.88	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	898	1245	0.41	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	1307	1578	0.31	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	1620	1698	0.85	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	2043	2338	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	2424	2712	0.9	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	2988	3997	0.93	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	4159	4263	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	4374	4440	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	4561	4643	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	4723	5217	0.87	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	5341	5421	0.95	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	5504	5723	0.76	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	5815	5883	0.95	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	6013	6188	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	6246	6340	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	6518	6593	0.98	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	6720	6835	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	8573	9101	0.97	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	9167	9243	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	9381	9478	0.58	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	9549	9663	0.52	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	9707	9790	0.57	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	10097	10231	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	10426	10515	0.7	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	10571	10816	0.49	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	10942	11023	0.62	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	11080	11248	0.56	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	11323	11563	0.88	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	11712	11953	0.92	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	12053	12263	0.83	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	12365	12445	0.97	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	12536	12612	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	12679	12917	0.98	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	13083	13220	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	13408	13503	0.48	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	14370	14461	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	14880	15234	0.98	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	15478	15575	0.29	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	15617	15686	0.54	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	15749	15832	0.59	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	15897	16125	0.52	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	16301	16552	0.88	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	16631	17614	0.19	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	17692	17829	0.53	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	17966	18119	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	18206	18287	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	18368	18715	0.98	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	18842	19283	0.41	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	19364	19455	0.94	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	19608	19706	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	19821	20035	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	20186	20293	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	20471	20549	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	20730	20890	0.49	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	20993	21068	0.63	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	21285	21424	0.46	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	21545	21681	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	21764	21846	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	21978	22070	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	22236	22398	0.63	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	22475	22617	0.95	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	22731	23444	0.92	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	23480	23699	0.95	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	23769	23856	0.93	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	24014	24099	0.72	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	24238	24351	0.48	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	24510	24579	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	24627	24707	0.67	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	24941	25079	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	25308	25405	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	25613	25709	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	25869	26083	0.98	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	26315	26382	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	26683	26758	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	26906	26978	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	27180	27257	0.99	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	28908	28981	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	29264	29333	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	intron	29748	29838	1	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	1	257	0.12	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	1	257	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	382	897	0.82	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	382	897	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	1246	1306	0.31	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	1246	1306	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	1579	1619	0.32	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	1579	1619	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	1699	2042	0.89	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	1699	2042	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	2339	2423	0.97	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	2339	2423	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	2713	2987	0.73	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	2713	2987	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	3998	4158	1	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	3998	4158	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	4264	4373	1	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	4264	4373	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	4441	4560	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	4441	4560	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	4644	4722	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	4644	4722	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	5218	5340	0.85	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	5218	5340	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	5422	5503	0.74	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	5422	5503	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	5724	5814	0.79	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	5724	5814	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	5884	6012	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	5884	6012	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	6189	6245	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	6189	6245	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	6341	6517	0.98	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	6341	6517	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	6594	6719	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	6594	6719	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	6836	8572	0.83	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	6836	8572	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	9102	9166	0.98	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	9102	9166	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	9244	9380	0.61	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	9244	9380	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	9479	9548	0.6	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	9479	9548	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	9664	9706	0.52	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	9664	9706	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	9791	10096	0.8	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	9791	10096	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	10232	10425	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	10232	10425	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	10516	10570	0.7	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	10516	10570	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	10817	10941	0.62	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	10817	10941	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	11024	11079	0.56	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	11024	11079	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	11249	11322	0.91	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	11249	11322	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	11564	11711	0.91	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	11564	11711	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	11954	12052	0.98	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	11954	12052	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	12264	12364	0.8	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	12264	12364	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	12446	12535	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	12446	12535	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	12613	12678	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	12613	12678	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	12918	13082	0.98	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	12918	13082	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	13221	13407	0.48	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	13221	13407	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	13504	14369	0.98	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	13504	14369	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	14462	14879	0.95	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	14462	14879	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	15235	15477	0.31	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	15235	15477	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	15576	15616	0.49	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	15576	15616	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	15687	15748	0.39	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	15687	15748	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	15833	15896	0.31	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	15833	15896	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	16126	16300	0.5	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	16126	16300	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	16553	16630	0.62	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	16553	16630	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	17615	17691	0.2	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	17615	17691	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	17830	17965	0.6	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	17830	17965	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	18120	18205	1	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	18120	18205	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	18288	18367	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	18288	18367	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	18716	18841	0.43	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	18716	18841	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	19284	19363	0.41	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	19284	19363	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	19456	19607	0.97	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	19456	19607	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	19707	19820	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	19707	19820	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	20036	20185	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	20036	20185	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	20294	20470	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	20294	20470	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	20550	20729	0.98	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	20550	20729	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	20891	20992	0.49	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	20891	20992	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	21069	21284	0.35	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	21069	21284	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	21425	21544	0.89	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	21425	21544	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	21682	21763	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	21682	21763	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	21847	21977	1	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	21847	21977	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	22071	22235	0.63	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	22071	22235	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	22399	22474	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	22399	22474	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	22618	22730	0.95	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	22618	22730	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	23445	23479	0.94	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	23445	23479	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	23700	23768	0.98	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	23700	23768	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	23857	24013	0.95	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	23857	24013	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	24100	24237	0.48	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	24100	24237	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	24352	24509	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	24352	24509	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	24580	24626	1	+	1	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	24580	24626	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	24708	24940	0.67	+	2	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	24708	24940	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	25080	25307	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	25080	25307	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	25406	25612	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	25406	25612	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	25710	25868	0.97	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	25710	25868	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	26084	26314	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	26084	26314	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	26383	26682	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	26383	26682	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	26759	26905	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	26759	26905	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	26979	27179	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	26979	27179	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	27258	28907	0.99	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	27258	28907	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	28982	29263	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	28982	29263	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	29334	29747	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	29334	29747	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	CDS	29839	29871	1	+	0	ID=g20.t1.cds;Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	exon	29839	30110	.	+	.	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	stop_codon	29869	29871	.	+	0	Parent=g20.t1
+contig_15_length_30612	AUGUSTUS	transcription_end_site	30110	30110	.	+	.	Parent=g20.t1
+# protein sequence = [KWHEDLFCRASITKSMAPGEPLENRIAIVTGASRGIGREIAIRLRSLGAKILINYTSSSERANRLASEMNSTAAHPPA
+# AIAVRGDEEFGAPPHILVNCAGILDPKYPALADTPLDTFESIFNVNTKGSFLTLREAARRLSRGGGGRIIMLSSSMVAGLNPGYGTYAASKAAIEALV
+# KVAAKELKGTGITANCVAPGPVATDMFYEGKSEEWIQRITDSCPLGRLGQPNDVAQIIGFIATDAGEWINGQVIRVNGGANSADSLRILCWEDSWLLG
+# AEVRLKLNPLMNSFLEKGDKIKEEEVVGALAELVLLPKYTIPLLGCFRSIAPVIIEKTVGLLRLVPSLRSDIGTITEELDHNRLLEEEDGVNYSDVVN
+# VIDFYSRTGKGLFLHELACLAFSRALDLIPFLLKSILDYFKFAPAPFERILVYGSVSRALSKDPNQLLNVVRASYRFLILETEVFKALWNWSCFLDIV
+# QPPSEWNSLSDDALRNIISDVRWCGIGALSLVLRLNSETSGNIALSSKEAFLSFLRNGDALFVVTASMNKSFEMISLAVSQRWPVLLYGPSGSGKSSL
+# INNLAHTQRRKVLSIYMDEQTDGKTLIGSYVCTEQPGEFQWQPGSLTQAVKNGFWVVFEDIDKSPPDIFSILVPLLEGAIEFSTGHGEAVKVNDDFRL
+# FATVTSSIPGTYPNMEGRVSIGASWMKVMIDAPNHSDLLNIMRVCYPELEPLSGKLIETFETANQLTGSHLGLTTSKFNGRFTLRDLLKFSKRVASIS
+# VSLDGISSYACERIFREAVDVFASFSTSEMNRLIIMKGIAKLWAVSEPGILYPANKPVIQEFDRMLQVGRVVLRHAENVLNCEKKPFVNIRASLYALE
+# RIACSVQHNEPVLLVGETGTGKTTLVQTLASRLGQKLIVLNLSQQSDVADLLGGFKPIDARFVCIPLYKEFEILFTNSFSSKDNQGFLSQLRKFVTDK
+# NWKMLLNGFHKGVRKIVEIGKASPGNKRKRTDVLLQAWESFSTKLEKARAQVSASDGMVFSFVEGAFITALRNGDWILLDEVNLAPPEILQRVIGVLD
+# NEKGSLCLAERGDIDYISRHSNFRMFACMNPATDAGKRDLAYSIRSRFTEYYVDDALDDDDLALFVECFTGNDSSCTPGNIVRFYKDAKRSEERLQDG
+# ANQRPHFSLRSLYRAMEYLVKAKRHFGFERSLYDGFSMFFLNMLDDASSKSMNNLICKHLLSVAVAPQPLPFDSYLVNKAGPHDDDILTSYVLTKSVK
+# EHLRNLAQAVFVGRYPVLLQGPTSSGKTSLVKFLAAITGHEFVRINNHEHTDLQEYLGSYTSDSSGKLLFQEGALVKAVRKGQWVVLDELNLAPSDVL
+# EALNRLLDDNRELFVPEIRETIRCHPDFMLFATQNPPGFYGGRKLLSRAFRNRFMEIHVDDIPQDELTTILERKCQIPGTCAGKMVNVMKELQLHRQS
+# SKIFSGKHGYITPRDLFRWAKRFREFATTRDLVLNGYYLMAERLRDDAEKRVVKDILERCTGLTFSDDELYKQEREAGHHMEAGNCMQHVDNVGKIIW
+# TKSLQRAYFLVERCYKMREPVLLIGETGGGKTTVCQLLSTTLAIPSFSNFVVVVVNEQGFYPVRESLACSKAFRNYPGDTKISTDINQASQTLDLISL
+# VVKYYKDGSVCHPKVTLEEIYYVEKIHQSLCQLQNKWQTIFTWQDGPLIEAMKRGELFLIDEISLADDSVLERLNSVLEPERKLLLAEKGGPHLETVD
+# AHENFFLLATMNPGGDYGKKELSPALRNRFTEIWIPSVSEINDLKSIALDRILNSELSYLVDAMLDFWENTYSERSLVLGIIYQCDREKFIRRICIFA
+# WGISSFAGWTLLRLQVVLCAFSAISVSAIVIRTNVSKGEAAELRLKCFNLLLKKIEVYNPSFDISSIKRLESYGWGDVGCSPVADISENMKCDTLFGI
+# DPFYIEKGTDDTTLEDYEFLAPTTHRNSLRVLRALQLMKPVLLEGSPGVGKTSLIIALGKFSGHGVVRINLSEQTDIMDLFGCDLPVESDEGIQFAWS
+# DGILLQALKKGSWVLLDELNLAPQSVLEGLNAILDHRAEVFIPELGKSFKCPTSFRVFGCQNPSYEGGGRKGLPKSFLNRFTKVYVDELIDDDYVSIC
+# SSRFPSIERSLLSNLIKFNKRLHQETMLYRKFGQNGSPWEFNLRDVIPASKRSKPACFLSPIYLQRMRTAADRKEVLKLYEQTFGVKPFVNKYPRVML
+# NSSSLCVGTVSIERNLCQLSMSSRKLMILPAIRNTLEAVAHCVRNQWLCILVGPASSGKTSLIRLLAELTGNTLNELNLSSTTDISELLGCFEQYNVF
+# RHYRLVIAQVERYVNEFCNLISSSAGAFSGNKVTVARWLAFLSDIDRSVTCIENTKMRDAIRQLILILECLGRHTCEQPWTFSWSLKDLDNTLSALRK
+# LENDCLKQHYSVKFEWVTGSLVKAIENGEWIVLENANLCNPTVLDRINSLVEQFGSITINECGIVEGNPVVLHPHPRFRMFLTVNPSFGEVSRAMRNR
+# GVEVFMMDPDWLMGETSCPNSYEIEVREAKRFITLSGVTVNKLVDMMAKAHVYAKHEGSNLNVSITFLQLSRWLDLFQRLIMNGSQIAALKNSVTLKK
+# GFEEMYLANGGTRTIHVFDAALLHRIAFPNSDNVSPKKYPRSDTELNLAMKKLTFAADWAIEQATEGAAALYMEDDFSIAIDVFQPVGQLESYNILLN
+# AIKRLEEEVLDRLLDSPSFDEIFMGEMEKVGFCSTSNLGKSLLWAYGGHPTIPSSAEQYRLQCQISALCEMLWPKKCIWSTQDKNELNEDTLIGALSA
+# MVELRVLAMQASVAFDLELLQSLTGVGLVDSEKLHDDLQELTSSLKSSLNFSLKYSSRSPADILPHQKILWTLDAWESVTGARGKVASFILQLWLRWH
+# ANLWDFCPLVFESQAKDNGILLPFKFFRPLKLLTVDHFLQNPVSIGEYSLHSFNLRAASHNLWQCSPSMTNFHSMLLSVASHRGFTSLIDTYIEPLLT
+# EIYSVTSPNDNRSVGYALFYIGGLRYSLLVASGNLDPCLKHSIKYSILTEKIASLQVEIEVRKECNYLAGTACESDSEFYQKTLLDELNAERKKMQKK
+# MVFRPNAGKFEELKYLCNDFLKSVNVMVEWIKSLTSFKTEEVASQMYNWQETLSRVNVHLSNEFSAFGDITEPIQVAIYEMKLGLSLMLAGEIYEGCV
+# ENSKHDKISIVTSTHELMRFPRVWSHTPVLVKFWGQPILSTQDISLPSNIEALDGLHSFLISTKDALSNPMALPLSLRISFYHHILQRVKYSAAVSQF
+# LCNTSFKLLHEVFDKVALLWIENRMKASVVAEDGKFKFRARTFKMASIIEMDLSNCVNMLPVDSFSEWQELLSEDLDEKIIVNEDEADLELDWDANGS
+# FLGGIVDIHNQLFGSVDLVQRPGRVQISDMDMVSCFLGSYWLGLQVTKDLRGPATYCFDAKLAPVHLLRLCLAHENKLFPSNKLTTMSNFYKDPNSSV
+# IIKLVEPVTQLRHEFLALLKKYDNHPTLLRILEVTDMILALPLDSPLAKALSALEFLLNRVLRLQDTVIKFSTSEHLQPILALVASWHKLEFESWPAL
+# LDEVESQIERNVGKISNDLNQSSQMSACQEETVKILYNTFGLYVQLLPKILRHTGNNRRSIEKELNDLLKLCRWDRIEKHLTVETFKNIRLKMRKIVK
+# KYSLMDLLPFKFRTRVITFFAVLYSVSVIIYVAAFIILHCVVVDCVSERDLLQQPLLVFLEQESSRTDAQLIQGQNLFVDSYDAGTFFKAITSQIELT
+# DKECSTWFSEWWKHLTSMEAEAINGIGDILPSSSSCLSYWEERSHAFHALEELCSSLIHCDEVWVDKSKNLRKRRALSNLLKLLEGFGLSKNRPTMEG
+# QFSRSKTWIRQPSYEVQHLLMQSDHLSENDLTHLQNPSQDNLWEASNKYYFKSIAAILSLEKVSVNFHKDFSHVQVTRARSYADHLIEIQQEQRAVAY
+# DFSKKLKFLRQHMMPLTSLFSLFESNTKCFPKSSQLSIFKCLWRQKQIFDGLCSLLREEEWLLQTVERNHLSSCSTIKVQVNNLCSFIQKIIPDVQKS
+# KKTLDKHLLGSSGDGYVVGVTLLHPYGINQEMEDVMHRNFELIKTLEKYLSAFHRQDDERRGGAESILLRHIEDMLVQARNAEEQYYSPQQVGLLNNA
+# VSCDEDVLCEYDTSLNNALEETSKHIFGTLRNLGDRSYNFTDGKEDFRDIRKWKFLFEKDIERLQLELISSNVSRTVRCLGELLSSYGEPNISLSPST
+# HSKLRHLYFLFEKILAFGDNLLMDFLRIHSMICEVTYGLSNAFSSLFSKGFGGNEDVESTKEVTKEGSGTGMGEGAGMADVSEQINDEDQLLGASSGK
+# QNEDHDSTSDLPDKNEKGIEMEQDFDAEAFSVSEDSEPEENGDTEGDEPESAMGEVGDNSNVVDEKVDHQKGDNDEDNEKYEQGPSANDRDSQEDQLR
+# AKEEESTGAVETSENNDPIESADEDNDDAGEKDGLDNCVEDMAVDKNEAFEDPSEEQNRSSDEAVPPKDESHCDEQTEDGESEDLNDTEMNDGEENID
+# QSSKDVDAEQLAEDDHEVADLDKPTSNDDDGITKEDSLQKSNFFQMSNNNLEQPAFGDGAGQLGGQSSEAEIDATNSDDPTASEFEVSIADSRNGERV
+# RNEQRSSTSLPRQESPSRNLDTNPYRSIGSAIEGWKERVKVSVDLQKEEDMSEDCANDDAEEYGYTAEFQEGTAQALGPAMADQIKDDIPQNESENDS
+# RGNVQKDAEDKARIEKSDPETLLAKNAALNHGFDAKTQHDAIDQEMQDAAESMDMDVDHDKIESGSLDSFISVRRSYMSEEMTQFASQSNDDHLGNSR
+# KFEPSADLRDSAAALWRKYESNTTKLSHELVEQLRLVMEPTTASKLQGDYKTGKKINMKKVIPYIASHYRKDKIWQRRTRPSKRDYQVVIAVDDSRSM
+# SEGNCGDFALEALVTVCRAMSQLEVGDLAVVSFGKQGNIKLLHDFDQPFTPEAGIKMISSLSFEQENTIVDEPMADLLKYLDTMLEDSAAKRKFSGRN
+# PLQLQQLVLIVADGRFNEKDRLKRYVRDVLNKQQRMVAFLVLDSPNESIVDLMEARVEEKKGVTVCRYMDEFPFPYYVVLKKIEALPRTVADLLRQWF
+# ELMHNSRD]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 6.79
+# CDS exons: 7/81
+#      E:   7 
+# CDS introns: 4/80
+#      E:   4 
+# 5'UTR exons and introns: 0/0
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 5
+#      E:   5 (comp2077_c0_seq1,comp20163_c0_seq1,comp15796_c0_seq1,comp12542_c0_seq1,comp6838_c0_seq1)
+# incompatible hint groups: 0
+# end gene g20
+###
+#
+# ----- prediction on sequence number 5 (length = 28978, name = contig_16_length_28978) -----
+#
+# Forced unstranded hint group to the only possible strand for 1 groups.
+
+# Predicted genes for sequence number 5 on both strands
+# start gene g21
+contig_16_length_28978	AUGUSTUS	gene	1	27211	0.01	+	.	ID=g21
+contig_16_length_28978	AUGUSTUS	transcript	1	27211	0.01	+	.	ID=g21.t1;Parent=g21
+contig_16_length_28978	AUGUSTUS	intron	1	89	0.95	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	192	423	0.71	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	541	625	0.64	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	787	1530	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	1702	1977	0.8	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	2071	2176	0.78	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	2490	2570	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	2676	2747	0.98	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	2844	3601	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	3670	4626	0.96	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	4748	4817	0.83	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	5025	5123	0.99	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	5328	5408	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	5519	5735	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	5833	5922	0.77	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	6022	6303	0.99	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	6460	6525	0.93	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	6601	6672	0.77	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	6744	6903	0.69	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	7223	7771	0.72	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	8120	8198	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	8331	9020	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	9135	9222	0.91	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	9408	9509	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	9619	10036	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	10181	10368	0.89	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	10660	10774	0.86	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	10842	10933	0.38	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	10978	11097	0.28	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	11704	11786	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	11976	12444	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	12543	12735	0.98	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	13026	13119	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	13202	13282	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	13610	13860	0.93	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	14218	14328	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	14391	14572	0.92	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	14899	15320	0.92	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	15485	15775	0.97	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	15921	16017	0.94	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	16291	17036	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	17235	18056	0.79	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	18100	18198	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	18321	18762	0.98	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	19225	19709	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	20183	20717	0.44	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	20968	21041	0.95	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	21141	21261	0.98	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	21418	21642	0.81	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	21825	21973	0.94	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	22487	22853	0.86	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	23032	23113	0.8	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	23167	23311	0.6	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	23345	23516	0.64	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	23644	24307	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	24530	24852	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	25213	25486	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	25646	25849	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	26123	26203	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	26369	26445	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	26499	26586	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	intron	26696	26772	1	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	90	191	0.78	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	90	191	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	424	540	0.47	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	424	540	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	626	786	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	626	786	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	1531	1701	1	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	1531	1701	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	1978	2070	0.78	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	1978	2070	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	2177	2489	0.98	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	2177	2489	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	2571	2675	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	2571	2675	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	2748	2843	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	2748	2843	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	3602	3669	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	3602	3669	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	4627	4747	0.95	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	4627	4747	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	4818	5024	0.83	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	4818	5024	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	5124	5327	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	5124	5327	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	5409	5518	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	5409	5518	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	5736	5832	0.78	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	5736	5832	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	5923	6021	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	5923	6021	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	6304	6459	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	6304	6459	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	6526	6600	0.93	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	6526	6600	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	6673	6743	0.76	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	6673	6743	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	6904	7222	0.66	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	6904	7222	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	7772	8119	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	7772	8119	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	8199	8330	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	8199	8330	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	9021	9134	0.95	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	9021	9134	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	9223	9407	0.96	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	9223	9407	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	9510	9618	1	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	9510	9618	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	10037	10180	0.89	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	10037	10180	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	10369	10659	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	10369	10659	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	10775	10841	0.46	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	10775	10841	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	10934	10977	0.28	+	2	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	10934	10977	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	11098	11703	0.66	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	11098	11703	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	11787	11975	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	11787	11975	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	12445	12542	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	12445	12542	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	12736	13025	0.99	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	12736	13025	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	13120	13201	1	+	2	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	13120	13201	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	13283	13609	0.94	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	13283	13609	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	13861	14217	0.99	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	13861	14217	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	14329	14390	0.99	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	14329	14390	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	14573	14898	0.86	+	2	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	14573	14898	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	15321	15484	0.91	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	15321	15484	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	15776	15920	0.92	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	15776	15920	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	16018	16290	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	16018	16290	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	17037	17234	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	17037	17234	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	18057	18099	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	18057	18099	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	18199	18320	0.98	+	2	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	18199	18320	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	18763	19224	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	18763	19224	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	19710	20182	0.59	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	19710	20182	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	20718	20967	0.47	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	20718	20967	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	21042	21140	0.95	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	21042	21140	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	21262	21417	0.99	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	21262	21417	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	21643	21824	0.81	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	21643	21824	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	21974	22486	0.84	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	21974	22486	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	22854	23031	0.8	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	22854	23031	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	23114	23166	0.8	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	23114	23166	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	23312	23344	0.6	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	23312	23344	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	23517	23643	1	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	23517	23643	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	24308	24529	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	24308	24529	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	24853	25212	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	24853	25212	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	25487	25645	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	25487	25645	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	25850	26122	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	25850	26122	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	26204	26368	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	26204	26368	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	26446	26498	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	26446	26498	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	26587	26695	1	+	1	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	26587	26695	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	CDS	26773	27105	1	+	0	ID=g21.t1.cds;Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	exon	26773	27211	.	+	.	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	stop_codon	27103	27105	.	+	0	Parent=g21.t1
+contig_16_length_28978	AUGUSTUS	transcription_end_site	27211	27211	.	+	.	Parent=g21.t1
+# protein sequence = [SLKLERMAVYLDSDINPWYTVKRWEDLQPSEWEQPVSGSAKYLKDLQYDSSERFQPLHQAAVNLDDVTLCLSRNGYRD
+# LLKLADNFTAFNLRVKYAHYRPHVSVTADPVSWWKYAFNVVTDQIKKTSGNLSWEQVLRYTRLRKKYISLYASLLKSDIERAVVEDNKEIDAIDLELD
+# AEVILQWRMMAHKFVEKSMESESFLRKQKSKKSWWLFGWTHQPDKEESDPGIPTEEDWKRLNEIIGYKGDEQLLVNEKGDIPNILLNLSMRHNASKLF
+# DSSKCLADLSCDNLECCVKLSSETKVVDIKLGSYRLLSPNGLLAVSESLSDSLVGAFSFKPHDVDVDWSVSAKASPCYVTYLKDSVNQIIDFFQSSGA
+# VSQALVQETASAVQMTIDGVKRTAAKQVNRVLKERTRFLLDLDIAAPKITIPTEFFPDSVHSTKLLIDFGRLAISSQYDAECTSPEEINLYTQFNLVL
+# RDVSAFLVDGEYSWGQDSLVQDRDLSKRTFMNILPVIDKCGVLLKLQQIRSPTANLPSTRLAMRLPSMGFYFSPSRYHRLLQVVNIFKGGDAEDPNLV
+# QPWDEPDFADWGYHLTRKGVGGREAVWQRSYFCIVGSTLYMLENPKARSYKQYTSLRGKQLYQVPAEFIGNFDGVFAVFDAERSIGKVLEDANALILH
+# CDSENSRKMWQIHLQRAIYRASGIAPVAGPDESLSDSEESESSNRDSANLSQLENLFLSGLLDELKICLSYSGLPDQSFTKLLLAEEKKMLEFRAIGG
+# QIELSIRKNDVFIGTVVKALEIEDISGLDQIISEFEKNDGDEEFYEASENLNDSTSSTMSPTHEMQSQILSQSGIYDLKEPIFMRSASLLPPYINHLE
+# EDQLRGDDTESFVKSQIIMLDRNSPLYSDVDKQVAITVSTLSFYCRRPTILAIMEFVNAINFKEDIHDEFSDDSPSAGGSHSLPKTVESDGLSSTQAV
+# EPIVRSLLGKGKSRVIFGLQLDMSRAEIFLMTENDCKIATLAQDDFLADIKVFPSSFSIKASLGNLKISDDSLHTNHMYFWACDMRNPGGKSFVEMEF
+# CSFNTEDEDYEGFDYSLIGKLSEVRIIYLNRFLQEVVSYFMGLAPSNSKEVFQIKDHVSNSDKWITRSEIEGSPAVKLDFLLKNPIILMPKSSNSVDY
+# LKLDVVQITVQNTFRWIGGIKNEIEAVHMEIMNIVVDDIKLNVGSGSELSESIIQDVKGVSFLMQRSLRDLCHNFPDIEVDVMVDGLKAALSNAEYEI
+# IIDCARENMSETPNLMPLLKDESSALLFDVVGRSSKRDVSFAESNSEASKIWISIKFSVRVDMLELRLYYGTSRDVSLASLQRKTSEQYDANYPVPIT
+# CNCHKCIMNFGGADIGSNHLFMNGLWFSYKSNSAGEGFLSSTLKDLIVVDDREGTEEELRLVIGKLDFDHFKSDHFIGNARMMGPAVLIFDAKYYEHS
+# MALSLCIQRPRMLVTLDFLLAIAEFFVPAIRAEPLYDENANSSHFLDPTILDESIFFQPSPEYSISPQKPLVADDERYEHFIYDGRGGILYLKDRHGA
+# VLSCPSMEALIYIGNGKKLQFRNVTVKGGQHMDSSILLGINSSYLVNVDDSVILDSENESPDVQSSGRNIGMASQPAAPSMSTEMIFELQAIGPELTF
+# YNKSRNVGQLLSNKLLHAHMDAFCRLVLNGGTIEMRAEIHDLTMESNGMKILEPFDVGVEFSNTLTKTVIHLKVTDIFMNFSFSILRLFLDVEDDILS
+# FLSARSKKPTVLCSEFDQIGKIRSQSGHVYAFWRPRAPTGFAVLGDYLTPIDKAPTKGVIAVNTRLLRVKRPKSFTLVWPTFSKNAFRAETPTDFTKD
+# SSIENPVCSIWFPESPDGYLALGCVASSGMAPPPVSSVFCILASLVSPCGLRDCISMGFSSGSSNLAFWRVDNAIGSFLPSESETLNLTKRAFELRHF
+# YLDFWCYSPENLQSLNITTASVGNDTIQSERSSLVNSRRRFEAVATFRLIWWNQGSGSRKKISIWRPVVPEGMVYFGDIAVQGYEPPNSCVVLQDSED
+# YDLYKGCIACKGTPNQSDLLSLRCIRSDMVSMDEFSDGSVWDSSELMFSREQFSIWTVSNELGTFIAWKGLKKPPRRLALALAGPDLPSASDSTVIDA
+# EIGTFSVALFDDFGGLMIPLCNLSLSDIGFSLHGVPDCLHSSVNFSLALRSYNDKYDVWEPLIEPIDGSLRYQYNPNGHSTASQIRITSTNDLNLNVS
+# ISNVNMVLHAYGSWSNISYTPVSYPKATGDSRSMIDVHQKRNYYIVPQNKLGMDIFIRTFNELELSQVIKMPAGDKKALEVPILRNTLDSHLKGNIHK
+# QQRIMMTVIVAEAEIQKKEGLSSCQYSIGLHILEDDHHPARSQISQQRARTSGVGSAGSDPTKIESVKWNEVFFFRVNSMDGCVVEFTLNDSVRGEPV
+# GYCASSLEHLVASEEDSSNQKIISKFKWLELTSKESVENSYHVGIGKIKCAVLIQPGVFSGTTAKSVNRQKNTSLIQISPNQQGPWTTLRLNYGAPAA
+# CWQIGNDVIASELTVIDGNRYVNIRSLASVSNSTDYAIDLCLKRKDSDDDVQELLAKSREAPDDKDEFATDELFESEVFDTVVGWVAITNFKTSSYVL
+# YLRPSDSEATNRYAWSTVVNVSAQSQDAEASRDVLEVCVSALRECENLLYCSESGSSSNISQGLWFCLDIQGTEISKDAQSNPIQDWTISVKPPVTIA
+# NYLPFTAEISILETQNNGHFRCCYRGVFGPGESVRMYTADIRNPLYLSLLPQGGXCPPLSFRLFPVGPRGSKKNLLSFRSKRLRETVFEEITEEEIYE
+# GYTMASALNFKSLSLSASIEQESGGQEFGPPADLSPLGDMDGALDLFAHNSEGYCMQLYVSSKPCPYQSIPTKVISVRPYMNFTNRVGQIILLKFSEE
+# DAPKTLHVSDTRVSFIHPKTLGPNKIQVRMLDTDWSFPIQILKEDTITLSLKKDDGKRRFIRTEIRGYEEGSRFIIVYRLGSSKGPFRIENRTKKIYI
+# RFRQTGFDGDAWIPLPPLSTSNFSWEDPYGQKFIDAEMDTGSSVSVCKFDLNTVGFSIIDNYPGLSLHVANIGHLKVVRFLELSAHSREEASLCPLLV
+# RYWGNSHIQANLPQQRSPLELILELAGLGISVVDHKPRELSYLYLDKLFISYSAGYDGGTTSRFKIIVGYMQLDNQLPLTVMPVLLAPELVPDAMHPV
+# FKMTITARNDTLDGLEIYPYIYITVIDKSWRLNIHEPIIWAFTSQVDPEIRLDLIDISEVRFKVSLEAEPSQRPHGLLGVWGPVLSAVGNAFKFQVHL
+# RKVTLKDRFLRKSSVYSAVGARIWRDLIHNPLHLISSIDVLGVTSSTLASLSKGFAELSTDGQFLQLRSKQVWSRRITGVGDGIVQGTEALAQGVAFG
+# VSGVVRKPVERARQDGLLGLAHGLGQAFLGFFVQPMSGALDFFSLTVDGIGVSFSRCLEILTDKKSFERIRTPRAFRADKILREYSEREALGQMILYL
+# AETSRNLGCTEIFKEPSKFAWSDCYEEHFAVPYRRIVLVTNKRVMLLRSVASGQMDKKPCKITWDVPWEEVMTLELAKVGHAITSHLIIHLKSFKRGG
+# NFVRVIKCNAEQSPEEQEPQALKVCSAVRKVLMAHRNEMQQKDFQRQPGTVIRSTEISSLGIVSDQRNFVQHCVNFSRIWSSERESKSRCTLCRKQSV
+# ESHEYCSIWRPVCPDGYVSIGDVARPSNHPPTVASIYRKTDHLFALPIGYDLVWRNCLDDYKSPVSIWHPRAPRGYASLGCIAAASFEEPEMGSVYCV
+# AESIVEETRFEEGRIWTAPESYPWACHLYQTHSDALHLVALRQPYQESTWRPKRIVDSQQMSLP]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 13.6
+# CDS exons: 9/62
+#      E:   9 
+# CDS introns: 8/62
+#      E:   8 
+# 5'UTR exons and introns: 0/0
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 1
+#      E:   1 (comp8414_c0_seq1)
+# incompatible hint groups: 0
+# end gene g21
+###
+# start gene g22
+contig_16_length_28978	AUGUSTUS	gene	27261	28978	0.1	-	.	ID=g22
+contig_16_length_28978	AUGUSTUS	transcript	27261	28978	0.1	-	.	ID=g22.t1;Parent=g22
+contig_16_length_28978	AUGUSTUS	transcription_end_site	27261	27261	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	27261	27544	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	stop_codon	27455	27457	.	-	0	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	27545	27859	0.84	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	27953	28017	1	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28075	28158	1	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28239	28317	1	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28410	28493	1	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28532	28606	0.94	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28701	28785	0.85	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	intron	28879	28978	0.35	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	27455	27544	0.94	-	0	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	27860	27952	0.99	-	0	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	27860	27952	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28018	28074	1	-	0	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28018	28074	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28159	28238	1	-	2	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28159	28238	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28318	28409	1	-	1	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28318	28409	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28494	28531	1	-	0	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28494	28531	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28607	28700	0.85	-	1	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28607	28700	.	-	.	Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	CDS	28786	28878	0.35	-	1	ID=g22.t1.cds;Parent=g22.t1
+contig_16_length_28978	AUGUSTUS	exon	28786	28878	.	-	.	Parent=g22.t1
+# protein sequence = [NGFQKLEKIKDSNRRSRQLEELTDKMRDCKRLIKDFDRELKDSEYKNGPEINRMMNEKKQSMIKDLNSYVALKKRHTT
+# DLENKRVDLFEGTGEGFAEEENVLLASNMTNQQLIDHGNQMMDETDEAIDRAKKVVHATVDVGTETAAALKSQTEQMSRVVNELDTIHFSMKKASQLV
+# RELGRQIVNPHNSSIRDIPGLAPPVPTRRLLFTSK]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 0
+# CDS exons: 0/8
+# CDS introns: 0/8
+# 5'UTR exons and introns: 0/0
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 0
+# incompatible hint groups: 0
+# end gene g22
+###
+#
+# ----- prediction on sequence number 6 (length = 27347, name = contig_17_length_27347) -----
+#
+# Forced unstranded hint group to the only possible strand for 2 groups.
+
+# Predicted genes for sequence number 6 on both strands
+# start gene g23
+contig_17_length_27347	AUGUSTUS	gene	1	27071	0.01	-	.	ID=g23
+contig_17_length_27347	AUGUSTUS	transcript	1	27071	0.01	-	.	ID=g23.t1;Parent=g23
+contig_17_length_27347	AUGUSTUS	transcription_end_site	1	1	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	1	261	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	stop_codon	118	120	.	-	0	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	262	425	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	626	715	0.34	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	813	1668	0.59	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	2026	2752	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	2891	3150	0.87	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	3278	3418	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	3562	3634	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	3813	4028	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	4566	4788	0.91	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	4974	5043	0.99	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	5197	5472	0.71	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	5560	5705	0.95	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	6160	6498	0.99	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	6576	6671	0.98	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	7434	7515	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	8008	8097	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	8229	8605	0.89	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	8661	9069	0.99	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	9277	9375	0.93	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	9523	9820	0.85	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	10002	10126	0.95	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	10291	10472	0.59	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	10545	10889	0.99	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	11209	11292	0.61	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	12007	12482	0.92	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	12568	12733	0.73	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	12974	13480	0.45	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	13545	13810	0.96	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	14027	14559	0.92	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	14925	15157	0.62	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	15255	15337	0.98	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	15624	15917	0.16	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	15926	16015	0.31	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	16160	16230	0.94	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	16340	16816	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	16935	17467	0.51	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	17598	17680	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	17813	18426	0.27	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	18526	18614	0.96	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	18935	19013	0.57	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	19093	19792	0.88	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	19862	20083	0.25	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	20192	20284	0.96	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	20384	21079	0.36	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	21120	21286	0.42	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	21397	21482	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	21711	21791	0.89	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	21993	22065	0.98	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	22184	22578	0.97	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	22647	23351	0.94	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	23466	23744	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	24094	24168	0.94	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	24262	24490	0.97	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	24647	25007	0.55	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	25166	25694	0.98	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	25896	26029	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	26132	26236	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	26355	26508	1	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	intron	26613	27012	0.74	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	118	261	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	426	625	0.36	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	426	625	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	716	812	0.49	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	716	812	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	1669	2025	0.98	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	1669	2025	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	2753	2890	0.87	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	2753	2890	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	3151	3277	1	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	3151	3277	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	3419	3561	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	3419	3561	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	3635	3812	1	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	3635	3812	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	4029	4565	0.98	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	4029	4565	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	4789	4973	0.92	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	4789	4973	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	5044	5196	0.71	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	5044	5196	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	5473	5559	0.99	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	5473	5559	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	5706	6159	0.9	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	5706	6159	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	6499	6575	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	6499	6575	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	6672	7433	0.94	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	6672	7433	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	7516	8007	0.99	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	7516	8007	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	8098	8228	0.89	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	8098	8228	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	8606	8660	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	8606	8660	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	9070	9276	0.99	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	9070	9276	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	9376	9522	0.84	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	9376	9522	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	9821	10001	0.92	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	9821	10001	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	10127	10290	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	10127	10290	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	10473	10544	0.59	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	10473	10544	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	10890	11208	1	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	10890	11208	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	11293	12006	0.61	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	11293	12006	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	12483	12567	0.91	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	12483	12567	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	12734	12973	0.28	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	12734	12973	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	13481	13544	0.84	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	13481	13544	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	13811	14026	0.94	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	13811	14026	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	14560	14924	0.62	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	14560	14924	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	15158	15254	0.81	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	15158	15254	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	15338	15623	0.25	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	15338	15623	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	15918	15925	0.3	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	15918	15925	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	16016	16159	0.52	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	16016	16159	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	16231	16339	0.96	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	16231	16339	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	16817	16934	0.68	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	16817	16934	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	17468	17597	0.52	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	17468	17597	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	17681	17812	0.91	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	17681	17812	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	18427	18525	0.3	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	18427	18525	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	18615	18934	0.6	-	2	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	18615	18934	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	19014	19092	0.65	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	19014	19092	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	19793	19861	0.34	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	19793	19861	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	20084	20191	0.28	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	20084	20191	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	20285	20383	0.87	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	20285	20383	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	21080	21119	0.38	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	21080	21119	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	21287	21396	0.66	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	21287	21396	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	21483	21710	0.94	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	21483	21710	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	21792	21992	0.91	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	21792	21992	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	22066	22183	0.97	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	22066	22183	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	22579	22646	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	22579	22646	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	23352	23465	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	23352	23465	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	23745	24093	0.92	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	23745	24093	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	24169	24261	0.96	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	24169	24261	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	24491	24646	0.55	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	24491	24646	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	25008	25165	0.98	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	25008	25165	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	25695	25895	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	25695	25895	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	26030	26131	1	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	26030	26131	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	26237	26354	1	-	1	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	26237	26354	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	26509	26612	0.97	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	26509	26612	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	CDS	27013	27036	0.76	-	0	ID=g23.t1.cds;Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	exon	27013	27071	.	-	.	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	start_codon	27034	27036	.	-	0	Parent=g23.t1
+contig_17_length_27347	AUGUSTUS	transcription_start_site	27071	27071	.	-	.	Parent=g23.t1
+# protein sequence = [MSRSEQGSSPAGNSWLGSLIATVIGNLKISISNVHIRYEDSVSNPGHPFSCGITLSKLAAVTMDEQGNETFDTSGALD
+# NLRKSLQLERLAMYHDCNRDAWKVDKRWENLSPREWIEMFEDGITEPSKVGSLKSPWARDRSYVVSPINGVLRYHRLGSQERNDPNIPFERASLLIAD
+# ISLSITEAQYHDWIKLLEAVSTYKTYIEVSHLRPLVPVSGSAGSWWRYAAQAGLQQKKISYRYAWEQIQHLCHLRRHYVELYADSLQQSDADKSAMRE
+# IEKDLDPKVILLWRFLAHARVESVKSKEAFEEKRLKKRSWFPLSWGNTSEEDFNIDTPGVEEPIEGRFNKEEWEAVNKLLSHQPDEDVYSTTKDIHKL
+# IHYMVTVSINKAAARIISIHNTEIVCGSFKNLQILTKLMHRSAHYDVKLQYYGLSSPEGSLAESVSSELKTHALQATFVHTPVGDNVDWKLSATISPC
+# HVTHKIGKVTRRAQEQFQMVLEEHSRFALDIDLDAPKVRVPLQSISTEDSTNLLLDFGHFTLKTKEDAEQNYNGHSLYSRFHISGRDIAAFFTDGCLP
+# SFWGLLPTHSVVTKDTDNFLSLIDRCGMAVVLDQIKVPHPSHPTSRISVQVPNLGIHFSPGRYLRIIELLSLLGGLMRDDELPTEENIQKGLTPWHDP
+# DMSTDARILVWKGIGYSVAAWQPSHIVLSGLYLYVMESETSQNYHRCTSMAGKQVCDVPPAICIESSSTLIIQFQKEEEKLTWLRGLVQCTYRASAPP
+# SVHILDEINEDPVELTVSCDNNGKAADLVVNGTFGDNENAETQEKLILEILAGGGKVNVTSWANDITIKMKLNSLKVIDELQVSKISKYLACSVVVDP
+# HGSRHISDSVGVEFTSPTVEEDDIFTDALPDFLTSHDSAECVFHEKDESGRIIDPSDIFYEAMESDESDFVSVLFLKRDPGSPNYDGIDTQMSVQMSK
+# LEFYCNRPTVVALINFGLGLTSAYNEVHPSSTSVEGTLGNLRLCDLWLGSSHCWGWLCDLRDQVAESLIQFKFSSYSNEDDDYDGYDYSLTGRLSAVR
+# IVFLYRFVQEVLPALFGGIEWLIQKYEVDGAAAIKLDLSLDTPIIIVPENSHSKDFMQLDLGHLRIKNSFSWHGNPDKDPSAIHLDVLNAEILGINMA
+# VGINGCVGKPMIQEGREVQIHVRRSLRDVFRKVPTLSLEIKFLKLLQCMQSCLIRSIXXXXVILECFSRNLCESPNVPPSFRSSQTFAKDTIRLLADK
+# VNMNSQIIFSRTVTIVTVEVDYALLELCNGADKESPLANVVIEGLWVSYRMTSLSEADLYVTVPRFSILDIRPIRVQQPRILFVPEFLLAVGEFFVPA
+# LGIITGREELMDPQNDPISKNSIILSVPVYEQIEEIVQLSPARQLVADAFSIDEYVYDGCGKTIRLTDEKELHMSVSRPIIIIGRGKKLRFKNVKFEN
+# GLLLKKYIYLSNDSGYSVSQEDGVQISFLNDDQNMDHEDLDYVGGQSVFSNNFGTVQCESTRNLSFSFEAKVVSPEFTFYDSSKSFLDDSNHVEAGSG
+# IIVLDPVDVSGGYTSVKDKTNISIVSTDIYFHLPLSVISLLLNLQSQASAALQFESIDAISTCTNFDQIWVSPKDNGRFSNITFWRPRAPSNFVVLGD
+# CVTSRPNPPSQSVLAVNSAYGRAQKPIGFKLVASFLGIEGRISQEMPLDVDSQCSLWQPIAPPGYVALGCVAYVGSQPPPNHVIHCIRSDLVTSTTFL
+# ECLLNAPACNSFQYGFSIWRHDNSIGSFCAHPSSGCPSKNSCFDLNHILLWNSNNRRSISNGSHLDLNKQQDNSLHQENTEGAVSTGWDVLRSISKSS
+# VCYMSTPNFERIWWDRGGDARHPFSIWRPIPRAGYAMLGDCIVDGLGLEPPPLGIIFKADNSEVSAKPIQFTKVAQIGKKGQEEAFFWYPIAPPGYAS
+# LGCLVTQQDEAPSLELVCCPRMDLVSQANIADLPISRSSSSKSLQSWSIWKVENQASTFLARSDLKIPAGNLAFTIGYSMTPLFDATITNIKLATHGR
+# LDEMNAVLISSFAASTFNIHLEAWEPLIEPFDGIFKFEIYDSCSGQPARVAKRIRIAATSILNVNLSAANFCTLGLTLDSWRKLRELEEKAIKLYEHD
+# SEAFDLLHHNDSKTLWMPPSRYSDRLNASGESKETRCYFVVQIVEAKGLPLLDDGNSQQFFCALRLLVENQEANSQKLFPQSARTKCVKPLASKVNDL
+# YEGTAKWNELFIFEVPHKAMAKLEVEVTNLAAKAGKGEVIGACSLSVGSGSSMLKKVTSVKSLLQESEAERVVSYPLKRKGQLDEVLSLCCLSVSTYH
+# VGKSASTALASETGNQIDLGGDMGFWISLRPEGPWDGFRSLLPLSVITRKLEDDFVALEVSMKNGKKHALFRPLAMVSNDSDIKLNVSICNASMIVGH
+# ESSHLGSSNSIAVEEIFENQVYNPTSGWGSNDYVVERWSTRDFSYSSKQFFEPSLPPGWIWAGTSTWTVEKSQLVDADGWAYGSDFQTLKWPPKSSKS
+# TMKSSNDVVRRRRWTRVRQGYDKHATTNKNFVDMILDPGYSSVVPWRSMSKNSSQCLQFRPSLDNSQTSYRWGNPVSFDYGNKTSLSPLRLDQLEKKD
+# VLWCCPGSSGRSFWLSVGTDASLLHTDFNDPVYDWKISASSPLRLENRLPCSAEMKIWEKPTREGKNIEREHSVVSSRGYVHVYSADIRNPIYLVMFV
+# QGGWVMEKDPVCILDMAYGNHVSSFWMYQQQTKRRLRVSIERDLGGSEAAPKMIRFFVPYWIINDTYLSLAYRVVEIEPLENVDVDSPLIPRTVKSAK
+# TAFKHSATTLVRRQSTLRQNIQVLEAIEDNSPTPSMLSPQDYVGRGGVMLFSSRNDAYLSPRVGISVAIRNSENFGPGVSLLELEKKQRVDVKAYHSD
+# GTYCKLSAVLLMTSDRTKVVHFRPHSIFINRVGCGIWMQQCDTQSLEWIHPTEPPKYLTWQSGKAELLKLRTDGYMWSTPFTIDSEGIMSVCLRSEVG
+# NDKLDLSIEVRGGTKTSSHEVIFRPHSFSSPYRIENHSFFLPLQFRQVGSCKGSWRSLPPSSAVSFSWEDLGREKKLELLLEGSDSMTSLKYDIDEIK
+# DHLPVLVSNGPQKLIRVTIIREEKLNVVKISDWMSENTVPITLTRSVSSAQQISDAKSQLQESMIISDNEFHLTLEVAELGLSIVDHTPEEILYLSLQ
+# NFLLSYSTGLGSGISRLKIRMGGIQVDNQLPLTPMPVLIRPQRVGEDIDFILKLSITQQSSGSFDLCIYPYIGLQGPDSTAFLVKIHEPIIWRLHELV
+# QQANVSRTFGTQTTSVSVDPIIQLGVLNISEVRFKLTMAMSPSQRPVGVLGFWASLMTALGNLENMPDILSQPLQLLSGVDILGNASSALGHMSKGVA
+# ALSMDKKFIQGRQKQDNKGVEDIGDVIREGGGAFAKGLFRGVTGILTKPLEGAKASGVEGFVQGVGKGLIGAAAQPVSGVLDLLSKTTEGANAMRMKI
+# ASAIASEDQLIRRRLPRAISGDHLLRPYDEYEAEGQGESFWSHIEELYYSRRVKRNIEICPASKILAVSTMELIHGKKDHPTSPQSRVIIYLQSKSLD
+# AKDQYRSVKCCRDSNQAFEVYSAIEQARSTYSTGQSRALLKRKVTKPYSPIVENNPNSKGVYVFSPQIPSPVSFSSALGAVHSD]
+# Evidence for and against this transcript:
+# % of transcript supported by hints (any source): 9.92
+# CDS exons: 7/60
+#      E:   7 
+# CDS introns: 5/59
+#      E:   5 
+# 5'UTR exons and introns: 0/1
+# 3'UTR exons and introns: 0/1
+# hint groups fully obeyed: 2
+#      E:   2 (comp16274_c0_seq1,comp16147_c0_seq1)
+# incompatible hint groups: 0
+# end gene g23
+###
+#
+# ----- prediction on sequence number 7 (length = 26692, name = contig_18_length_26692) -----
+#
+# Forced unstranded hint group to the only possible strand for 9 groups.
+
+# Predicted genes for sequence number 7 on both strands
+# start gene g24
+contig_18_length_26692	AUGUSTUS	gene	1	12891	0.01	-	.	ID=g24
+contig_18_length_26692	AUGUSTUS	transcript	1	12891	0.01	-	.	ID=g24.t1;Parent=g24
+contig_18_length_26692	AUGUSTUS	intron	246	865	0.37	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	946	1027	0.99	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	1153	1245	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	1478	1978	0.98	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	2351	2426	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	2490	2557	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	2699	2767	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	2825	2898	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	2955	3036	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	3173	3256	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	3345	3420	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	3552	3615	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	4179	4244	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	4324	4401	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	4498	4581	1	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	5184	5398	0.98	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	5543	5865	0.43	-	.	Parent=g24.t1
+contig_18_length_26692	AUGUSTUS	intron	6779	7092	1	-	.	Parent=g24.t1

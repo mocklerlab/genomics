@@ -3,7 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 module Genomics
   module IO
     describe GFFFormat do
-      let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'genome.gff3') }
+      # let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'genome.gff3') }
+      let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'augustus_predictions.gff3') }
       let(:est_matches_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'est_matches.gff3') }
       
       context 'instance_methods' do

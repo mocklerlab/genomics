@@ -78,6 +78,10 @@ module Genomics
           end
         end
         
+        def <=>(other)
+          start <=> other.start
+        end
+        
         # Sets the attributes.
         #
         # * *Args*    :
@@ -102,6 +106,17 @@ module Genomics
         #
         def end=(new_end)
           @end = new_end ? new_end.to_i : nil
+        end
+        
+        # Takes an object with start and end positions and returns true if the entire object is contained within the region.
+        #
+        # * *Args*    :
+        #   - +object+ -> A object that responds to start and end
+        # * *Returns* :
+        #   - A boolean
+        #
+        def include?(object)
+          object.start >= @start && object.end <= @end
         end
         
         # Returns the length of the region.
@@ -138,10 +153,6 @@ module Genomics
         #
         def start=(new_start)
           @start = new_start ? new_start.to_i : nil
-        end
-        
-        def <=>(other)
-          start <=> other.start
         end
       end
     end

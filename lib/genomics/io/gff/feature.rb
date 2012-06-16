@@ -32,6 +32,17 @@ module Genomics
           sorted_features.each { |feature| yield feature }
         end
         
+        # Takes the given query and finds the feature that has a matching ID or returns nil.
+        #
+        # * *Args*    :
+        #   - +id+ -> The id of the feature to search for
+        # * *Returns* :
+        #   - A Feature
+        # TODO: Use method missing to add arbitrary finders.
+        def find_by_id(id)
+          @features.find { |feature| feature.id == id }
+        end
+        
         # Returns the last object under the default ordering.
         #
         # * *Returns* :
@@ -103,14 +114,28 @@ module Genomics
         end
     
         def <=>(other)
+          # Sort by the landmark sequence
           seqid_sort = @seqid <=> other.seqid
           return seqid_sort if seqid_sort != 0
-
+          
+          # Sort by position on the landmark sequence
           start_sort = start <=> other.start
           return start_sort if start_sort != 0
           
-          type_order = [:exon, :CDS, :five_prime_UTR, :three_prime_UTR]
-          (type_order.index(type) || type_order.length) <=> (type_order.index(other.type) || type_order.length)
+          # Otherwise sort by the feature ordered in a way to provide meaning
+          Feature.type_comparison(self, other)
+        end
+      
+        # Returns a string describing the state of the object.
+        #
+        # * *Returns* :
+        #   - The new attributes Hash
+        #
+        def inspect
+          attributes = ["seqid=\"#{@seqid}\"", "source=\"#{@source}\"", "type=\"#{@type}\"", "strand=\"#{@strand}\""]
+          attributes += @attributes.map { |(attribute, value)| "#{attribute}=\"#{value}\"" }
+          
+          "#<#{self.class} #{attributes.join(', ')}>"
         end
     
         # Sets the attributes.
@@ -119,6 +144,7 @@ module Genomics
         #   - +new_attributes+ -> A Hash or string in the valid GFF3 format.
         # * *Returns* :
         #   - The new attributes Hash
+        #
         def attributes=(new_attributes)
           acceptable_attributes = [:ID, :Name, :Note, :Alias]
           @attributes = if new_attributes.is_a?(Hash)
@@ -236,32 +262,68 @@ module Genomics
     
         # Returns the entry as a string suitable for use in a GFF3 file.
         #
+        # * *Options* :
+        #   - +strand_order+ -> A boolean indicating whether the features/regions should ordered based on the natural direction of the
+        #   strand that they lie on (Default: true).
+        #   - +sequential_order+ -> A boolean signifying that multipart regions should be broken up and printed based on their positions
+        #   and not as a single contiguous block (Default: true).
         # * *Returns* :
         #   - A string representing the entry in GFF3 format.
         #
-        def to_gff
+        def to_gff(options = {})
+          options = { strand_order: true, sequential_order: true }.merge(options)
           gff_string = StringIO.new
       
-          # Print each region as a seperate line united by a common ID
-          common_values = "#{seqid}\t#{source}\t#{type}"
-          @regions.each(strand_order: true) do |region|
-            region_attributes = Feature.encode_attributes(region.attributes.merge(attributes))
-            gff_string.puts "#{common_values}\t#{region.start}\t#{region.stop}\t#{region.score || '.'}\t#{strand}\t#{region.phase || '.'}\t#{region_attributes}"
-          end
-
-          # Printe derivatives recursively
-          @derivatives.each(strand_order: true) do |feature|
-            gff_string.puts feature.to_gff
-          end
-          
-          # Print features recursively
-          @features.each(strand_order: true) do |feature|
-            gff_string.puts feature.to_gff
+          # Go through the regions in order printing them
+          @regions.each(strand_order: options[:strand_order]) do |region|
+            gff_string.puts to_gff_for_region(region)
           end
           
           gff_string.string
         end
-    
+        
+        # Takes a region and only prints the region and the subfeatures that fall in it.  Takes the same options as to_gff.
+        #
+        # * *Args*
+        #   - +region+ -> The region to print gff subfeatures for
+        # * *Returns* :
+        #   - An array of hashes with feature and region keys
+        #
+        def to_gff_for_region(region, options = {})
+          options = { strand_order: true, sequential_order: true }.merge(options)
+          gff_string = StringIO.new
+          
+          # Print the region for the feature
+          common_values = "#{seqid}\t#{source}\t#{type}"
+          region_attributes = Feature.encode_attributes(region.attributes.merge(attributes))
+          gff_string.puts "#{common_values}\t#{region.start}\t#{region.stop}\t#{region.score || '.'}\t#{strand}\t#{region.phase || '.'}\t#{region_attributes}"
+          
+          # Find all of the subfeatures in the region and print those features
+          contained_features = @features.select { |feature| region.include?(feature) }
+          
+          # TODO: Implement the false variant for sequential sorting
+          
+          # Get all of the regions associated with all of the child features
+          child_feature_regions = contained_features.map do |feature|
+            feature.regions.map do |region|
+              { feature: feature, region: region }
+            end
+          end.flatten
+
+          # Sort the regions
+          child_feature_regions.sort! do |a, b|
+            region_sort = options[:strand_order] && reverse_strand? ? b[:region].stop <=> a[:region].stop : a[:region] <=> b[:region]
+            region_sort != 0 ? region_sort : Feature.type_comparison(a[:feature], b[:feature])
+          end
+
+          # Print each of the regions
+          child_feature_regions.each do |region_feature_hash|
+            gff_string.puts region_feature_hash[:feature].to_gff_for_region(region_feature_hash[:region]) 
+          end
+          
+          gff_string.string
+        end
+          
         class << self
           
           # Takes a hash of attribtues and encodes them properly for injection into a GFF3 file.
@@ -336,6 +398,28 @@ module Genomics
             end
             
             attributes_hash
+          end
+          
+          # Returns an integer reflecting an ordering comparison between two features based on type.
+          #
+          # * *Args*    :
+          #   - +a+ -> The first feature to compare.
+          #   - +b+ -> The second feature to compare.
+          # * *Returns* : 
+          #   - -1, 0, or 1
+          #
+          def type_comparison(a, b)
+            # Set the precendence for features
+            type_order = [:exon,
+                          :intron,
+                          :CDS,
+                          :five_prime_UTR,
+                          :three_prime_UTR,
+                          :transcription_start_site,
+                          :transcription_end_site,
+                          :start_codon,
+                          :stop_codon ]
+            (type_order.index(a.type) || type_order.length) <=> (type_order.index(b.type) || type_order.length)
           end
           
           private

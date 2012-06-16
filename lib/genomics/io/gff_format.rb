@@ -20,16 +20,23 @@ module Genomics
             # Get the feature at the bottom and check to see if matches the present row
             current_feature = current_feature_hierarchy.pop
             next unless current_feature.id
-
-            if current_feature.id == (parsed_attributes[:Parent].is_a?(Array) ? parsed_attributes[:Parent].first : parsed_attributes[:Parent])
-              last_feature = current_feature.features.create(parse_attributes(row))
-              
-              # Add both onto the hierarchy
-              current_feature_hierarchy << current_feature << last_feature
-              break
-            elsif current_feature.id == id
+            
+            if current_feature.id == id
+              # The feature is part of a multipart current feature, so let the region automatically get added
               # Re-append the feature to the hierarchy
               current_feature_hierarchy << last_feature = current_feature
+              break
+            elsif id && matching_feature = current_feature.features.find_by_id(id)
+              # The current feature has another child with the same id, so this is a multi-part feature
+              last_feature = matching_feature
+              current_feature_hierarchy << current_feature
+              break
+            elsif current_feature.id == (parsed_attributes[:Parent].is_a?(Array) ? parsed_attributes[:Parent].first : parsed_attributes[:Parent])
+              # The feature is a new child of the current feature
+              last_feature = current_feature.features.create(parse_attributes(row))
+
+              # Add both onto the hierarchy
+              current_feature_hierarchy << current_feature << last_feature
               break
             elsif parsed_attributes[:Derives_from] && current_feature.id == parsed_attributes[:Derives_from]
               # The feature is a special derivative instance
@@ -79,7 +86,7 @@ module Genomics
         features.sort.each do |feature|
           pbar.inc if options[:progress_bar]
 
-          feature.attributes[:ID] = "#{options[:id_prefix]}#{@last_id += 1}"
+          feature.attributes[:ID] ||= "#{options[:id_prefix]}#{@last_id += 1}"
           @io.puts feature.to_gff
         end
       end

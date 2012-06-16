@@ -68,11 +68,11 @@ module Genomics
           # Skip lines that are comments.
           # TODO: This eventually may want to be handled differently since some comments are actually pragmas
           begin
-            next if line =~ /^#|>/
+            next if line =~ /^(#|\s+$)/
           rescue
             # Try to handle for bad character conversion
             line = Iconv.new('UTF-8//IGNORE', 'UTF-8').iconv(line)
-            next if line =~ /^#|>/
+            next if line =~ /^(#|\s+$)/
           end
   
           yield line.split(options[:delimiter]).map(&:strip)
