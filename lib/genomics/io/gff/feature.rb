@@ -114,8 +114,18 @@ module Genomics
         end
     
         def <=>(other)
-          # Sort by the landmark sequence
-          seqid_sort = @seqid <=> other.seqid
+          # Sort by the landmark sequence, this could possibly be numerical or a mix
+          seqid_sort = if seqid =~ /\d+$/
+            common_regex = /#{other.seqid.gsub(/\d+$/, '(\d+)')}/
+            other_number = $~[1] if $~
+            if other_number && seqid.match(common_regex)
+              $~[1] <=> other_number
+            else
+              @seqid <=> other.seqid
+            end
+          else
+            @seqid <=> other.seqid
+          end
           return seqid_sort if seqid_sort != 0
           
           # Sort by position on the landmark sequence
@@ -190,12 +200,16 @@ module Genomics
           @attributes[:Name]
         end
         
-        # Allows the Name attribute to be directly set.
+        # Allows the Name attribute to be directly set.  This also cascades, updating the names of child features.
         #
         # * *Returns* :
         #   - A string
         #
         def name=(new_name)
+          @features.each do |feature| 
+            feature.name = feature.name.gsub(/@attribtues[:Name]/, new_name) if feature.name =~ /#{@attributes[:Name]}/
+          end
+          
           @attributes[:Name] = new_name
         end
     

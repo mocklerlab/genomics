@@ -68,6 +68,18 @@ module Genomics
         yield current_feature_hierarchy.first if current_feature_hierarchy.any?
       end
       
+      # Parses through the file and returns an Array of all of the features in the order they are listed.
+      #
+      # * *Returns* :
+      #   - An Array of Features
+      #
+      def features(options = {})
+        features = []
+        each(options) { |feature| features << feature }
+        
+        features
+      end
+      
       # Writes the entries to the IO stream.  In order to maintain a valid gff3 file, it ensures that unique IDs are assigned to
       # each entry if they do not already exist.  For convenience, the entries are automatically sorted into the standard GFF3
       # order by increasing seqid and then start position along it.
