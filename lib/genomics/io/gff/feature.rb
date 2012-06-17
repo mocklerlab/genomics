@@ -58,7 +58,8 @@ module Genomics
         #
         def create(attributes = {})
           # Automatically set some attributes if possible
-          attributes = { seqid: @feature.seqid, source: @feature.source, strand: @feature.strand }.merge(attributes)
+          attributes = { seqid: @feature.seqid, source: @feature.source, strand: @feature.strand, attributes: {} }.merge(attributes)
+          attributes[:attributes][:Parent] = @feature.id
           
           @features << Feature.new(attributes)
           @features.last
@@ -80,6 +81,12 @@ module Genomics
       
       # Genomics::IO::GFF::Feature represents a single feature in a GFF file.  This entry can consist of more than one
       # line, but all of the line are grouped together via so structure as reflected in the ID(s).
+      #
+      # * *Attributes*    :
+      #   - +seqid+ -> The id of the landmark used to establish the coordinate system for the entry.
+      #   - +source+ -> The algorithm or operating procedure used to generate the entry.
+      #   - +type+ -> The term from the sequence ontology that defines the nature of the record.
+      #   - +attributes+ -> A Hash containing information such as the ID and name.
       class Feature
         VALID_STRANDS = %w{+ - . ?}
     
@@ -88,11 +95,6 @@ module Genomics
   
         # Creates a new object from the supplied attributes.
         #
-        # * *Attributes*    :
-        #   - +seqid+ -> The id of the landmark used to establish the coordinate system for the entry.
-        #   - +source+ -> The algorithm or operating procedure used to generate the entry.
-        #   - +type+ -> The term from the sequence ontology that defines the nature of the record.
-        #   - +attributes+ ->
         # * *Raises* :
         #   - +ArgumentError+ -> If any of the *seqid*, *source*, or *type* attributes are missing.
         #
@@ -250,7 +252,7 @@ module Genomics
         # * *Returns* :
         #   - An integer representing the end of the entry in the forward direction on the landmark sequence.
         def end
-          regions.min.end
+          regions.max.end
         end
         alias :stop :end
     

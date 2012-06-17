@@ -5,7 +5,7 @@ module Genomics
     module GFF
       describe Feature do
         let(:feature) { FactoryGirl.build(:feature) }
-  
+        
         context '#instance_methods' do
           describe '#<=>' do
             it "should use numerical suffixes for sorting" do
@@ -20,6 +20,23 @@ module Genomics
             end
           end
           
+        end
+      end
+      
+      describe Features do
+        let(:feature) { FactoryGirl.build(:feature) }
+        let(:features) { Features.new(feature) }
+        
+        context '#creation' do
+          describe 'create' do
+            it "should return a new Feature" do
+              features.create(start: 10, stop: 1000).should be_a(Feature)
+            end
+            
+            it "should set the parrent attribute of the child feature" do
+              features.create(start: 10, stop: 1000).attributes[:Parent].should eq(feature.id)
+            end
+          end
         end
       end
     end
