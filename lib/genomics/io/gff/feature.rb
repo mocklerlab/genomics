@@ -59,7 +59,8 @@ module Genomics
         def create(attributes = {})
           # Automatically set some attributes if possible
           attributes = { seqid: @feature.seqid, source: @feature.source, strand: @feature.strand, attributes: {} }.merge(attributes)
-          attributes[:attributes][:Parent] = @feature.id
+          # FIXME: Handle parent properly
+          attributes[:attributes][:Parent] = @feature.id if attributes[:attributes].is_a?(Hash)
           
           @features << Feature.new(attributes)
           @features.last
@@ -128,17 +129,7 @@ module Genomics
     
         def <=>(other)
           # Sort by the landmark sequence, this could possibly be numerical or a mix
-          seqid_sort = if seqid =~ /\d+$/
-            common_regex = /#{other.seqid.gsub(/\d+$/, '(\d+)')}/
-            other_number = $~[0] if $~
-            if other_number && seqid.match(common_regex)
-              $~[1].to_i <=> other_number.to_i
-            else
-              @seqid <=> other.seqid
-            end
-          else
-            @seqid <=> other.seqid
-          end
+          seqid_sort = @seqid <=> other.seqid
           return seqid_sort if seqid_sort != 0
           
           # Sort by position on the landmark sequence
@@ -237,6 +228,17 @@ module Genomics
           end
           
           @attributes[:Name] = new_name
+        end
+    
+        # Sets the seqid attribute using the provided String.  Internally, this is converted to a Seqid object.
+        #
+        # * *Args*    :
+        #   - +new_seqid+ ->
+        # * *Returns* :
+        #   - A Seqid
+        #
+        def seqid=(new_seqid)
+          @seqid = Seqid.new(new_seqid)
         end
     
         # Returns the start position.
@@ -377,6 +379,8 @@ module Genomics
             # Encode the GFF special characters
             encoded_attributes = {}
             attributes.each do |attribute, value|
+              next unless value
+              
               # The value could possibly be an array, so convert everything to an array
               values = !value.is_a?(Array) ? [value] : value
               values.map! do |value|
@@ -484,6 +488,33 @@ module Genomics
           end
         end
   
+      end
+      
+      # This class extends string to provide additional utility functions to a seqid string.
+      class Seqid < String
+        
+        def initialize(name)
+          super
+        end
+        
+        def <=>(other)
+          # Identify if both have a common prefix followed by a number, if so sort by the number
+          if self =~ /\d+$/
+            common_regex = /#{other.gsub(/\d+$/, '(\d+)')}/
+            other_number = $~[0] if $~
+            if other_number && self.match(common_regex)
+              $~[1].to_i <=> other_number.to_i
+            else
+              super
+            end
+          else
+            super
+          end
+        end
+        
+        def to_s
+          String.new(self)
+        end
       end
     end
   end
