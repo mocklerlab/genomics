@@ -7,6 +7,12 @@ module Genomics
         let(:feature) { FactoryGirl.build(:feature) }
   
         context '#instance_methods' do
+          describe '#<=>' do
+            it "should use numerical suffixes for sorting" do
+              (FactoryGirl.build(:feature, seqid: 'scaffold_10') <=> FactoryGirl.build(:feature, seqid: 'scaffold_9')).should eq(1)
+            end
+          end
+          
           describe '#id=' do
             it "should set the ID attribute in the attributes hash" do
               feature.id = "New ID"

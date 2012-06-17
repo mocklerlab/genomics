@@ -8,10 +8,6 @@ module Genomics
       class Features
         include Enumerable
     
-        # TODO: Use method_undefined instead defering to the unerlying array.
-        alias :length :count
-        alias :size :count
-    
         def initialize(feature)
           @feature = feature
           @features = []
@@ -61,10 +57,25 @@ module Genomics
         #   - Genomics::IO:GFF:Feature
         #
         def create(attributes = {})
+          # Automatically set some attributes if possible
+          attributes = { seqid: @feature.seqid, source: @feature.source, strand: @feature.strand }.merge(attributes)
+          
           @features << Feature.new(attributes)
           @features.last
         end
   
+        def respond_to?(method_name, include_private = false)
+          @features.respond_to?(method_sym) ? true : super
+        end
+
+        def method_missing(method_sym, *arguments, &block)
+          if @features.respond_to?(method_sym)
+            @features.send(method_sym, *arguments, &block)
+          else
+            super
+          end
+        end
+        
       end
       
       # Genomics::IO::GFF::Feature represents a single feature in a GFF file.  This entry can consist of more than one
@@ -117,9 +128,9 @@ module Genomics
           # Sort by the landmark sequence, this could possibly be numerical or a mix
           seqid_sort = if seqid =~ /\d+$/
             common_regex = /#{other.seqid.gsub(/\d+$/, '(\d+)')}/
-            other_number = $~[1] if $~
+            other_number = $~[0] if $~
             if other_number && seqid.match(common_regex)
-              $~[1] <=> other_number
+              $~[1].to_i <=> other_number.to_i
             else
               @seqid <=> other.seqid
             end
@@ -154,9 +165,9 @@ module Genomics
         #   - +new_attributes+ -> A Hash or string in the valid GFF3 format.
         # * *Returns* :
         #   - The new attributes Hash
-        #
+        # TODO: Remove the parent attribute and construct an association out of it.
         def attributes=(new_attributes)
-          acceptable_attributes = [:ID, :Name, :Note, :Alias]
+          acceptable_attributes = [:ID, :Name, :Note, :Alias, :Parent]
           @attributes = if new_attributes.is_a?(Hash)
             # Symbolify the keys in the hash
             symbolized_attributes = Hash[new_attributes.map { |(attribute, value)| [attribute.to_sym, value] }]
@@ -182,12 +193,25 @@ module Genomics
           @attributes[:ID]
         end
         
-        # Allows the ID attribute to be directly set.
+        # Allows the ID attribute to be directly set.  This also cascades, updating the ids of child features.
         #
         # * *Returns* :
         #   - A string
         #
         def id=(new_id)
+          @features.each do |feature| 
+            feature.id = feature.id.gsub(/#{@attributes[:ID]}/, new_id) if feature.id =~ /#{@attributes[:ID]}/
+            
+            # Update child parent attributes as well
+            if feature.attributes[:Parent].is_a?(Array)
+              feature.attributes[:Parent].each do |parent|
+                parent.gsub!(/#{@attributes[:ID]}/, new_id) if parent =~ /#{@attributes[:ID]}/
+              end
+            elsif (parent = feature.attributes[:Parent]) =~ /#{@attributes[:ID]}/
+              feature.attributes[:Parent] = parent.gsub(/#{@attributes[:ID]}/, new_id) 
+            end
+          end
+          
           @attributes[:ID] = new_id
         end
         

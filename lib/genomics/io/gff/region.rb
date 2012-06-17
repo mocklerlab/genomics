@@ -93,9 +93,11 @@ module Genomics
             cloned_attributes = new_attributes.clone
             cloned_attributes.delete(:ID)
             cloned_attributes.delete(:Name)
+            cloned_attributes.delete(:Alias)
+            cloned_attributes.delete(:Parent)
             cloned_attributes
           else
-            Feature.parse_attributes(new_attributes, except: [:ID, :Name])
+            Feature.parse_attributes(new_attributes, except: [:ID, :Name, :Alias, :Parent])
           end
         end
 
