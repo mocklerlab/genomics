@@ -8,9 +8,9 @@ module Genomics
       class Features
         include Enumerable
     
-        def initialize(feature)
+        def initialize(feature, features = [])
           @feature = feature
-          @features = []
+          @features = features
         end
         
         # Iterates through each of the Features increaing in position.
@@ -37,6 +37,11 @@ module Genomics
         # TODO: Use method missing to add arbitrary finders.
         def find_by_id(id)
           @features.find { |feature| feature.id == id }
+        end
+        def find_all_by_type(types)
+          types = [types] unless types.is_a?(Array)
+          matching_features = @features.select { |feature| types.include?(feature.type) }
+          Features.new(@feature, matching_features)
         end
         
         # Returns the last object under the default ordering.

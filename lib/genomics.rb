@@ -33,7 +33,7 @@ require 'genomics/io/gff/feature'
 require 'genomics/io/gff/region'
 
 ### Require the Operations module ###
-require 'genomics/operation/align_ests'
+require 'genomics/operation/transcript_aligner'
 require 'genomics/operation/rbb'
 
 ### Require the Utilities module ###
