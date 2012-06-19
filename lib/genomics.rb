@@ -13,7 +13,6 @@ require 'genomics/alignment/blast'
 require 'genomics/alignment/blat'
 
 require 'genomics/alignment/aligner'
-require 'genomics/alignment/blastx'
 
 ### Require the IO module ###
 # Require the base IO wrapper first
@@ -33,6 +32,7 @@ require 'genomics/io/gff/feature'
 require 'genomics/io/gff/region'
 
 ### Require the Operations module ###
+require 'genomics/operation/blastx'
 require 'genomics/operation/transcript_aligner'
 require 'genomics/operation/rbb'
 

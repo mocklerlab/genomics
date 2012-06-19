@@ -33,10 +33,59 @@ module Genomics
       puts "#{Genomics::Operation::RBB.perform(proteomes, command_options)} Reciprocal Best Alignments Identified"
     end
     
-    desc "blastx", "Takes the supplied alignment file and generates a BLASTX GFF3 file from the results."
-    method_option :input, type: :string, required: true, aliases: '-i'
+    ### Peptide BLASTX Commands ###
+    
+    desc "blastx", "Takes the query genome and the target proteome generating a GFF3 file describing the BLASTX alignment between the two."
+    method_option :protome, type: :string, required: true, aliases: '-p'
+    method_option :genome, type: :string, required: true, aliases: '-g'
+    method_option :alignment, type: :string, aliases: '-a'
+    method_option :output, type: :string, aliases: '-o'
+    method_option :threads, type: :numeric, aliases: '-t', default: 1
+    method_options id_prefix: :string, e_value: :numeric
     def blastx
-      puts "BLASTX GFF3 successfully created." if Genomics::Alignment::BLASTX.transform(options[:input])
+      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments[:proteome_file] = arguments.delete(:proteome)
+      arguments[:genome_file] = arguments.delete(:genome)
+      arguments[:alignment_file] = arguments[:alignment] if arguments[:alignment]
+      arguments[:output_file] = arguments[:output] if arguments[:output]
+      
+      # Execute the operation
+      blastx = Genomics::Operation::BLASTX.new(arguments)
+      puts "BLASTX GFF3 successfully created." if blastx.perform
+    end
+    
+    desc "blastx", "Takes the query genome and the target proteome generating a BLASTX alignment between the two."
+    method_option :protome, type: :string, required: true, aliases: '-p'
+    method_option :genome, type: :string, required: true, aliases: '-g'
+    method_option :output, type: :string, aliases: '-o'
+    method_option :threads, type: :numeric, aliases: '-t', default: 1
+    method_options e_value: :numeric
+    def blastx_align
+      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments[:task] = :align
+      arguments[:proteome_file] = arguments.delete(:proteome)
+      arguments[:genome_file] = arguments.delete(:genome)
+      arguments[:alignment_file] = arguments[:output] if arguments[:output]
+      
+      # Execute the operation
+      blastx = Genomics::Operation::BLASTX.new(arguments)
+      puts "BLASTX alignment successfully created." if blastx.perform
+    end
+    
+    desc "blastx_cluster", "Takes an alignment between a query genome and target proteome generating a GFF3 file."
+    method_option :alignment, type: :string, required: true, aliases: '-a'
+    method_option :output, type: :string, aliases: '-o'
+    method_option :threads, type: :numeric, aliases: '-t'
+    method_options id_prefix: :string
+    def transcripts_cluster
+      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments[:task] = :cluster
+      arguments[:alignment_file] = arguments.delete(:alignment)
+      arguments[:output_file] = arguments[:output] if arguments[:output]
+      
+      # Execute the operation
+      blastx = Genomics::Operation::BLASTX.new(arguments)
+      puts "BLASTX GFF3 successfully created." if blastx.perform
     end
     
     ### Transcript Alignment Commands ###
@@ -70,6 +119,7 @@ module Genomics
       arguments[:task] = :align
       arguments[:transcripts_file] = arguments.delete(:transcripts)
       arguments[:genome_file] = arguments.delete(:genome)
+      arguments[:alignment_file] = arguments[:output] if arguments[:output]
       
       aligner = Genomics::Operation::TranscriptAligner.new(arguments)
       puts "Alignment completed." if aligner.perform
