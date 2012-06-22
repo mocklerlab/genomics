@@ -60,10 +60,10 @@ module Genomics
       # Represents a contiguous part of the Feature, which is taken to be on the same strand as the wrapping feature.
       #
       class Region
-        attr_accessor :start, :end, :score, :phase, :attributes
+        attr_reader :start, :end, :score, :phase 
+        attr_accessor :attributes
     
         alias :stop :end
-        alias :stop= :end=
     
         # * *Attributes*    :
         #   - +start+ -> The position on the landmark sequence where the region starts.
@@ -72,6 +72,13 @@ module Genomics
         #   - +phase+ -> A intger indicate the number of bases that need to be removed from the beginning of this region to reach the next codon.
         def initialize(__attributes__ = {})
           @attributes = {}
+          
+          # Ensure that start and end positions are in the correct order.
+          if __attributes__[:start] && (__attributes__[:end] || __attributes__[:stop])
+            seq_start, seq_end = [__attributes__.delete(:start), __attributes__.delete(:end) || __attributes__.delete(:stop)].sort
+            __attributes__[:start] = seq_start
+            __attributes__[:end] = seq_end
+          end
           
           __attributes__.each do |name, value|
             send("#{name}=", value)
@@ -109,6 +116,7 @@ module Genomics
         def end=(new_end)
           @end = new_end ? new_end.to_i : nil
         end
+        alias :stop= :end=
         
         # Takes an object with start and end positions and returns true if the entire object is contained within the region.
         #

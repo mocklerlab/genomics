@@ -36,14 +36,14 @@ module Genomics
     ### Peptide BLASTX Commands ###
     
     desc "blastx", "Takes the query genome and the target proteome generating a GFF3 file describing the BLASTX alignment between the two."
-    method_option :protome, type: :string, required: true, aliases: '-p'
+    method_option :proteome, type: :string, required: true, aliases: '-p'
     method_option :genome, type: :string, required: true, aliases: '-g'
     method_option :alignment, type: :string, aliases: '-a'
     method_option :output, type: :string, aliases: '-o'
     method_option :threads, type: :numeric, aliases: '-t', default: 1
     method_options id_prefix: :string, e_value: :numeric
     def blastx
-      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:proteome_file] = arguments.delete(:proteome)
       arguments[:genome_file] = arguments.delete(:genome)
       arguments[:alignment_file] = arguments[:alignment] if arguments[:alignment]
@@ -54,14 +54,14 @@ module Genomics
       puts "BLASTX GFF3 successfully created." if blastx.perform
     end
     
-    desc "blastx", "Takes the query genome and the target proteome generating a BLASTX alignment between the two."
+    desc "blastx_align", "Takes the query genome and the target proteome generating a BLASTX alignment between the two."
     method_option :protome, type: :string, required: true, aliases: '-p'
     method_option :genome, type: :string, required: true, aliases: '-g'
     method_option :output, type: :string, aliases: '-o'
     method_option :threads, type: :numeric, aliases: '-t', default: 1
     method_options e_value: :numeric
     def blastx_align
-      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:task] = :align
       arguments[:proteome_file] = arguments.delete(:proteome)
       arguments[:genome_file] = arguments.delete(:genome)
@@ -77,8 +77,8 @@ module Genomics
     method_option :output, type: :string, aliases: '-o'
     method_option :threads, type: :numeric, aliases: '-t'
     method_options id_prefix: :string
-    def transcripts_cluster
-      arguments = Hash[options.select{ |(key, value)| value }]
+    def blastx_cluster
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:task] = :cluster
       arguments[:alignment_file] = arguments.delete(:alignment)
       arguments[:output_file] = arguments[:output] if arguments[:output]
@@ -98,7 +98,7 @@ module Genomics
     method_option :threads, type: :numeric, aliases: '-t', default: 1
     method_options id_prefix: :string, e_value: :numeric
     def transcripts
-      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:transcripts_file] = arguments.delete(:transcripts)
       arguments[:genome_file] = arguments.delete(:genome)
       arguments[:alignment_file] = arguments[:alignment] if arguments[:alignment]
@@ -115,7 +115,7 @@ module Genomics
     method_option :output, type: :string, aliases: '-o'
     method_option :threads, type: :numeric, aliases: '-t'
     def transcripts_align
-      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:task] = :align
       arguments[:transcripts_file] = arguments.delete(:transcripts)
       arguments[:genome_file] = arguments.delete(:genome)
@@ -131,7 +131,7 @@ module Genomics
     method_option :threads, type: :numeric, aliases: '-t'
     method_options id_prefix: :string, e_value: :numeric
     def transcripts_cluster
-      arguments = Hash[options.select{ |(key, value)| value }]
+      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
       arguments[:task] = :cluster
       arguments[:alignment_file] = arguments.delete(:alignment)
       arguments[:output_file] = arguments[:output] if arguments[:output]

@@ -144,14 +144,14 @@ module Genomics
         feature = IO::GFF::Feature.new(seqid: query, source: 'BLASTX', type: :match, attributes: { 'Name' => subject })
 
         # Determine the orientation based on the query start/end positions
-        feature.strand = hits.first.subject_start < hits.first.subject_end ? '+' : '-'
-
+        feature.strand = hits.first.query_start < hits.first.query_end ? '+' : '-'
+        
         # Add each of the hits to the entry
         hits.each do |hit|
           feature.regions.create(start: hit.query_start, 
                                end: hit.query_end, 
                                score: hit.bit_score, 
-                               attributes: { 'Score' => hit.e_value, 'Target' => "#{subject} #{hit.subject_start} #{hit.subject_end}" })
+                               attributes: { 'EValue' => hit.e_value, 'Target' => "#{subject} #{hit.subject_start} #{hit.subject_end}" })
         end
         
       
