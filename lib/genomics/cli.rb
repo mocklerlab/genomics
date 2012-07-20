@@ -4,15 +4,6 @@ require 'genomics'
 module Genomics
   class CLI < Thor
     
-    desc "identify", "Identifies the reciprocally best alignments between the supplied files."
-    method_option :files, type: :array, required: true, aliases: '-f'
-    method_option :output, type: :string, aliases: '-o'
-    def identify
-      command_options = {}
-      command_options[:output_file] = options[:output] if options[:output]
-      puts "#{Genomics::Operation::RBB.identify_orthologs(options[:files], command_options)} Reciprocal Best Alignments Identified"
-    end
-    
     ### Reciprocal Best Blast Commands ###
     
     desc "rbb", "Identifies putative orthologs between proteomes, which are reciprocal best blasts of each other."
