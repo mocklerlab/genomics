@@ -70,17 +70,17 @@ module Genomics
         #   - +end+ -> The position on the landmark sequence where the region ends.
         #   - +score+ -> A numeric value representing the score of the sequence, which is typically uses for regions generated via alignments.
         #   - +phase+ -> A intger indicate the number of bases that need to be removed from the beginning of this region to reach the next codon.
-        def initialize(__attributes__ = {})
+        def initialize(_attribtues_ = {})
           @attributes = {}
           
           # Ensure that start and end positions are in the correct order.
-          if __attributes__[:start] && (__attributes__[:end] || __attributes__[:stop])
-            seq_start, seq_end = [__attributes__.delete(:start), __attributes__.delete(:end) || __attributes__.delete(:stop)].sort
-            __attributes__[:start] = seq_start
-            __attributes__[:end] = seq_end
+          if _attribtues_[:start] && (_attribtues_[:end] || _attribtues_[:stop])
+            seq_start, seq_end = [_attribtues_.delete(:start).to_i, (_attribtues_.delete(:end) || _attribtues_.delete(:stop)).to_i].sort
+            _attribtues_[:start] = seq_start
+            _attribtues_[:end] = seq_end
           end
           
-          __attributes__.each do |name, value|
+          _attribtues_.each do |name, value|
             send("#{name}=", value)
           end
         end

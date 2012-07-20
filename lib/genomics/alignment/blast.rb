@@ -73,8 +73,6 @@ module Genomics
       #   - +query+ -> A String or File.  The former can be an explicit query sequence to be used or the path to a file.
       # * *Returns* :
       #   - A Tempfile object containing the result of the BLAST alignment.
-      # * *Raises* :
-      #   - ++ ->
       #
       def run(query, options = {})
         options = { verbose: false }.merge(options)

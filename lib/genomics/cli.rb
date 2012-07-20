@@ -12,25 +12,79 @@ module Genomics
       command_options[:output_file] = options[:output] if options[:output]
       puts "#{Genomics::Operation::RBB.identify_orthologs(options[:files], command_options)} Reciprocal Best Alignments Identified"
     end
-      
+    
+    ### Reciprocal Best Blast Commands ###
+    
     desc "rbb", "Identifies putative orthologs between proteomes, which are reciprocal best blasts of each other."
-    method_option :protein_files, type: :array, required: true, aliases: '-p'
-    method_option :database_files, type: :array, required: true, aliases: '-d'
-    method_option :alignment_file_dir, type: :string, aliases: '-a', desc: 'The path to the directory where intermediate alignment files should be written.'
+    method_option :protein_files, type: :array, required: true, aliases: '-p', desc: 'A list of protein fasta files.'
+    method_option :database_files, type: :array, required: true, aliases: '-d', desc: 'A list of corresponding BLASTDB files.'
+    method_option :alignment_file_dir,  type: :string, 
+                                        aliases: '-a', 
+                                        desc: 'The path to the directory where intermediate alignment files should be written.'
     method_option :output, type: :string, aliases: '-o'
     method_option :e_value, type: :numeric, aliases: '-e', desc: 'The evalue used as the cutoff for the alignment.'
     method_option :threads, type: :numeric, aliases: '-t', desc: 'The number of threads to use in each BLAST alignment.'
+    method_option :reciprocal, type: :boolean, default: true, desc: 'If set, only reciprocal best results will be retained.'
+    method_option :detailed, type: :boolean, default: false, desc: 'If set, additional details about the alignment will be retained.'
     def rbb
-      proteomes = []
-      options[:protein_files].each_with_index do |filepath, index|
-        proteomes << { file: filepath, database: options[:database_files][index] }
-      end
-      command_options = { blast_options: {} }
-      command_options[:alignment_file_dir] = options[:alignment_file_dir] if options[:alignment_file_dir]
-      command_options[:blast_options][:threads] = options[:threads] if options[:threads]
-      command_options[:blast_options][:e_value] = options[:e_value] if options[:e_value]
+      # Generate the arguments
+      arguments = prepare_options(options)
+      protein_files = arguments.delete(:protein_files)
+      database_files = arguments.delete(:database_files)
       
-      puts "#{Genomics::Operation::RBB.perform(proteomes, command_options)} Reciprocal Best Alignments Identified"
+      # Construct the proteomes data structure
+      proteomes = []
+      protein_files.each_with_index do |filepath, index|
+        proteomes << { file: filepath, database: database_files[index] }
+      end
+      arguments[:proteomes] = proteomes
+      
+      rbb = Genomics::Operation::RBB.new(arguments)
+      if results_count = rbb.perform
+        puts "RBB successfully performed. (#{results_count} results identified)" 
+      end
+    end
+    
+    desc "rbb_align", "Performs the BLAST alignment between the proteomes generating input for RBB identification."
+    method_option :protein_files, type: :array, required: true, aliases: '-p', desc: 'A list of protein fasta files.'
+    method_option :database_files, type: :array, required: true, aliases: '-d', desc: 'A list of corresponding BLASTDB files.'
+    method_option :alignment_file_dir,  type: :string, 
+                                        required: true,
+                                        aliases: '-a', 
+                                        desc: 'The path to the directory where intermediate alignment files should be written.'
+    method_option :e_value, type: :numeric, aliases: '-e', desc: 'The evalue used as the cutoff for the alignment.'
+    method_option :threads, type: :numeric, aliases: '-t', desc: 'The number of threads to use in each BLAST alignment.'
+    def rbb_align
+      # Generate the arguments
+      arguments = prepare_options(options.merge(task: :align))
+      protein_files = arguments.delete(:protein_files)
+      database_files = arguments.delete(:database_files)
+      
+      # Construct the proteomes data structure
+      proteomes = []
+      protein_files.each_with_index do |filepath, index|
+        proteomes << { file: filepath, database: database_files[index] }
+      end
+      arguments[:proteomes] = proteomes
+      
+      # Execute the operation
+      rbb = Genomics::Operation::RBB.new(arguments)
+      puts "RBB alignment successfully performed." if rbb.perform
+    end
+    
+    desc "rbb_ortholog", "Identifies putative orthologs from pairs of BLAST alignment files."
+    method_option :alignment_files, type: :array, required: true, aliases: '-f', desc: 'A list of alignment files.'
+    method_option :output, type: :string, aliases: '-o'
+    method_option :reciprocal, type: :boolean, default: true, desc: 'If set, only reciprocal best results will be retained.'
+    method_option :detailed, type: :boolean, default: false, desc: 'If set, additional details about the alignment will be retained.'
+    def rbb_ortholog
+      # Generate the arguments
+      arguments = prepare_options(options)
+      
+      rbb = Genomics::Operation::RBB.new(arguments)
+      if results_count = rbb.perform
+        puts "RBB successfully performed. (#{results_count} results identified)" 
+      end
     end
     
     ### Peptide BLASTX Commands ###
@@ -43,11 +97,10 @@ module Genomics
     method_option :threads, type: :numeric, aliases: '-t', default: 1
     method_options id_prefix: :string, e_value: :numeric
     def blastx
-      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
-      arguments[:proteome_file] = arguments.delete(:proteome)
-      arguments[:genome_file] = arguments.delete(:genome)
-      arguments[:alignment_file] = arguments[:alignment] if arguments[:alignment]
-      arguments[:output_file] = arguments[:output] if arguments[:output]
+      arguments = prepare_options(options, { proteome: :proteome_file, 
+                                             genome: :genome_file, 
+                                             alignment: :alignment_file, 
+                                             output_file: :output })
       
       # Execute the operation
       blastx = Genomics::Operation::BLASTX.new(arguments)
@@ -61,12 +114,9 @@ module Genomics
     method_option :threads, type: :numeric, aliases: '-t', default: 1
     method_options e_value: :numeric
     def blastx_align
-      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
-      arguments[:task] = :align
-      arguments[:proteome_file] = arguments.delete(:proteome)
-      arguments[:genome_file] = arguments.delete(:genome)
-      arguments[:alignment_file] = arguments[:output] if arguments[:output]
-      
+      arguments = prepare_options(options.merge(task: :align), { proteome: :proteome_file, 
+                                                                 genome: :genome_file, 
+                                                                 alignment: :alignment_file })
       # Execute the operation
       blastx = Genomics::Operation::BLASTX.new(arguments)
       puts "BLASTX alignment successfully created." if blastx.perform
@@ -78,10 +128,7 @@ module Genomics
     method_option :threads, type: :numeric, aliases: '-t'
     method_options id_prefix: :string
     def blastx_cluster
-      arguments = Hash[options.to_a.select{ |(key, value)| !value.nil? }]
-      arguments[:task] = :cluster
-      arguments[:alignment_file] = arguments.delete(:alignment)
-      arguments[:output_file] = arguments[:output] if arguments[:output]
+      arguments = prepare_options(options.merge(task: :cluster), alignment: :alignment_file, output: :output_file )
       
       # Execute the operation
       blastx = Genomics::Operation::BLASTX.new(arguments)
@@ -138,6 +185,25 @@ module Genomics
       
       aligner = Genomics::Operation::TranscriptAligner.new(arguments)
       puts "Clustering completed." if aligner.perform
+    end
+    
+    private
+    
+    # Takes a hash of options, removing keys with nil values and updates keys according to the map.
+    #
+    # * *Args*    :
+    #   - +options+ -> The Hash of options
+    #   - +name_map+ -> An optional Hash the specifies criteria for changing keys.
+    # * *Returns* :
+    #   - A Hash
+    #
+    def prepare_options(options, name_map = {})
+      options_array = options.to_a.select { |(key, value)| !value.nil? }
+      options_array.map! do |(key, value)|
+        name_map[key.to_sym] ? [name_map[key.to_sym], value] : [key.to_sym, value]
+      end
+      
+      Hash[options_array]
     end
   end
 end

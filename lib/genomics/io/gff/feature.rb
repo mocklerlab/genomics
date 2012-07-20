@@ -72,12 +72,12 @@ module Genomics
         end
   
         def respond_to?(method_name, include_private = false)
-          @features.respond_to?(method_sym) ? true : super
+          @features.respond_to?(method_name) ? true : super
         end
 
-        def method_missing(method_sym, *arguments, &block)
-          if @features.respond_to?(method_sym)
-            @features.send(method_sym, *arguments, &block)
+        def method_missing(method_name, *arguments, &block)
+          if @features.respond_to?(method_name)
+            @features.send(method_name, *arguments, &block)
           else
             super
           end

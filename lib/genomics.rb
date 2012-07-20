@@ -32,6 +32,7 @@ require 'genomics/io/gff/feature'
 require 'genomics/io/gff/region'
 
 ### Require the Operations module ###
+require 'genomics/operation/blastp'
 require 'genomics/operation/blastx'
 require 'genomics/operation/transcript_aligner'
 require 'genomics/operation/rbb'

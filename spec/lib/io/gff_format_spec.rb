@@ -3,9 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 module Genomics
   module IO
     describe GFFFormat do
-      # let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'genome.gff3') }
-      let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'augustus_predictions.gff3') }
-      let(:est_matches_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'est_matches.gff3') }
+      let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'gff_format', 'genome.gff3') }
+      # let(:genome_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'gff_format', 'augustus_predictions.gff3') }
+      let(:est_matches_file_path) { File.join(SPEC_PATH, 'fixtures', 'io', 'gff_format', 'est_matches.gff3') }
       
       context 'instance_methods' do
         describe '#each' do
@@ -45,7 +45,6 @@ module Genomics
 
             it "should have entries with features" do
               gff_format.each do |feature|
-                debugger
                 if feature.name == "AT1G01020"
                   feature.should have(2).features
                 end
