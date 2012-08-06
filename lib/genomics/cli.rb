@@ -19,7 +19,7 @@ module Genomics
     method_option :detailed, type: :boolean, default: false, desc: 'If set, additional details about the alignment will be retained.'
     def rbb
       # Generate the arguments
-      arguments = prepare_options(options)
+      arguments = prepare_options(options, output: :output_file)
       protein_files = arguments.delete(:protein_files)
       database_files = arguments.delete(:database_files)
       
@@ -70,7 +70,7 @@ module Genomics
     method_option :detailed, type: :boolean, default: false, desc: 'If set, additional details about the alignment will be retained.'
     def rbb_ortholog
       # Generate the arguments
-      arguments = prepare_options(options)
+      arguments = prepare_options(options.merge(task: :ortholog), output: :output_file)
       
       rbb = Genomics::Operation::RBB.new(arguments)
       if results_count = rbb.perform

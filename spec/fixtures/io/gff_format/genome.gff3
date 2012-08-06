@@ -1,3 +1,16 @@
+scaffold_0	maker	gene	83775	86095	.	-	.	ID=NNU_000005;Name=NNU_000005;Alias=maker-scaffold_0-augustus-gene-1.24;Dbxref=InterPro:IPR011697,Pfam:PF07722;Note=Similar to puuD: Gamma-glutamyl-gamma-aminobutyrate hydrolase (Escherichia coli O157:H7);Ontology_term=GO:0006541,GO:0016787;
+scaffold_0	maker	mRNA	83775	86095	.	-	.	ID=NNU_000005-RA;Parent=NNU_000005;Name=NNU_000005-RA;Alias=maker-scaffold_0-augustus-gene-1.24-mRNA-1;Dbxref=InterPro:IPR011697,Pfam:PF07722;Note=Similar to puuD: Gamma-glutamyl-gamma-aminobutyrate hydrolase (Escherichia coli O157:H7);Ontology_term=GO:0006541,GO:0016787;_AED=0.03;_QI=172|1|1|1|1|1|4|244|422;_eAED=0.03;
+scaffold_0	maker	exon	83775	84261	.	-	.	ID=NNU_000005-RA:exon:37;Parent=NNU_000005-RA;
+scaffold_0	maker	exon	84392	84598	.	-	.	ID=NNU_000005-RA:exon:36;Parent=NNU_000005-RA;
+scaffold_0	maker	exon	84689	85419	.	-	.	ID=NNU_000005-RA:exon:35;Parent=NNU_000005-RA;
+scaffold_0	maker	exon	85836	86095	.	-	.	ID=NNU_000005-RA:exon:34;Parent=NNU_000005-RA;
+scaffold_0	maker	three_prime_UTR	83775	84018	.	-	.	ID=NNU_000005-RA:three_prime_utr;Parent=NNU_000005-RA;
+scaffold_0	maker	CDS	85836	85923	.	-	1	ID=NNU_000005-RA:cds;Parent=NNU_000005-RA;
+scaffold_0	maker	CDS	84689	85419	.	-	0	ID=NNU_000005-RA:cds;Parent=NNU_000005-RA;
+scaffold_0	maker	CDS	84392	84598	.	-	0	ID=NNU_000005-RA:cds;Parent=NNU_000005-RA;
+scaffold_0	maker	CDS	84019	84261	.	-	0	ID=NNU_000005-RA:cds;Parent=NNU_000005-RA;
+scaffold_0	maker	five_prime_UTR	85924	86095	.	-	.	ID=NNU_000005-RA:five_prime_utr;Parent=NNU_000005-RA;
+scaffold_0	maker	gene	119933	120895	.	-	.	ID=NNU_000008;Name=NNU_000008;Alias=maker-scaffold_0-snap-gene-1.3
 Chr1	TAIR10	chromosome	1	30427671	.	.	.	ID=Chr1;Name=Chr1
 Chr1	TAIR10	gene	3631	5899	.	+	.	ID=AT1G01010;Note=protein_coding_gene;Name=AT1G01010
 Chr1	TAIR10	mRNA	3631	5899	.	+	.	ID=AT1G01010.1;Parent=AT1G01010;Name=AT1G01010.1;Index=1

@@ -1,6 +1,6 @@
 module Genomics
   module IO
-    # This class acts as an IO allowing tab delimited BLAST files to be read and written.
+    # This class acts as an IO allowing BLAST results files to be read.
     # TODO: Expand with more details
     class BLASTFormat < FlatFileFormat
       
@@ -241,64 +241,6 @@ module Genomics
         # TODO: Transpose.  This needs to actually interchange subject and query on the hash level
         
         hits_hash
-      end
-      
-      # Retrns a collection of all of the entries in the file.
-      #
-      # * *Options*    :
-      #   - +aggregate+ -> A boolean specifying whether the alignment hits in the file should be returned as a multi-dimmensional
-      #                         datastructure.  If true, a hash of hashes is returned with the first keys being the query ids, and the
-      #                         the second set of keys being the subject ids.
-      #   - +sort+ -> A boolean specifying whether or not to sort the hits (Default false).
-      #   - +transpose+ -> A boolean specifying whether or not to switch the query and subject values on the hit (Default false).
-      # * *Returns* :
-      #   - A collection of the individual BLAST::Hit objects parsed in the file or a multi-dimensional Hash.
-      # #TODO Deprecated
-      # def entries(options = {})
-      #   options = { aggregate: false, sort: false, transpose: false }.merge(options)
-      #   
-      #   # Get the hits
-      #   hits = []
-      #   each { |hit| hits << hit }
-      #   
-      #   # Transpose the hits if selected
-      #   hits.map!(&:transpose!) if options[:transpose]
-      #   
-      #   # Sort the hits if selected
-      #   hits.sort! if options[:sort]
-      # 
-      #   return hits unless options[:aggregate]
-      # 
-      #   # Group the hits based on the specifics of what was matched.
-      #   aggregated_hits = {}
-      #   hits.each do |hit|
-      #     aggregated_hits[hit.query] ||= {}
-      #     aggregated_hits[hit.query][hit.subject] ||= []
-      #     aggregated_hits[hit.query][hit.subject] << hit
-      #   end
-      #   
-      #   aggregated_hits
-      # end
-      
-      # Writes the entries to the IO stream.
-      #
-      # * *Args*    :
-      #   - +objects+ -> The Genomic::IO:GFF:Entry objects to be written successively to the stream.
-      #
-      def puts(*entries)
-        entries = entries.first if entries.length == 1 && entries.first.is_a?(Array)
-        
-        @last_id ||= 0
-        entries.sort.each do |entry|
-          entry.attributes["ID"] ||= (@last_id += 1)
-          @io.puts entry.to_gff
-        end
-      end
-      
-      # Write the pragma for a valid gff3 header.
-      #
-      def puts_header
-        @io.puts '##gff-version 3'
       end
     end
   end

@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   # s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = %w{lib}
   
+  s.add_dependency "bio"
   s.add_dependency "thor"
   s.add_dependency "ruby-progressbar"
   s.add_dependency "ox"

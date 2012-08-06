@@ -40,7 +40,9 @@ module Genomics
       #
       def initialize(io, options = {})
         @io = io
-        @format = options[:format]
+        @format = options[:format] || FILE_FORMATS.first
+        
+        raise ArgumentError, "Invalid format option provided #{options[:format]}" unless FILE_FORMATS.include?(format)
       end
       
       # Executes the block for every line in the IO stream. Extra sanitation is applied to the contents of the file
@@ -62,20 +64,24 @@ module Genomics
           pbar = ProgressBar.new("Parsing #{Pathname.new(@io.path).basename}", $~[0].to_i, STDOUT)
         end
         
-        @io.each do |line|
+        @io.each do |raw_line|
           pbar.inc if options[:progress_bar]
           
-          # Skip lines that are comments.
-          # TODO: This eventually may want to be handled differently since some comments are actually pragmas
-          begin
-            next if line =~ /^(#|\s+$)/
-          rescue
-            # Try to handle for bad character conversion
-            line = Iconv.new('UTF-8//IGNORE', 'UTF-8').iconv(line)
-            next if line =~ /^(#|\s+$)/
-          end
+          # Handle possible issues with line return encodings
+          cr_lines = raw_line.strip.split("\r")
+          cr_lines.each do |line|
+            # Skip lines that are comments.
+            # TODO: This eventually may want to be handled differently since some comments are actually pragmas
+            begin
+              next if line =~ /^(#|\s+$)/
+            rescue
+              # Try to handle for bad character conversion
+              line = Iconv.new('UTF-8//IGNORE', 'UTF-8').iconv(line)
+              next if line =~ /^(#|\s+$)/
+            end
   
-          yield line.split(options[:delimiter]).map(&:strip)
+            yield line.split(options[:delimiter]).map(&:strip)
+          end
         end
       end
       

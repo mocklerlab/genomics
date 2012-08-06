@@ -143,7 +143,7 @@ module Genomics
         pbar = ProgressBar.new("Generating Results", best_query_hits.size, STDOUT) if @verbose
         
         results = []
-        IO::BLASTFormat.open(alignment_files.first) do |f|
+        IO::BLASTFormat.open(alignment_files.first, verbose: false) do |f|
           f.each_query do |query, hits|
             pbar.inc if @verbose
             reciprocal_hits = reciprocal_hash[query] || []

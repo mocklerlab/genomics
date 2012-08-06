@@ -1,6 +1,7 @@
 require "genomics/version"
 
 # Require external gems
+require 'bio'
 require 'progressbar'
 require 'ox'
 
@@ -36,6 +37,10 @@ require 'genomics/operation/blastp'
 require 'genomics/operation/blastx'
 require 'genomics/operation/transcript_aligner'
 require 'genomics/operation/rbb'
+
+### Require the Sequence module ###
+require 'genomics/sequence/codon_table'
+require 'genomics/sequence/na'
 
 ### Require the Utilities module ###
 require 'genomics/utilities/threader'
